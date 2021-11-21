@@ -1,0 +1,186 @@
+*{
+  box-sizing: border-box;
+  margin: 0px;
+}
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+a{
+  text-decoration: none;
+}
+.logo-cap{
+  width: 80px;
+  height: 80px;
+}
+.avt-user{
+  width: 90px;
+  height: 50px;
+  margin-top: -15px;
+}
+.nav-left{
+  margin-left: -40px;
+}
+.nav-option{
+  margin-left: -20px;
+  margin-top: 8px;
+}
+.nav-option > ul > li >a{
+  font-size: 22px;
+  margin: 0px 10px  0px  10px;
+}
+.gradient{
+  font-size: 25px;
+  font-weight: 900;
+  background: linear-gradient(90deg,#00e1ff,#00ff55,#ff00f3,#0033ff,#ff00c4,#00e1ff);
+  background-size: 400%;
+  -webkit-text-fill-color:transparent;
+  -webkit-background-clip: text;
+  animation: animate 10s linear infinite;
+}
+@keyframes animate{
+  0%{
+    background-position:0% ;
+  }
+  50%{
+    background-position:100% ;
+  }
+  100%{
+    background-position:400% ;
+  }
+}
+main{
+width: 100%;
+  min-height: 200px;
+  
+}
+.owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled{
+  text-align: center;
+
+  display: block;
+}
+.owl-nav{
+  text-align: center;
+margin-top: -50px;
+z-index: 999;
+margin-bottom: 10px;
+}
+.owl-prev, .owl-next{
+}
+.slider{
+ height: 500px;
+  object-fit: cover;
+}
+.owl-prev span {
+  font-size: 40px;
+  padding: 30px;
+  color: cyan;
+}
+.owl-next span {
+  font-size: 40px;
+  padding: 30px;
+  color: cyan;
+}
+.owl-carousel .owl-stage-outer{
+  z-index: -1;
+}
+.owl-content1{
+  margin-left: 600px;
+  margin-top: -100px;
+  min-height: 100px;
+  min-width: 200px;
+}
+.owl-content2{
+  margin-left: 40px;
+  margin-top: -50px;
+  min-height: 100px;
+  width: 400px;
+}
+.owl-content3{
+  margin-right: 50px;
+  margin-top: -50px;
+  min-height: 100px;
+  width: 400px;
+}
+.owl-content hr{
+  height: 8px;
+}
+.row-courses {
+width: 100%;
+margin-bottom: 10px;
+padding: 10px 0px;
+display: flex;
+flex-wrap: wrap;
+
+}
+.content-courses{
+  min-height: 350px;
+  width: 32%;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+
+}
+.img-courses{
+  height: 50%;
+  margin-top: -50px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 90%;
+}
+.box-shadow{
+  width: 100%;
+  height: 100%;
+  background: #f6f6f6 none repeat scroll 0 0;
+  transition: all 0.3s ease 0s;
+  padding: 10px;
+}
+.box-shadow:hover{
+  box-shadow:2px 4px 8px 1px rgba(0, 0, 0, 0.5);
+}
+.row-courses > .course-area .section-title-wrapper {
+  margin-bottom: 122px;
+}
+.section-title {
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+#navbar{
+  background-color: rgba(245, 245, 245, 0.933);
+}
+.nav-left
+{
+  background-color: rgba(245, 245, 245, 0.933);
+
+}
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+  z-index: 9999; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+.form-signin{
+  min-width: 500px;
+  min-height: 360px;
+  background-color: #A2F1F5;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+}
+.title-signin
+{
+  font-size: 25px;
+  font-weight: 800;
+  color: black;
+}
+.pl-4{
+  padding-left: 40px;
+}
+
