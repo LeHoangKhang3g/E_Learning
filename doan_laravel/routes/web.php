@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\DangNhapController;
+use App\Http\Controllers\DangKyController;
+use App\Http\Controllers\HocSinhController;
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +22,12 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('layouts/app')->name('app');
 // });
-Route::get('/',[AppController::class,'app'])->name('app');
+
+// Route::get('/',[AppController::class,'app'])->name('app');
+Route::get('/',[IndexController::class,'index'])->name('index');
+
 Route::get('/dang-nhap',[DangNhapController::class,'formDangNhap'])->name('dang-nhap');
+Route::post('postLogin',[DangNhapController::class,'postLogin'])->name('postLogin');
+Route::get('/dang-ky',[DangKyController::class,'formDangKy'])->name('dang-ky');
+Route::get('/admin',[AdminController::class,'loadAdmin'])->name('admin');
+Route::get('/hoc-sinh',[HocSinhController::class,'hocSinh'])->name('hoc-sinh');

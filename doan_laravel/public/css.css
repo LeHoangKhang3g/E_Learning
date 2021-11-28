@@ -17,11 +17,11 @@ a{
   height: 50px;
   margin-top: -15px;
 }
-.nav-left{
+/* .nav-left{
   margin-left: -40px;
-}
+} */
 .nav-option{
-  margin-left: -20px;
+  margin-left: -50px;
   margin-top: 8px;
 }
 .nav-option > ul > li >a{
@@ -184,3 +184,10 @@ flex-wrap: wrap;
   padding-left: 40px;
 }
 
+.position-avt {
+  position: absolute;
+  left: 70%;
+}
+.deadline-student{
+  width: 200px;
+}
