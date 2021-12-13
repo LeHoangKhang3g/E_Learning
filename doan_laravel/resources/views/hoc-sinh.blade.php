@@ -179,7 +179,7 @@
   <div class=" col-custom-3 mb-5 bg-course-student mx-2" >
     <div class="card h-90 border-0 " >
     <div class="position-relative">
-      <img  src="{{asset('assets/images/course-1.jpg')}}" class="card-img-top" alt="...">
+      <img  src="{{asset('assets/images/course-2.jpg')}}" class="card-img-top" alt="...">
       <div class="position-avt">
         <img src="{{asset('assets/images/avt-user-test.png')}}" alt=""  class="avt-user"> 
          </div>
