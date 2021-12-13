@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[IndexController::class,'index'])->name('index');
 
 Route::get('/dang-nhap',[DangNhapController::class,'formDangNhap'])->name('dang-nhap');
-Route::post('postLogin',[DangNhapController::class,'postLogin'])->name('postLogin');
+Route::post('xuLyDangNhap',[DangNhapController::class,'postLogin'])->name('postLogin');
 Route::get('/dang-ky',[DangKyController::class,'formDangKy'])->name('dang-ky');
 Route::get('/admin',[AdminController::class,'loadAdmin'])->name('admin');
 Route::get('/hoc-sinh',[HocSinhController::class,'hocSinh'])->name('hoc-sinh');

@@ -9,12 +9,12 @@ class DangNhapController extends Controller
     function formDangNhap(){
         return view('dang-nhap');
     }
-    function postLogin(Request $req){
-      if($req->username=='1'&&$req->password =='1'){
-          return redirect()->route('admin');
-      }
-      if($req->username=='2'&&$req->password =='2'){
-        return redirect()->route('hoc-sinh');
+    function xuLyDangNhap(Request $req){
+    //   if($req->username=='1'&&$req->password =='1'){
+    //       return redirect()->route('admin');
+    //   }
+    //   if($req->username=='2'&&$req->password =='2'){
+    //     return redirect()->route('hoc-sinh');
     }
    
     
