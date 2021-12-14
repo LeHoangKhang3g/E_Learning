@@ -25,9 +25,12 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/',[AppController::class,'app'])->name('app');
 Route::get('/',[IndexController::class,'index'])->name('index');
+Route::middleware('auth','admin')->group( function(){
+    Route::get('/admin',[AdminController::class,'loadAdmin'])->name('admin');
+});
 
 Route::get('/dang-nhap',[DangNhapController::class,'formDangNhap'])->name('dang-nhap');
-Route::post('xuLyDangNhap',[DangNhapController::class,'postLogin'])->name('postLogin');
+Route::post('xuLyDangNhap',[DangNhapController::class,'xuLyDangNhap'])->name('postLogin');
 Route::get('/dang-ky',[DangKyController::class,'formDangKy'])->name('dang-ky');
 Route::get('/admin',[AdminController::class,'loadAdmin'])->name('admin');
 Route::get('/hoc-sinh',[HocSinhController::class,'hocSinh'])->name('hoc-sinh');
