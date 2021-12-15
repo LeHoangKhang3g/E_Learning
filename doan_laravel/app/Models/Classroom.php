@@ -18,4 +18,7 @@ class Classroom extends Model
     public function accountWaits(){
         return $this->belongsToMany('App\Models\Account','student_wait');
     }
+    public function posts(){
+        return $this->hasMany('App\Models\Post');
+    }
 }

@@ -10,4 +10,12 @@ class Post extends Model
     use HasFactory;
 
     protected $table="post";
+
+    public function submitExercises(){
+        return $this->hasMany('App\Models\SubmitExercise');
+    }
+
+    public function classroom(){
+        return $this ->belongsTo('App\Models\Classroom');
+    }
 }
