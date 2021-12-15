@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeacherController extends Controller
 {
@@ -12,7 +13,7 @@ class TeacherController extends Controller
     }
     
     function signOut(){
-        Auth::logout();
+       Auth::logout();
         return redirect()->route('index');
     }
 

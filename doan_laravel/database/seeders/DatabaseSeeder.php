@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Account::insert([
-            'mssv'              =>  '0306191227',
+            'code'              =>  '0306191227',
             'username'          =>  'khang',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Lê Hoàng Khang',
@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
             'account_type_id'   =>  '1',
         ]);
         Account::insert([
-            'mssv'              =>  '0306191205',
+            'code'              =>  '0306191205',
             'username'          =>  'khanhduy',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Hồ Khánh Duy',
@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
             'account_type_id'   =>  '2',
         ]);
         Account::insert([
-            'mssv'              =>  '0306191291',
+            'code'              =>  '0306191291',
             'username'          =>  'tuan',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Nguyễn Quốc Tuấn',
@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
             'account_type_id'   =>  '2',
         ]);
         Account::insert([
-            'mssv'              =>  '0306191288',
+            'code'             =>  '0306191288',
             'username'          =>  'trung',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Trần Quốc Trung',
@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
             'account_type_id'   =>  '3',
         ]);
         Account::insert([
-            'mssv'              =>  '0306191218',
+            'code'              =>  '0306191218',
             'username'          =>  'hieu',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Kiều Công Hiếu',
@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
             'account_type_id'   =>  '3',
         ]);
         Account::insert([
-            'mssv'              =>  '0306191293',
+            'code'              =>  '0306191293',
             'username'          =>  'vinh',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Trần Quang Vinh',

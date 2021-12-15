@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+use App\Models\Account;
+use Illuminate\Support\Facades\Hash;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
+
+use function PHPUnit\Framework\isEmpty;
 
 class AdminController extends Controller
 {
@@ -19,13 +26,35 @@ class AdminController extends Controller
 
     //TEACHER
     function teachers(){
-        return "";
+        $dsTeacher=Account::all();
+        return view('admin.teachers',compact('dsTeacher'));
     }
     function formAddTeacher(){
-        return "";
+        $code='';
+        while(true){
+            $code='GV'.Str::random(10);
+            $code=strtoupper($code);
+            $account = Account::where('code', $code);
+            if(isEmpty($account)){
+                break;
+            }
+        }
+
+
+        return view('admin.add-teacher',compact('code'));
     }
-    function postAddTeacher(){
-        return "";
+    function postAddTeacher(Request $req){
+      
+        $teacher = new Account;
+        $teacher->code = $req->code;
+        $teacher->username = $req->username;
+        $teacher->password =Hash::make($req->password);
+        $teacher->name = $req->name;
+        $teacher->email = $req->email;
+        $teacher->avatar = $req->avatar;
+        $teacher->account_type_id =2;
+        $teacher->save();
+        return redirect()->route('admin-teachers');
     }
     function formUpdateTeacher($id){
         return "";
