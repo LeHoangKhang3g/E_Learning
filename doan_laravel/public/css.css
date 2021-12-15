@@ -224,3 +224,37 @@ width: 19%;
 .fa-id-badge , .fa-folder{
   font-size: 22px;
 }
+
+.active-border{
+ padding-bottom: 5px;
+  border-bottom: 5px solid rgb(0, 17, 255);
+}
+
+.card-title-admin{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  color: white;
+}
+.overlay-dark{
+  background: rgba(4, 9, 30, 0.4);
+  position: absolute;
+  top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+ 
+}
+.overlay-dark:hover{
+  opacity: 1;
+}
+.options-admin{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,100%);
+   
+}

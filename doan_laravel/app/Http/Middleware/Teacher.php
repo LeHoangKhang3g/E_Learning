@@ -21,6 +21,14 @@ class Teacher
         {
             return $next($request);
         }
+        else if(Auth::user()->account_type_id==1)
+        {
+            return redirect()->route('admin');
+        }
+        else if(Auth::user()->account_type_id==3)
+        {
+            return redirect()->route('student');
+        }
        return redirect()->route('index');
     }
 }

@@ -10,4 +10,8 @@ class AttachmentSubmitExercise extends Model
     use HasFactory;
 
     protected $table="attachment_submit_exercise";
+
+    public function submitExercise(){
+        return $this->belongsTo('App\Models\SubmitExercise');
+    }
 }

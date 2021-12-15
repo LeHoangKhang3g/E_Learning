@@ -29,8 +29,7 @@ Route::middleware('auth','admin')->group( function(){
     Route::get('/admin',[AdminController::class,'loadAdmin'])->name('admin');
 });
 
-Route::get('/dang-nhap',[DangNhapController::class,'formDangNhap'])->name('dang-nhap');
+Route::get('/dang-nhap',[DangNhapController::class,'formDangNhap'])->name('login');
 Route::post('xuLyDangNhap',[DangNhapController::class,'xuLyDangNhap'])->name('postLogin');
-Route::get('/dang-ky',[DangKyController::class,'formDangKy'])->name('dang-ky');
-Route::get('/admin',[AdminController::class,'loadAdmin'])->name('admin');
-Route::get('/hoc-sinh',[HocSinhController::class,'hocSinh'])->name('hoc-sinh');
+Route::get('/dang-ky',[DangKyController::class,'formDangKy'])->name('sign-in');
+Route::get('/hoc-sinh',[HocSinhController::class,'hocSinh'])->name('student');

@@ -14,4 +14,11 @@ class SubmitExercise extends Model
     public function submitExercise(){
         return $this->belongsTo('App\Models\ClassroomStudent');
     }
+    public function attachments(){
+        return $this->hasMany('App\Models\AttachmentSubmitExercise');
+    }
+
+    public function post(){
+        return $this->belongsTo('App\Models\Post');
+    }
 }
