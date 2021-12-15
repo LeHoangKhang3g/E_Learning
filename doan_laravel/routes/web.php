@@ -6,6 +6,7 @@ use App\Http\Controllers\DangNhapController;
 use App\Http\Controllers\DangKyController;
 use App\Http\Controllers\HocSinhController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +30,8 @@ Route::middleware('auth','admin')->group( function(){
     Route::get('/admin',[AdminController::class,'loadAdmin'])->name('admin');
 });
 
-Route::get('/dang-nhap',[DangNhapController::class,'formDangNhap'])->name('login');
+Route::get('/login',[DangNhapController::class,'formDangNhap'])->name('login');
 Route::post('xuLyDangNhap',[DangNhapController::class,'xuLyDangNhap'])->name('postLogin');
-Route::get('/dang-ky',[DangKyController::class,'formDangKy'])->name('sign-in');
-Route::get('/hoc-sinh',[HocSinhController::class,'hocSinh'])->name('student');
+Route::get('/sign-in',[DangKyController::class,'formDangKy'])->name('sign-in');
+Route::get('/student',[HocSinhController::class,'hocSinh'])->name('student');
+Route::get('/teacher',[TeacherController::class,'teacher'])->name('teacher');

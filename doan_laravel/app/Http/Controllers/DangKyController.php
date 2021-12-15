@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class DangKyController extends Controller
 {
     function formDangKy(){
-        return view('dang-ky');
+        return view('sign-in');
     }
 }

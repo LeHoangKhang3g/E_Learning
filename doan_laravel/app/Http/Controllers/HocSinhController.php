@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class HocSinhController extends Controller
 {
     function hocSinh(){
-        return view('hoc-sinh');
+        return view('student.index');
     }
 }
