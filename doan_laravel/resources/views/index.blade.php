@@ -19,10 +19,10 @@
     <div class="row">
       <ul class="list-unstyled d-flex">
        <li>
-         <a href="{{route('login')}}">sign in</a>
+         <a href="{{route('sign-in')}}">sign in</a>
         </li> 
         {{-- <li>
-          <a href="{{route('dang-ky')}}">sign up</a>
+          <a href="{{route('sign-up')}}">sign up</a>
         </li> --}}
       </ul>
       {{-- khi dang nhap vao thi hien avt --}}

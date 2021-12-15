@@ -7,7 +7,59 @@ use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
-    public function teacher(){
+    public function index(){
         return view('teacher.index');
     }
+    
+    function signOut(){
+        Auth::logout();
+        return redirect()->route('index');
+    }
+
+
+        
+    function formUpdateProfile(){
+        return "";
+    }
+    function postUpdateProfile(){
+        return "";
+    }
+    function formChangePassword(){
+        return "";
+    }
+    function postChangePassword(){
+        return "";
+    }
+
+
+
+    function classrooms(){
+        return "";
+    }
+    function formAddClassroom(){
+        return "";
+    }
+    function postAddClassroom(){
+        return "";
+    }
+    function formUpdateClassroom($id){
+        return "";
+    }
+    function postUpdateClassroom(Request $req){
+        return "";
+    }
+    function deleteClassroom($id){
+        return "";
+    }
+    function studentsWait($id){
+        return "";
+    }
+    function addStudentsWait($classroom_id,$student_wait_id){
+        return "";
+    }
+    function removeStudentsWait($classroom_id,$student_wait_id){
+        return "";
+    }
+
+
 }
