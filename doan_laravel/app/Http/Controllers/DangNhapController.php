@@ -11,6 +11,7 @@ class DangNhapController extends Controller
         return view('dang-nhap');
     }
     function xuLyDangNhap(Request $req){
+
         if(Auth::attempt($req->only('username', 'password')))
         {
             return redirect()->route('admin');
@@ -20,7 +21,4 @@ class DangNhapController extends Controller
             return redirect('index');
         }
     }
-   
-    
-    
 }
