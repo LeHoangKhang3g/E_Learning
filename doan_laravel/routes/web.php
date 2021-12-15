@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppController;
-use App\Http\Controllers\DangNhapController;
-use App\Http\Controllers\DangKyController;
-use App\Http\Controllers\HocSinhController;
-use App\Http\Controllers\IndexController;
+use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\SignInController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,13 +25,90 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Route::get('/',[AppController::class,'app'])->name('app');
-Route::get('/',[IndexController::class,'index'])->name('index');
-Route::middleware('auth','admin')->group( function(){
-    Route::get('/admin',[AdminController::class,'loadAdmin'])->name('admin');
+
+Route::middleware('sign_out')->group(function(){
+    Route::get('/',[IndexController::class,'index'])->name('index');
+
+    Route::get('/sign-up',[SignUpController::class,'formSignUp'])->name('sign-up');
+    Route::post('/sign-up',[SignUpController::class,'postSignUp'])->name('post-sign-up');
+    
+    Route::get('/sign-in',[SignInController::class,'formSignIn'])->name('sign-in');
+    Route::post('/post-sign-in',[SignInController::class,'postSignIn'])->name('post-sign-in');
 });
 
-Route::get('/login',[DangNhapController::class,'formDangNhap'])->name('login');
-Route::post('xuLyDangNhap',[DangNhapController::class,'xuLyDangNhap'])->name('postLogin');
-Route::get('/sign-in',[DangKyController::class,'formDangKy'])->name('sign-in');
-Route::get('/student',[HocSinhController::class,'hocSinh'])->name('student');
-Route::get('/teacher',[TeacherController::class,'teacher'])->name('teacher');
+
+Route::middleware('auth','admin')->group(function(){
+    
+    Route::prefix('/admin')->group(function(){
+        Route::get('/',[AdminController::class,'index'])->name('admin');
+        Route::get('/sign-out',[AdminController::class,'signOut'])->name('admin-sign-out');
+
+        Route::get('/teachers',[AdminController::class,'teachers'])->name('admin-teachers');
+        Route::get('/teachers/add',[AdminController::class,'formAddTeacher'])->name('admin-add-teacher');
+        Route::post('/teachers/add',[AdminController::class,'postAddTeacher'])->name('admin-post-add-teacher');
+        Route::get('/teachers/{id}/update',[AdminController::class,'formUpdateTeacher'])->name('admin-update-teacher');
+        Route::post('/teachers/{id}/update',[AdminController::class,'postUpdateTeacher'])->name('admin-post-update-teacher');
+        Route::get('/teachers/{id}/delete',[AdminController::class,'deleteTeacher'])->name('admin-delete-teachers');
+        Route::get('/teachers/{id}/reset-password',[AdminController::class,'resetPasswordTeacher'])->name('admin-reset-password-teachers');
+        Route::get('/teachers/{id}/send-email',[AdminController::class,'sendEmailTeacher'])->name('admin-send-email-teachers');
+        
+
+        Route::get('/students',[AdminController::class,'students'])->name('admin-students');
+        Route::get('/students/add',[AdminController::class,'formAddStudent'])->name('admin-add-student');
+        Route::post('/students/add',[AdminController::class,'postAddStudent'])->name('admin-post-add-student');
+        Route::get('/students/{id}/update',[AdminController::class,'formUpdateStudent'])->name('admin-update-student');
+        Route::post('/students/{id}/update',[AdminController::class,'postUpdateStudent'])->name('admin-post-update-student');
+        Route::get('/students/{id}/delete',[AdminController::class,'deleteStudent'])->name('admin-delete-student');
+        Route::get('/students/{id}/reset-password',[AdminController::class,'resetPasswordStudent'])->name('admin-reset-password-student');
+        Route::get('/students/{id}/send-email',[AdminController::class,'sendEmailStudent'])->name('admin-send-email-student');
+
+        Route::get('/classrooms',[AdminController::class,'classrooms'])->name('admin-classrooms');
+        Route::get('/classrooms/{id}/detail',[AdminController::class,'detailClassroom'])->name('admin-detail-classrooms');
+        Route::get('/classrooms/{id}/send-email',[AdminController::class,'sendEmailClassroom'])->name('admin-send-email-classroom');
+    });
+
+});
+
+Route::middleware('auth','teacher')->group(function(){
+
+    Route::prefix('/teacher')->group(function(){
+        Route::get('/',[TeacherController::class,'index'])->name('teacher');
+        Route::get('/sign-out',[TeacherController::class,'signOut'])->name('teacher-sign-out');
+
+        Route::get('/update-profile',[TeacherController::class,'formUpdateProfile'])->name('teacher-update-profile');
+        Route::post('/update-profile',[TeacherController::class,'postUpdateProfile'])->name('teacher-post-update-profile');
+        Route::get('/change-password',[TeacherController::class,'formChangePassword'])->name('teacher-change-password');
+        Route::post('/change-password',[TeacherController::class,'postChangePassword'])->name('teacher-post-change-password');
+
+        Route::get('/classrooms',[TeacherController::class,'classrooms'])->name('teacher-classrooms');
+        Route::get('/classrooms/add',[TeacherController::class,'formAddClassroom'])->name('teacher-add-classroom');
+        Route::post('/classrooms/add',[TeacherController::class,'postAddClassroom'])->name('teacher-post-add-classroom');
+        Route::get('/classrooms/{id}/update',[TeacherController::class,'formUpdateClassroom'])->name('teacher-update-classroom');
+        Route::post('/classrooms/{id}/update',[TeacherController::class,'postUpdateClassroom'])->name('teacher-post-update-classroom');
+        Route::get('/classrooms/{id}/delete',[TeacherController::class,'deleteClassroom'])->name('teacher-delete-classroom');
+        Route::get('/classrooms/{id}/students-wait',[TeacherController::class,'studentsWait'])->name('teacher-students-wait');
+        Route::get('/classrooms/{id}/add-student/{id}',[TeacherController::class,'addStudentsWait'])->name('teacher-add-students-wait');
+        Route::get('/classrooms/{id}/remove-student/{id}',[TeacherController::class,'removeStudentsWait'])->name('teacher-remove-students-wait');
+        
+    });
+    
+});
+
+Route::middleware('auth','student')->group(function(){
+
+    Route::prefix('/student')->group(function(){
+        Route::get('/',[StudentController::class,'index'])->name('student');
+        Route::get('/sign-out',[StudentController::class,'signOut'])->name('student-sign-out');
+
+        Route::get('/update-profile',[StudentController::class,'formUpdateProfile'])->name('student-update-profile');
+        Route::post('/update-profile',[StudentController::class,'postUpdateProfile'])->name('student-post-update-profile');
+        Route::get('/change-password',[StudentController::class,'formChangePassword'])->name('student-change-password');
+        Route::post('/change-password',[StudentController::class,'postChangePassword'])->name('student-post-change-password');
+
+        Route::get('/john-classroom',[StudentController::class,'formJohnClassroom'])->name('student-john-classroom');
+        Route::post('/john-classroom',[StudentController::class,'postJohnClassroom'])->name('student-post-john-classroom');
+    });
+    
+});
+
+
