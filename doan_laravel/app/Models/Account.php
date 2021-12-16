@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 class Account extends  Authenticatable
 {
     use HasFactory;
-
+    use SoftDeletes;
     protected $table ='account';
-
     public function accountType(){
         return $this->belongsTo('App\Models\AccountType');
     }

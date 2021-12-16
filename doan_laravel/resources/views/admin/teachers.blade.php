@@ -23,9 +23,9 @@
 @section('main')
 <main class=" container wow animate__rubberBand animate__animated animate__backInRight" >
 
-  <div class="d-flex justify-content-between align-items-center">
-    <a href="" class="text-dark">Quản lý giảng viên</a>
- <a href="{{route('admin-add-teacher')}}">Thêm giảng viên</a>
+  <div class="d-flex justify-content-between align-items-center mt-3">
+    <a href="" class="text-dark"><h4>QUẢN LÝ GIẢNG VIÊN</h4></a>
+ <a href="{{route('admin-add-teacher')}}"><i class="fas fa-user-plus" style="font-size: 22px; color:blue"></i></a>
   </div>
 
 <div class="container-fluild">
@@ -33,12 +33,12 @@
     @forelse($dsTeacher as $tc)
          
             @if($tc->account_type_id==2)
-            <div class="col-3 mb-3">
+            <div class="col-3">
 
-            <div class="teacher-box text-center position-relative">
+            <div class="teacher-box text-center position-relative wow bounceIn">
               <img src="{{URL::to('/')}}/images/avatar\{{$tc->avatar}}" alt=""  class="avt-teacher">
                 {{-- <p>{{$tc->id}}</p> --}}
-                <span class="icon-hidden wow bounceIn">
+                <span class="icon-hidden ">
               <a href="{{route('admin-update-teacher',['id' => $tc->id])}}">   <i class="fas fa-cog position-absolute pos-cog "></i></a>
              
                   <a href="{{route('admin-delete-teacher',['id' => $tc->id])}}"><i class="fas fa-trash position-absolute   pos-trash"></i></a>
