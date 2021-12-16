@@ -258,3 +258,52 @@ width: 19%;
   transform: translate(-50%,100%);
    
 }
+.teacher-box{
+  min-height: 100px;
+  min-width: 100px;
+  background-color: #00e1ff;
+  position: relative;
+  }
+  .info-hidden{
+    height: 0%;
+    animation-duration: 1s;
+    animation-delay: 0.3s;
+    display: none;
+  }
+
+  .avt-teacher{
+    clip-path: circle(50px at 50% 50%);
+    height: 150px;
+    object-fit: cover;
+   
+  }
+
+  .teacher-box:hover   .info-hidden {
+    display: block;
+      height: 100%;
+  }
+  .icon-hidden{
+    display: none;
+    animation-duration: 0.2s;
+    animation-delay: 0s;
+    
+  }
+  .teacher-box:hover  .icon-hidden{
+   display: block;
+   
+  }
+  .pos-cog{
+    top: 25%;
+    left: 20%;
+    font-size: 30px;
+    color: green;
+    
+  }
+  .pos-trash{
+    top: 25%;
+    right: 20%;
+    font-size: 30px;
+    color: red;
+ 
+  }
+ 

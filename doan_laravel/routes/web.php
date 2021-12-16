@@ -48,7 +48,7 @@ Route::middleware('auth','admin')->group(function(){
         Route::post('/teachers/add',[AdminController::class,'postAddTeacher'])->name('admin-post-add-teacher');
         Route::get('/teachers/{id}/update',[AdminController::class,'formUpdateTeacher'])->name('admin-update-teacher');
         Route::post('/teachers/{id}/update',[AdminController::class,'postUpdateTeacher'])->name('admin-post-update-teacher');
-        Route::get('/teachers/{id}/delete',[AdminController::class,'deleteTeacher'])->name('admin-delete-teachers');
+        Route::get('/teachers/{id}/delete',[AdminController::class,'deleteTeacher'])->name('admin-delete-teacher');
         Route::get('/teachers/{id}/reset-password',[AdminController::class,'resetPasswordTeacher'])->name('admin-reset-password-teachers');
         Route::get('/teachers/{id}/send-email',[AdminController::class,'sendEmailTeacher'])->name('admin-send-email-teachers');
         

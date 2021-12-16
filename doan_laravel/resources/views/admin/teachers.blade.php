@@ -8,7 +8,7 @@
     </div>
  <div class="row nav-option" style="margin-left: -300px">
       <ul class="list-unstyled">
-        <li class="d-inline "><a href="#" class="text-dark">KHÓA HỌC</a></li>
+        <li class="d-inline "><a href="{{route('admin')}}" class="text-dark">KHÓA HỌC</a></li>
         <li class="d-inline active-border"><a href="#" class="text-dark">GIÁO VIÊN</a></li>
         <li class="d-inline"><a href="#" class="text-dark">HỌC SINH</a></li>
 
@@ -28,19 +28,39 @@
  <a href="{{route('admin-add-teacher')}}">Thêm giảng viên</a>
   </div>
 
+<div class="container-fluild">
+  <div class="row">
+    @forelse($dsTeacher as $tc)
+         
+            @if($tc->account_type_id==2)
+            <div class="col-3 mb-3">
 
+            <div class="teacher-box text-center position-relative">
+              <img src="{{URL::to('/')}}/images/avatar\{{$tc->avatar}}" alt=""  class="avt-teacher">
+                {{-- <p>{{$tc->id}}</p> --}}
+                <span class="icon-hidden wow bounceIn">
+              <a href="{{route('admin-update-teacher',['id' => $tc->id])}}">   <i class="fas fa-cog position-absolute pos-cog "></i></a>
+             
+                  <a href="{{route('admin-delete-teacher',['id' => $tc->id])}}"><i class="fas fa-trash position-absolute   pos-trash"></i></a>
+                </span>
+                <div class="info-hidden wow bounceIn">
+                  <p>Code: {{$tc->code}}</p>
+                  <p>Username:{{$tc->username}}</p>
+                  <p>{{$tc->name}}</p>
+                  <p>{{$tc->email}}</p>
+                </div> 
 
-  @forelse($dsTeacher as $tc)
-  @if($tc->account_type_id==2)
+            </div>
+          </div>
+          @endif
+          @empty
+    @endforelse
 
-    <p>{{$tc->id}}</p>
-    <p>{{$tc->code}}</p>
-    <p>{{$tc->username}}</p>
-  
-  @endif
+  </div>
 
-@empty
-  @endforelse
+</div>
+
+ 
  
  
 
