@@ -99,7 +99,12 @@ class AdminController extends Controller
             $teacher->avatar=$file_name;
             $teacher->save();
         }else{
-            $image = $req->file('avatar');
+            $teacher->code = $req->code;
+            $teacher->username = $req->username;
+            $teacher->password =Hash::make($req->password);
+            $teacher->name = $req->name;
+            $teacher->email = $req->email;
+            $teacher->save();
             
         }
       
