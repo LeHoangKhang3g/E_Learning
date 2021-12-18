@@ -284,7 +284,7 @@ width: 19%;
   .teacher-box:hover   .info-hidden {
     height: 150px;
       opacity: 1;
-      background-color: rgba(0, 0, 0, 0.2);
+      /* background-color: rgba(0, 0, 0, 0.2); */
      border-radius: 10px;
   }
   .icon-hidden{
