@@ -8,9 +8,10 @@
     </div>
  <div class="row nav-option" style="margin-left: -300px">
       <ul class="list-unstyled">
-        <li class="d-inline "><a href="{{route('admin')}}" class="text-dark">KHÓA HỌC</a></li>
+        <li class="d-inline "><a href="{{route('admin')}}" class="text-dark">THỐNG KÊ</a></li>
+        <li class="d-inline "><a href="{{route('admin-classrooms')}}" class="text-dark">KHÓA HỌC</a></li>
         <li class="d-inline active-border"><a href="#" class="text-dark">GIÁO VIÊN</a></li>
-        <li class="d-inline"><a href="#" class="text-dark">HỌC SINH</a></li>
+        <li class="d-inline"><a href="{{route('admin-students')}}" class="text-dark">HỌC SINH</a></li>
 
     </ul>
     </div> 

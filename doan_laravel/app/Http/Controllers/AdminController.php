@@ -126,7 +126,7 @@ class AdminController extends Controller
 
     //STUDENT
     function students(){
-        return "";
+        return view("admin.students");
     }
     function formAddStudent(){
         return "";
@@ -153,7 +153,7 @@ class AdminController extends Controller
 
     //CLASSROOM
     function classrooms(){
-        return "";
+        return  view('admin.classrooms');
     }
     function detailClassroom($id){
         return "";
