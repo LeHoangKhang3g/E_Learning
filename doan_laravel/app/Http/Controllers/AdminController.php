@@ -53,7 +53,7 @@ class AdminController extends Controller
         $teacher->email = $req->email;
         $this->validate($req, 
 			[
-				'avatar' => 'mimes:jpg,jpeg,png,gif|max:2048',
+				'avatar' => 'mimes:jpg,jpeg,png,gif|max:9000',
 			],			
 			[
 				'avatar.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
