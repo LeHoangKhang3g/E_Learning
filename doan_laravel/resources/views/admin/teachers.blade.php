@@ -8,9 +8,10 @@
     </div>
  <div class="row nav-option" style="margin-left: -300px">
       <ul class="list-unstyled">
-        <li class="d-inline "><a href="{{route('admin')}}" class="text-dark">KHÓA HỌC</a></li>
+        <li class="d-inline "><a href="{{route('admin')}}" class="text-dark">THỐNG KÊ</a></li>
+        <li class="d-inline "><a href="{{route('admin-classrooms')}}" class="text-dark">KHÓA HỌC</a></li>
         <li class="d-inline active-border"><a href="#" class="text-dark">GIÁO VIÊN</a></li>
-        <li class="d-inline"><a href="#" class="text-dark">HỌC SINH</a></li>
+        <li class="d-inline"><a href="{{route('admin-students')}}" class="text-dark">HỌC SINH</a></li>
 
     </ul>
     </div> 
@@ -38,16 +39,23 @@
             <div class="teacher-box text-center position-relative wow bounceIn">
               <img src="{{URL::to('/')}}/images/avatar\{{$tc->avatar}}" alt=""  class="avt-teacher">
                 {{-- <p>{{$tc->id}}</p> --}}
+                <p><b style="font-size: 20px">{{$tc->name}}</b></p>
                 <span class="icon-hidden ">
-              <a href="{{route('admin-update-teacher',['id' => $tc->id])}}">   <i class="fas fa-cog position-absolute pos-cog "></i></a>
-             
-                  <a href="{{route('admin-delete-teacher',['id' => $tc->id])}}"><i class="fas fa-trash position-absolute   pos-trash"></i></a>
+            
                 </span>
                 <div class="info-hidden wow bounceIn">
-                  <p>Code: {{$tc->code}}</p>
-                  <p>Username:{{$tc->username}}</p>
-                  <p>{{$tc->name}}</p>
-                  <p>{{$tc->email}}</p>
+                    <div class="delay">
+                      <p>Code: {{$tc->code}}</p>
+                      <p>Username:{{$tc->username}}</p>
+                     
+                      <p>{{$tc->email}}</p>
+         
+                        <a href="{{route('admin-update-teacher',['id' => $tc->id])}}" >   <i class="fas fa-cog  btn btn-success" ></i></a>
+                 
+                        <a href="{{route('admin-delete-teacher',['id' => $tc->id])}}" > <i class="fas fa-trash btn btn-danger"></i></a>
+                    </div>
+        
+               
                 </div> 
 
             </div>

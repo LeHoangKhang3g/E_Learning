@@ -261,13 +261,16 @@ width: 19%;
 .teacher-box{
   min-height: 100px;
   min-width: 100px;
-  
+  background-color: #f7d08a;
+  border: 10px solid #87B6A7;
+  border-radius: 20px;
   position: relative;
+  margin-bottom: 20px;
   }
   .info-hidden{
     opacity: 0;
-    transition: 1s;
-    animation-delay: 0.3s;
+    transition: 0.8s;
+    animation-delay: 0.2s;
     height: 0px;
   }
 
@@ -281,8 +284,19 @@ width: 19%;
   .teacher-box:hover   .info-hidden {
     height: 150px;
       opacity: 1;
-      background-color: rgba(0, 0, 0, 0.2);
+      /* background-color: rgba(0, 0, 0, 0.2); */
      border-radius: 10px;
+  }
+  
+  .delay{
+    transition: 1s;
+    opacity: 0;
+  }
+  .teacher-box:hover  .delay{
+    transition: 1s;
+    animation-duration: 0.7s;
+    transition-delay: 0.4s;     
+    opacity: 1;
   }
   .icon-hidden{
     display: none;
@@ -328,7 +342,7 @@ width: 19%;
    color: black;
    /* text-transform: uppercase; */
    font-weight: 400;
-   margin-top: 15px;
+   margin-top: 20px;
    white-space: nowrap;
  }
  .btn-add-teacher
@@ -359,4 +373,11 @@ width: 19%;
   width: 80%;
   background-color: rgb(0, 123, 255);
 }
- 
+ .err-message{
+   color: red;
+   margin-left: 140px;
+   margin-top: -15px;
+ }
+ .delay .svg-inline--fa {
+  width: 30%;
+}

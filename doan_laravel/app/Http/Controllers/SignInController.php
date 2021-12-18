@@ -11,7 +11,8 @@ class SignInController extends Controller
         return view('sign-in');
     }
     function postSignIn(Request $req){
-        if(Auth::attempt($req->only('username', 'password')))
+        
+        if (Auth::attempt(['username' => $req->username, 'password' => $req->password]))
         {
             if(Auth::user()->account_type_id==1)
             {

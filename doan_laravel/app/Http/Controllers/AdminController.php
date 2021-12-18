@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Middleware\Teacher;
+use App\Http\Requests\AccountRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -43,23 +44,14 @@ class AdminController extends Controller
 
         return view('admin.add-teacher',compact('code'));
     }
-    function postAddTeacher(Request $req){
-      
+    function postAddTeacher(AccountRequest $req){  
         $teacher = new Account;
         $teacher->code = $req->code;
         $teacher->username = $req->username;
         $teacher->password =Hash::make($req->password);
         $teacher->name = $req->name;
         $teacher->email = $req->email;
-        $this->validate($req, 
-			[
-				'avatar' => 'mimes:jpg,jpeg,png,gif|max:9000',
-			],			
-			[
-				'avatar.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
-				'avatar.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
-			]
-		);
+      
         $image = $req->file('avatar');
         $ex=  $req->file('avatar')->extension();
         $file_name= time() . '.'.$ex;
@@ -79,16 +71,19 @@ class AdminController extends Controller
 
         return view('admin.update-teacher',compact('teacher'));
     }
-    function postUpdateTeacher(Request $req, $id){
-        $teacher= Account::find($id);
+    function postUpdateTeacher(AccountRequest $req){
+      
+        $teacher= Account::find($req->id);
+ 
         if($teacher==null){
-            return "Không tìm thấy giảng viên có id= {$id}";
+            return "Không tìm thấy giảng viên có id= {$req->id}";
             //ve sau thi cho template cụ thể
         }
+     
         if($req->hasFile('avatar')){
             $teacher->code = $req->code;
             $teacher->username = $req->username;
-            $teacher->password =Hash::make($req->password);
+     
             $teacher->name = $req->name;
             $teacher->email = $req->email;
             //avatar
@@ -101,7 +96,7 @@ class AdminController extends Controller
         }else{
             $teacher->code = $req->code;
             $teacher->username = $req->username;
-            $teacher->password =Hash::make($req->password);
+         
             $teacher->name = $req->name;
             $teacher->email = $req->email;
             $teacher->save();
@@ -131,7 +126,7 @@ class AdminController extends Controller
 
     //STUDENT
     function students(){
-        return "";
+        return view("admin.students");
     }
     function formAddStudent(){
         return "";
@@ -158,7 +153,7 @@ class AdminController extends Controller
 
     //CLASSROOM
     function classrooms(){
-        return "";
+        return  view('admin.classrooms');
     }
     function detailClassroom($id){
         return "";
