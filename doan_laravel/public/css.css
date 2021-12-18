@@ -261,8 +261,11 @@ width: 19%;
 .teacher-box{
   min-height: 100px;
   min-width: 100px;
-  
+  background-color: #f7d08a;
+  border: 10px solid #87B6A7;
+  border-radius: 20px;
   position: relative;
+  margin-bottom: 20px;
   }
   .info-hidden{
     opacity: 0;
