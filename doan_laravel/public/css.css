@@ -269,8 +269,8 @@ width: 19%;
   }
   .info-hidden{
     opacity: 0;
-    transition: 1s;
-    animation-delay: 0.3s;
+    transition: 0.8s;
+    animation-delay: 0.2s;
     height: 0px;
   }
 
@@ -286,6 +286,17 @@ width: 19%;
       opacity: 1;
       /* background-color: rgba(0, 0, 0, 0.2); */
      border-radius: 10px;
+  }
+  
+  .delay{
+    transition: 1s;
+    opacity: 0;
+  }
+  .teacher-box:hover  .delay{
+    transition: 1s;
+    animation-duration: 0.7s;
+    transition-delay: 0.4s;     
+    opacity: 1;
   }
   .icon-hidden{
     display: none;
@@ -367,3 +378,6 @@ width: 19%;
    margin-left: 140px;
    margin-top: -15px;
  }
+ .delay .svg-inline--fa {
+  width: 30%;
+}

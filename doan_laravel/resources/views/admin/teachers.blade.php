@@ -44,14 +44,16 @@
             
                 </span>
                 <div class="info-hidden wow bounceIn">
-                  <p>Code: {{$tc->code}}</p>
-                  <p>Username:{{$tc->username}}</p>
+                    <div class="delay">
+                      <p>Code: {{$tc->code}}</p>
+                      <p>Username:{{$tc->username}}</p>
+                     
+                      <p>{{$tc->email}}</p>
+         
+                        <a href="{{route('admin-update-teacher',['id' => $tc->id])}}" >   <i class="fas fa-cog  btn btn-success" ></i></a>
                  
-                  <p>{{$tc->email}}</p>
-     
-                    <a href="{{route('admin-update-teacher',['id' => $tc->id])}}" >   <i class="fas fa-cog  btn btn-success" ></i></a>
-             
-                    <a href="{{route('admin-delete-teacher',['id' => $tc->id])}}" > <i class="fas fa-trash btn btn-danger"></i></a>
+                        <a href="{{route('admin-delete-teacher',['id' => $tc->id])}}" > <i class="fas fa-trash btn btn-danger"></i></a>
+                    </div>
         
                
                 </div> 
