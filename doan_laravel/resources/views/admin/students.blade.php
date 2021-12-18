@@ -8,10 +8,10 @@
     </div>
  <div class="row nav-option" style="margin-left: -300px">
       <ul class="list-unstyled">
-        <li class="d-inline active-border"><a href="#" class="text-dark">THỐNG KÊ</a></li>
+        <li class="d-inline "><a href="{{route('admin')}}" class="text-dark">THỐNG KÊ</a></li>
         <li class="d-inline "><a href="{{route('admin-classrooms')}}"  class="text-dark">KHÓA HỌC</a></li>
         <li class="d-inline "><a href="{{route('admin-teachers')}}" class="text-dark">GIÁO VIÊN</a></li>
-        <li class="d-inline"><a href="{{route('admin-students')}}" class="text-dark">HỌC SINH</a></li>
+        <li class="d-inline active-border"><a href="#" class="text-dark">HỌC SINH</a></li>
 
     </ul>
     </div> 
@@ -24,11 +24,14 @@
 @section('main')
 <main class=" container wow animate__rubberBand animate__animated animate__backInRight" >
 
-
+  <div class="d-flex justify-content-between align-items-center">
+    <a href="" class="text-dark">Quản lý lớp học</a>
+ <a href="">Thêm lớp học</a>
+  </div>
 
 
 <div class="row">
-<h1>trang thong ke</h1>
+<h1>trang hoc sinh</h1>
   
 </div>
 

@@ -11,7 +11,7 @@
     <p class="gradient">ADMIN - UPDATE TEACHER</p>
    </div>
  </div>
- <form method="POST" action="{{route('admin-post-update-teacher', ['id' => $teacher->id ])}}" enctype="multipart/form-data">
+ <form method="POST" action="{{route('admin-post-update-teacher', ['id' => $teacher->id,'password'=>'*********' ])}}" enctype="multipart/form-data">
   @csrf
     <div class="row">
       <div class="col-4 text-end">
