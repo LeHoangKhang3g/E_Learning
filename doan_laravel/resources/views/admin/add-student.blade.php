@@ -2,15 +2,15 @@
 
 
 
-      <img src="{{asset('assets/images/bg.jpg')}}" alt="" class="add-bg position-relative">
+      <img src="{{asset('assets/images/bg3.jpg')}}" alt="" class="add-bg position-relative">
 
 <div class="container position-absolute top-50 start-50 translate-middle">
  <div class="row" style="margin-bottom: 20px">
    <div class="col-11 text-center">
-    <p class="gradient">ADMIN - ADD TEACHER</p>
+    <p class="gradient">ADMIN - ADD STUDENT</p>
    </div>
  </div>
-  <form method="POST" action="{{route('admin-post-add-teacher')}}" enctype="multipart/form-data">
+  <form method="POST" action="{{route('admin-post-add-student')}}" enctype="multipart/form-data">
     @csrf
     <div class="row">
       <div class="col-4 text-end">
@@ -19,20 +19,20 @@
       <div class="col-8 " style="padding-left: 60px">
         <div class="row mb-4">
           <div class="col-2">
-            <p class="field-add-teacher">Mã số:</p>
+            <p class="field-add-student">Mã số:</p>
             
           </div>
           <div class="col-10">
-            <input type="text" name="code" value="{{$code}}" required class="input-add-teacher" readonly>
+            <input type="text" name="code" value="{{$code}}" required class="input-add-student" readonly>
           </div>
         </div>
         <div class="row  mb-4">
           <div class="col-2 ">
-            <p class="field-add-teacher">Tên đăng nhập:</p>
+            <p class="field-add-student">Tên đăng nhập:</p>
             
           </div>
           <div class="col-10">
-            <input type="text" name="username" required class="input-add-teacher">
+            <input type="text" name="username" required class="input-add-student">
           </div>
           @error('username')
               <span class="err-message">{{$message}}</span>
@@ -40,11 +40,11 @@
         </div>
         <div class="row mb-4">
           <div class="col-2">
-            <p class="field-add-teacher">Mật khẩu:</p>
+            <p class="field-add-student">Mật khẩu:</p>
             
           </div>
           <div class="col-10">
-            <input type="password" name="password" required class="input-add-teacher">
+            <input type="password" name="password" required class="input-add-student">
           </div>
           @error('password')
           <span class="err-message">{{$message}}</span>
@@ -52,11 +52,11 @@
         </div>
         <div class="row mb-4">
           <div class="col-2">
-            <p class="field-add-teacher">Họ và tên:</p>
+            <p class="field-add-student">Họ và tên:</p>
             
           </div>
           <div class="col-10">
-            <input type="text" name="name" required class="input-add-teacher">
+            <input type="text" name="name" required class="input-add-student">
           </div>
        
           @error('name')
@@ -66,11 +66,11 @@
         </div>
         <div class="row mb-4">
           <div class="col-2">
-            <p class="field-add-teacher">Email:</p>
+            <p class="field-add-student">Email:</p>
             
           </div>
           <div class="col-10">
-            <input type="email" name="email" required class="input-add-teacher">
+            <input type="email" name="email" required class="input-add-student">
           </div>
           @error('email')
           <span class="err-message">{{$message}}</span>
@@ -78,20 +78,20 @@
         </div>
         <div class="row mb-4">
           <div class="col-2">
-            <p class="field-add-teacher">Ảnh đại diện:</p>
+            <p class="field-add-student">Ảnh đại diện:</p>
             
           </div>
           <div class="col-10">
            
-          <input type="file" name="avatar" required style="margin-top: 15px">
+          <input type="file" name="avatar" required style="margin-top: 15px" class="btn">
           </div>
           @error('avatar')
-          <span class="err-message">{{ $message}} </span>
+          <span class="err-message">{{$message}} </span>
          @enderror
         </div>
         <div class="row">
           <div class="col-6 text-center">
-            <button type="submit" class="btn btn-add-teacher" >ADD</button>
+            <button type="submit" class="btn btn-add-student" >ADD</button>
           </div>
         </div>
       </div>

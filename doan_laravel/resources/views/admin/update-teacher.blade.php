@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-{{-- <img src="{{URL::to('/')}}/images/avatar\{{$teacher->avatar}}" alt=""  class="avt-teacher"> --}}
+{{-- <img src="{{URL::to('/')}}/images/avatar\{{$teacher->avatar}}" alt=""  class="avatar-teacher"> --}}
       <img src="{{asset('assets/images/bg.jpg')}}" alt="" class="add-bg position-relative">
 
 <div class="container position-absolute top-50 start-50 translate-middle">
@@ -15,7 +15,7 @@
   @csrf
     <div class="row">
       <div class="col-4 text-end">
-        <img src="{{URL::to('/')}}/images/avatar\{{$teacher->avatar}}" alt="" style="width: 100%;height:100%;opacity:0.7;border-radius:20px">
+        <img src="{{URL::to('/')}}/images/teachers/avatar\{{$teacher->avatar}}" alt="" style="width: 100%;height:100%;opacity:0.7;border-radius:20px">
       </div>
       <div class="col-8 " style="padding-left: 60px">
         <div class="row mb-4">
@@ -24,7 +24,7 @@
             
           </div>
           <div class="col-10">
-            <input type="text" name="code" value="{{$teacher->code}}" required class="input-add-teacher">
+            <input type="text" name="code" value="{{$teacher->code}}" required class="input-add-teacher" readonly>
           </div>
         </div>
         <div class="row  mb-4">
