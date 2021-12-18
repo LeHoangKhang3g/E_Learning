@@ -87,8 +87,8 @@ Route::middleware('auth','teacher')->group(function(){
         Route::post('/classrooms/{id}/update',[TeacherController::class,'postUpdateClassroom'])->name('teacher-post-update-classroom');
         Route::get('/classrooms/{id}/delete',[TeacherController::class,'deleteClassroom'])->name('teacher-delete-classroom');
         Route::get('/classrooms/{id}/students-wait',[TeacherController::class,'studentsWait'])->name('teacher-students-wait');
-        Route::get('/classrooms/{id}/add-student/{id}',[TeacherController::class,'addStudentsWait'])->name('teacher-add-students-wait');
-        Route::get('/classrooms/{id}/remove-student/{id}',[TeacherController::class,'removeStudentsWait'])->name('teacher-remove-students-wait');
+        Route::get('/classrooms/{id}/add-student/{student_id}',[TeacherController::class,'addStudentsWait'])->name('teacher-add-students-wait');
+        Route::get('/classrooms/{id}/remove-student/{student_id}',[TeacherController::class,'removeStudentsWait'])->name('teacher-remove-students-wait');
         
     });
     

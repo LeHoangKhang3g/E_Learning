@@ -28,7 +28,7 @@ class SignInController extends Controller
         }
         else
         {
-            return redirect('index');
+            return redirect()->route('sign-in');
         }
     }
 }
