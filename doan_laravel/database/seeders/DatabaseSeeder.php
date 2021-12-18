@@ -47,48 +47,48 @@ class DatabaseSeeder extends Seeder
             'account_type_id'   =>  '1',
         ]);
         Account::insert([
-            'code'              =>  '0306191205',
+            'code'              =>  'GVMRIPZGRGRQ',
             'username'          =>  'khanhduy',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Hồ Khánh Duy',
             'email'             =>  'khanhduy@gmail.com',
-            'avatar'            =>  'duy.jpg',
+            'avatar'            =>  'GVMRIPZGRGRQ.jpg',
             'account_type_id'   =>  '2',
         ]);
         Account::insert([
-            'code'              =>  '0306191291',
+            'code'              =>  'GVS2RVEJ44I7',
             'username'          =>  'tuan',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Nguyễn Quốc Tuấn',
             'email'             =>  'tuan@gmail.com',
-            'avatar'            =>  'tuan.jpg',
+            'avatar'            =>  'GVS2RVEJ44I7.jpg',
             'account_type_id'   =>  '2',
         ]);
         Account::insert([
-            'code'             =>  '0306191288',
+            'code'             =>  'STW9MCRNEBBA',
             'username'          =>  'trung',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Trần Quốc Trung',
             'email'             =>  'trung@gmail.com',
-            'avatar'            =>  'trung.jpg',
+            'avatar'            =>  'STW9MCRNEBBA.jpg',
             'account_type_id'   =>  '3',
         ]);
         Account::insert([
-            'code'              =>  '0306191218',
+            'code'              =>  'STDQCYJMORTG',
             'username'          =>  'hieu',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Kiều Công Hiếu',
             'email'             =>  'hieu@gmail.com',
-            'avatar'            =>  'hieu.jpg',
+            'avatar'            =>  'STDQCYJMORTG.jpg',
             'account_type_id'   =>  '3',
         ]);
         Account::insert([
-            'code'              =>  '0306191293',
+            'code'              =>  'STDQCYAICPOK',
             'username'          =>  'vinh',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Trần Quang Vinh',
             'email'             =>  'vinh@gmail.com',
-            'avatar'            =>  'tuan.jpg',
+            'avatar'            =>  'STDQCYAICPOK.jpg',
             'account_type_id'   =>  '3',
         ]);
 
