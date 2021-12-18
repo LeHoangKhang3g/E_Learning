@@ -51,7 +51,7 @@ class AdminController extends Controller
         $teacher->password =Hash::make($req->password);
         $teacher->name = $req->name;
         $teacher->email = $req->email;
-   
+      
         $image = $req->file('avatar');
         $ex=  $req->file('avatar')->extension();
         $file_name= time() . '.'.$ex;
