@@ -9,7 +9,7 @@
  <div class="row nav-option" style="margin-left: -300px">
       <ul class="list-unstyled">
         <li class="d-inline active-border"><a href="#" class="text-dark">KHÓA HỌC</a></li>
-        <li class="d-inline "><a href="#" class="text-dark">GIÁO VIÊN</a></li>
+        <li class="d-inline "><a href="{{route('admin-teachers')}}" class="text-dark">GIÁO VIÊN</a></li>
         <li class="d-inline"><a href="#" class="text-dark">HỌC SINH</a></li>
 
     </ul>
