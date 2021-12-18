@@ -5,6 +5,7 @@
       <img src="{{asset('assets/images/bg.jpg')}}" alt="" class="add-bg position-relative">
 
 <div class="container position-absolute top-50 start-50 translate-middle">
+  <a href="{{route('admin-teachers')}}"><h1>back</h1></a>
  <div class="row" style="margin-bottom: 20px">
    <div class="col-11 text-center">
     <p class="gradient">ADMIN - UPDATE TEACHER</p>
