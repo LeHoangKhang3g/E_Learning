@@ -72,11 +72,14 @@ class AdminController extends Controller
         return view('admin.update-teacher',compact('teacher'));
     }
     function postUpdateTeacher(AccountRequest $req){
+      
         $teacher= Account::find($req->id);
+ 
         if($teacher==null){
             return "Không tìm thấy giảng viên có id= {$req->id}";
             //ve sau thi cho template cụ thể
         }
+     
         if($req->hasFile('avatar')){
             $teacher->code = $req->code;
             $teacher->username = $req->username;

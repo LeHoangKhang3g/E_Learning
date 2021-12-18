@@ -23,10 +23,10 @@ class AccountRequest extends FormRequest
      */
     public function rules()
     {
-       
+   
         return [
-            'username' => 'required|min:7|max:15|unique:account,username,'.$this->id,
-            'password' => 'required|min:7|max:15',
+            'username' => 'required|min:7|max:20|unique:account,username,'.$this->id,
+            'password' => 'required|min:7|max:20',
             'avatar'   => 'mimes:jpg,jpeg,png,gif|max:2048',
             'email'    =>  'required|email|unique:account,email,'.$this->id,
             'name'     =>  'required'
@@ -36,18 +36,18 @@ class AccountRequest extends FormRequest
         return [
             'username.required'=>   "Chưa nhập tên đăng nhập",
             'username.min'     =>   "Tên đăng nhập phải lớn hơn 7 ký tự",
-            'username.max'     =>   "Tên đăng nhập phải bé hơn 15 ký tự",
+            'username.max'     =>   "Tên đăng nhập phải bé hơn 20 ký tự",
             'username.unique'  =>   "Tên đăng nhâp đã tồn tại",
             'password.required'=>   "Chưa nhập mật khẩu",
             'password.min'     =>   "Mật khẩu phải lớn hơn 7 ký tự",
-            'password.max'     =>   "Mật khẩu phải bé hơn 15 ký tự",
+            'password.max'     =>   "Mật khẩu phải bé hơn 20 ký tự",
             'avatar.mimes'     =>   "Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif",
             'avatar.max'       =>   "Hình thẻ giới hạn dung lượng không quá 2M",
             'email.required'   =>   "Chưa nhập địa chỉ email",
             'email.email'      =>   "Định dạng email chưa hợp lệ",
             'email.unique'     =>   "Email đã tồn tại",
-            'name.required'    =>   "Chưa nhập họ và tên"
-
+            'name.required'    =>   "Chưa nhập họ và tên",
+   
         ];
     }
 }
