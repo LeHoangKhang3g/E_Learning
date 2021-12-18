@@ -23,7 +23,7 @@
             
           </div>
           <div class="col-10">
-            <input type="text" name="code" value="{{$code}}" required class="input-add-teacher">
+            <input type="text" name="code" value="{{$code}}" required class="input-add-teacher" readonly>
           </div>
         </div>
         <div class="row  mb-4">
@@ -34,6 +34,9 @@
           <div class="col-10">
             <input type="text" name="username" required class="input-add-teacher">
           </div>
+          @error('username')
+              <span class="err-message">{{$message}}</span>
+          @enderror
         </div>
         <div class="row mb-4">
           <div class="col-2">
@@ -43,6 +46,9 @@
           <div class="col-10">
             <input type="password" name="password" required class="input-add-teacher">
           </div>
+          @error('password')
+          <span class="err-message">{{$message}}</span>
+      @enderror
         </div>
         <div class="row mb-4">
           <div class="col-2">
@@ -52,6 +58,11 @@
           <div class="col-10">
             <input type="text" name="name" required class="input-add-teacher">
           </div>
+       
+          @error('name')
+       
+          <span class="err-message">{{$message}}</span> 
+        @enderror
         </div>
         <div class="row mb-4">
           <div class="col-2">
@@ -61,6 +72,9 @@
           <div class="col-10">
             <input type="email" name="email" required class="input-add-teacher">
           </div>
+          @error('email')
+          <span class="err-message">{{$message}}</span>
+         @enderror
         </div>
         <div class="row mb-4">
           <div class="col-2">
@@ -68,11 +82,12 @@
             
           </div>
           <div class="col-10">
-            @error('avatar')
-            <span>{{ $message}} </span>
-          @enderror
+           
           <input type="file" name="avatar" required style="margin-top: 15px">
           </div>
+          @error('avatar')
+          <span class="err-message">{{ $message}} </span>
+         @enderror
         </div>
         <div class="row">
           <div class="col-6 text-center">
@@ -84,72 +99,3 @@
 </div>
 
 </div>
-      {{-- 
-        
-        
-          <div class="mb-3">
-            <label class="form-label">Mã số</label>
-            <input type="text" name="code" value="{{$code}}" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Tên đăng nhập</label>
-            <input type="text" name="username" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Mật khẩu</label>
-            <input type="password" name="password" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Họ và tên</label>
-            <input type="text" name="name" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" name="email" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Ảnh đại diện</label>
-            @error('avatar')
-              <span>{{ $message}} </span>
-            @enderror
-            <input type="file" name="avatar" required>
-          </div>
-        
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form> --}}
-   
-
-{{-- <form method="POST" action="{{route('admin-post-add-teacher')}}" enctype="multipart/form-data">
-@csrf
-
-
-  <div class="mb-3">
-    <label class="form-label">Mã số</label>
-    <input type="text" name="code" value="{{$code}}" required>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Tên đăng nhập</label>
-    <input type="text" name="username" required>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Mật khẩu</label>
-    <input type="password" name="password" required>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Họ và tên</label>
-    <input type="text" name="name" required>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Email</label>
-    <input type="email" name="email" required>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Ảnh đại diện</label>
-    @error('avatar')
-      <span>{{ $message}} </span>
-    @enderror
-    <input type="file" name="avatar" required>
-  </div>
-
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form> --}}
