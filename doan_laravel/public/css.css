@@ -328,7 +328,7 @@ width: 19%;
    color: black;
    /* text-transform: uppercase; */
    font-weight: 400;
-   margin-top: 15px;
+   margin-top: 20px;
    white-space: nowrap;
  }
  .btn-add-teacher
@@ -359,4 +359,8 @@ width: 19%;
   width: 80%;
   background-color: rgb(0, 123, 255);
 }
- 
+ .err-message{
+   color: red;
+   margin-left: 140px;
+   margin-top: -15px;
+ }
