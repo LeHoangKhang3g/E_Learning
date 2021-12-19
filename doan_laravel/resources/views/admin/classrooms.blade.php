@@ -31,27 +31,24 @@
   </div>
   <div class="container-fluild">
   <div class="row">
-    @forelse($dsClassroom as $tc)
+    @forelse($dsClassroom as $classroom)
          
             
             <div class="col-3">
 
-            <div class="teacher-box text-center position-relative wow bounceIn">
-              <img src="{{URL::to('/')}}/images/\{{$tc->background}}" alt=""  class="avatar-circle">
-                {{-- <p>{{$tc->teacher_id}}</p> --}}
-                <p><b style="font-size: 20px">{{$tc->class_name}}</b></p>
+            <div class="classroom-box text-center position-relative wow bounceIn">
+              <img src="{{URL::to('/')}}/images/classrooms/background/{{$classroom->background}}" alt=""  class="avatar-circle">
+
+                <p><b style="font-size: 20px">{{$classroom->class_name}}</b></p>
                 <span class="icon-hidden ">
             
                 </span>
                 <div class="info-hidden wow bounceIn">
                     <div class="delay">
-                      <p>Code: {{$tc->code}}</p>
-                      <p>Content:{{$tc->content}}</p>
-                     
-                 
-         
-                        <a href="{{route('admin-update-classroom',['id' => $tc->id])}}" >   <i class="fas fa-cog  btn btn-success" ></i></a>
-                        <a href="{{route('admin-delete-classroom',['id' => $tc->id])}}" > <i class="fas fa-trash btn btn-danger"></i></a>
+                      <p>Code: {{$classroom->code}}</p>
+                      <p>Content:{{$classroom->content}}</p>
+                    
+                        <a href="{{route('admin-detail-classrooms',['id' => $classroom->id])}}" >   <i class="fa fa-list-ul  btn btn-success" ></i></a>
                         
                     </div>
         

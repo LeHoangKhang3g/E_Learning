@@ -61,7 +61,7 @@ class AdminController extends Controller
       
         $image = $req->file('avatar');
         $ex=  $req->file('avatar')->extension();
-        $file_name= time() . '.'.$ex;
+        $file_name= $teacher->code.'.'.$ex;
         $storedPath = $image->storeAs('images/avatar', $file_name);
         $teacher->avatar=$file_name;
         $teacher->account_type_id =2;
@@ -94,7 +94,7 @@ class AdminController extends Controller
             //avatar
             $image = $req->file('avatar');
             $ex=  $req->file('avatar')->extension();
-            $file_name= time() . '.'.$ex;
+            $file_name= $teacher->code.'.'.$ex;
             $storedPath = $image->storeAs('images/teachers/avatar', $file_name);
             $teacher->avatar=$file_name;
             $teacher->save();
@@ -154,7 +154,7 @@ class AdminController extends Controller
 
         $image = $req->file('avatar');
         $ex = $image->extension();
-        $image_name = $req->code.'.'.$ex;
+        $image_name = $student->code.'.'.$ex;
         $image_path = $image->storeAs('images/students/avatar',$image_name);
         $student->avatar = $image_name;
         $student->account_type_id=3;
@@ -214,88 +214,12 @@ class AdminController extends Controller
     
         return  view('admin.classrooms',compact('dsClassroom','accountInfo'));
     }
-  
-
-    function addclassroom(){
-        $code='';
-        while(true){
-            $code='CR'.Str::random(10);
-            $code=strtoupper($code);
-            $classroom = Classroom::where('code', $code);
-            if(isEmpty($classroom)){
-                break;
-            }
-        }
-
-    return view('admin.add-classroom',compact('code'));
-
+    function detailClassroom(){
+        return '';
     }
-    function formUpAddClassroom(Request $request){
-        $hi =new Classroom;
-        $hi->teacher_id=1;
-        $hi->class_name=$request->username;
-        $hi->code=$request->code;
-        $hi->content=$request->noidung;
-        $hi->point_table=$request->name;
-
-        $image=$request->file('avatar');
-        $duoi=$request->file('avatar')->extension();
-        $file_name=time().'.'.$duoi;
-        $path = $image->storeAs('images',$file_name);
-        $hi->background=$file_name;
-        $hi->save();
-
-
-        return redirect()->route ('admin-classrooms');
+    function sendEmailClassroom(){
+        return '';
     }
-    function formUpdateClassroom($id){
 
-        $classroom= Classroom::find($id);
-        if($classroom==null){
-            return "Không tìm thấy lớp  có id= {$id}";
-            //ve sau thi cho template cụ thể
-        }
-
-        return view('admin.update-classroom',compact('classroom'));
-    }
-    function postUpdateClassroom(Request $request){
-      
-        $classroom= Classroom::find($request->id);
- 
-        if($classroom==null){
-            return "Không tìm thấy lớp có id= {$request->id}";
-            //ve sau thi cho template cụ thể
-        }
-     
-        if($request->hasFile('avatar')){
-            $classroom->class_name = $request->class_name;  
-            $classroom->content = $request->content;
-            
-            //avatar
-            $image = $request->file('avatar');
-            $ex=  $request->file('avatar')->extension();
-            $file_name= time() . '.'.$ex;
-            $storedPath = $image->storeAs('images', $file_name);
-            $classroom->background=$file_name;
-            $classroom->save();
-        }else{
-            $classroom->class_name = $request->class_name;  
-            $classroom->content = $request->content;
-            
-            $classroom->save();          
-        }
-      
-        return redirect()->route('admin-classrooms');
-    }
-    function deleteClassroom($id){
-        $classroom = Classroom::find($id);
-
-        if($classroom==null){
-            return "Không tìm thấy sinh viên có id= {$id}";
-            //ve sau thi cho template cụ thể
-        }
-        $classroom->delete();
-        return redirect()->route('admin-classrooms');
-    }
 
 }
