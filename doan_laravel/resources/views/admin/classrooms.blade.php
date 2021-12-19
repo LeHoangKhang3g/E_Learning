@@ -16,7 +16,8 @@
     </ul>
     </div> 
     <div class="row">
-      @include('partial.account-option',['accountInfo' => $accountInfo])
+   
+    @include('partial.account-option',['accountInfo' => $accountInfo])
     </div>
   </nav>
 @endsection
@@ -25,83 +26,63 @@
 
   <div class="d-flex justify-content-between align-items-center mt-3">
     <a href="" class="text-dark"><h4>QUẢN LÝ LỚP HỌC</h4></a>
- <a href="">Thêm lớp học</a>
+   
+
+  </div>
+  <div class="container-fluild">
+  <div class="row">
+    @forelse($dsClassroom as $tc)
+         
+            
+            <div class="col-3">
+
+            <div class="teacher-box text-center position-relative wow bounceIn">
+              <img src="{{URL::to('/')}}/images/\{{$tc->background}}" alt=""  class="avatar-circle">
+                {{-- <p>{{$tc->teacher_id}}</p> --}}
+                <p><b style="font-size: 20px">{{$tc->class_name}}</b></p>
+                <span class="icon-hidden ">
+            
+                </span>
+                <div class="info-hidden wow bounceIn">
+                    <div class="delay">
+                      <p>Code: {{$tc->code}}</p>
+                      <p>Content:{{$tc->content}}</p>
+                     
+                 
+         
+                        <a href="{{route('admin-update-classroom',['id' => $tc->id])}}" >   <i class="fas fa-cog  btn btn-success" ></i></a>
+                        <a href="{{route('admin-delete-classroom',['id' => $tc->id])}}" > <i class="fas fa-trash btn btn-danger"></i></a>
+                        
+                    </div>
+        
+               
+                </div> 
+
+            </div>
+          </div>
+        
+          @empty
+    @endforelse
+
   </div>
 
-
-<div class="row">
-  <div class=" col-lg-4 col-md-6 mb-4">
-    <div class="card position-relative">
-        <img src="{{asset('assets/images/slide-1.jpg')}}" alt="">
-  
-        <div class="card-title-admin">
-            <h4>Mountain River</h4>
-            <p>Paraguay</p>
-        </div>
-       <div class="overlay-dark">
-         <div class="options-admin">
-           <a href=""><i class="fas fa-wrench text-warning px-2 " style="font-size: 21px"></i></a>
-           <a href=""><i class="far fa-trash-alt text-warning px-2 " style="font-size: 21px"></i></a>
-         </div>
-        </div> 
-    </div>
-  </div>
-  <div class=" col-lg-4 col-md-6 mb-4">
-    <div class="card position-relative">
-        <img src="{{asset('assets/images/slide-1.jpg')}}" alt="">
-  
-        <div class="card-title-admin">
-            <h4>Mountain River</h4>
-            <p>Paraguay</p>
-        </div>
-       <div class="overlay-dark">
-         <div class="options-admin">
-           <a href=""><i class="fas fa-wrench text-warning px-2 " style="font-size: 21px"></i></a>
-           <a href=""><i class="far fa-trash-alt text-warning px-2 " style="font-size: 21px"></i></a>
-         </div>
-        </div> 
-    </div>
-  </div>
-  <div class=" col-lg-4 col-md-6 mb-4">
-    <div class="card position-relative">
-        <img src="{{asset('assets/images/slide-1.jpg')}}" alt="">
-  
-        <div class="card-title-admin">
-            <h4>Mountain River</h4>
-            <p>Paraguay</p>
-        </div>
-       <div class="overlay-dark">
-         <div class="options-admin">
-           <a href=""><i class="fas fa-wrench text-warning px-2 " style="font-size: 21px"></i></a>
-           <a href=""><i class="far fa-trash-alt text-warning px-2 " style="font-size: 21px"></i></a>
-         </div>
-        </div> 
-    </div>
-  </div>
-  <div class=" col-lg-4 col-md-6 mb-4">
-    <div class="card position-relative">
-        <img src="{{asset('assets/images/slide-1.jpg')}}" alt="">
-  
-        <div class="card-title-admin">
-            <h4>Mountain River</h4>
-            <p>Paraguay</p>
-        </div>
-       <div class="overlay-dark">
-         <div class="options-admin">
-           <a href=""><i class="fas fa-wrench text-warning px-2 " style="font-size: 21px"></i></a>
-           <a href=""><i class="far fa-trash-alt text-warning px-2 " style="font-size: 21px"></i></a>
-         </div>
-        </div> 
-    </div>
-  </div>
-  
 </div>
+
+ 
+ 
+ 
+
+</div>
+
+
+    
+  
+
 
 
  
  
 
-</div>
 
 
     
