@@ -51,6 +51,15 @@ Route::middleware('auth','admin')->group(function(){
         Route::get('/teachers/{id}/delete',[AdminController::class,'deleteTeacher'])->name('admin-delete-teacher');
         Route::get('/teachers/{id}/reset-password',[AdminController::class,'resetPasswordTeacher'])->name('admin-reset-password-teachers');
         Route::get('/teachers/{id}/send-email',[AdminController::class,'sendEmailTeacher'])->name('admin-send-email-teachers');
+
+        Route::get('/addclassroom',[AdminController::class,'addclassroom'])->name('addclassroom');
+        Route::post('/addclassroom',[AdminController::class,'formUpAddClassroom'])->name('formUpAddClassroom');
+
+        Route::get('/classrooms/{id}/update',[AdminController::class,'formUpdateClassroom'])->name('admin-update-classroom');
+        Route::post('/classrooms/{id}/update',[AdminController::class,'postUpdateClassroom'])->name('admin-post-update-classroom');
+
+        Route::get('/classrooms/{id}/delete',[AdminController::class,'deleteClassroom'])->name('admin-delete-classroom');
+
         
 
         Route::get('/students',[AdminController::class,'students'])->name('admin-students');
