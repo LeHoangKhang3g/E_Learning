@@ -16,8 +16,7 @@
     </ul>
     </div> 
     <div class="row">
-   
-  <img src="{{asset('assets/images/avt-user-test.png')}}" alt="user" class="avt-user">
+      @include('partial.account-option',['accountInfo' => $accountInfo])
     </div>
   </nav>
 @endsection
@@ -45,8 +44,8 @@
                 </span>
                 <div class="info-hidden wow bounceIn">
                     <div class="delay">
-                      <p>Code: {{$tc->code}}</p>
-                      <p>Username:{{$tc->username}}</p>
+                      <p><b>CODE: </b>{{$tc->code}}</p>
+                      <p><b>USERNAME</b>:{{$tc->username}}</p>
                      
                       <p>{{$tc->email}}</p>
          

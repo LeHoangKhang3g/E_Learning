@@ -8,7 +8,10 @@ use Illuminate\Support\Facades\Auth;
 class StudentController extends Controller
 {
     function index(){
-        return view('student.index');
+        
+        $accountInfo =Auth::user();
+        $accountInfo->password = "";
+        return view('student.index',["accountInfo"=>$accountInfo]);
     }
     
     function signOut(){

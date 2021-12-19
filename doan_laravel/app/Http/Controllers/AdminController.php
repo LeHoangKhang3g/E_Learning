@@ -16,7 +16,11 @@ use function PHPUnit\Framework\isEmpty;
 class AdminController extends Controller
 {
     function index(){
-        return view('admin.index');
+
+        $accountInfo =Auth::user();
+        $accountInfo->password = "";
+    
+        return view('admin.index',['accountInfo' => $accountInfo]);
     }
 
     function signOut(){
@@ -27,8 +31,10 @@ class AdminController extends Controller
 
     //TEACHER
     function teachers(){
+        $accountInfo =Auth::user();
+        $accountInfo->password = "";
         $dsTeacher=Account::all()->where("account_type_id",2);
-        return view('admin.teachers',compact('dsTeacher'));
+        return view('admin.teachers',compact('dsTeacher','accountInfo'));
     }
     function formAddTeacher(){
         $code='';
@@ -121,8 +127,12 @@ class AdminController extends Controller
 
     //STUDENT
     function students(){
+        
+        $accountInfo =Auth::user();
+        $accountInfo->password = "";
+    
         $students=Account::all()->where("account_type_id",3);
-        return view("admin.students",["students"=>$students]);
+        return view("admin.students",["students"=>$students,"accountInfo"=>$accountInfo]);
     }
     function formAddStudent(){
         $code = 'ST'.Str::random(10);
@@ -197,7 +207,11 @@ class AdminController extends Controller
 
     //CLASSROOM
     function classrooms(){
-        return  view('admin.classrooms');
+        
+        $accountInfo =Auth::user();
+        $accountInfo->password = "";
+    
+        return  view('admin.classrooms',["accountInfo" =>$accountInfo]);
     }
     function detailClassroom($id){
         return "";

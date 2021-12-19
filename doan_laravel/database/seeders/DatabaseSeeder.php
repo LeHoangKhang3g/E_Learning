@@ -38,12 +38,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Account::insert([
-            'code'              =>  '0306191227',
+            'code'              =>  'ADMINKHANGLH',
             'username'          =>  'khang',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Lê Hoàng Khang',
             'email'             =>  'khangxyz3g@gmail.com',
-            'avatar'            =>  'khang.jpg',
+            'avatar'            =>  'ADMINKHANGLH.jpg',
             'account_type_id'   =>  '1',
         ]);
         Account::insert([
