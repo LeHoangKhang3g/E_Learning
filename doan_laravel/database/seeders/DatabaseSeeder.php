@@ -95,8 +95,8 @@ class DatabaseSeeder extends Seeder
         $classroom=new Classroom();
         $classroom->teacher_id = 2;
         $classroom->class_name = 'Lập trình php cơ bản';
-        $classroom->code = '123abcde';
-        $classroom->background = 'php.jpg';
+        $classroom->code = 'CLOKDYAICPOK';
+        $classroom->background = 'CLOKDYAICPOK.jpg';
         $classroom->content = 'Khoá học PHP trong vòng 3 tháng giúp bạn viết được một trang website cơ bản';
         $classroom->point_table = 'https://docs.google.com/spreadsheets/d/1h49GGjfLjbNUR_b6R9kw3eb6pHjVlDsUjheOUuB5WAc/edit#gid=0';
         $classroom->save();
@@ -104,8 +104,8 @@ class DatabaseSeeder extends Seeder
         $classroom=new Classroom();
         $classroom->teacher_id = 2;
         $classroom->class_name = 'Thiết kế web cơ bản';
-        $classroom->code = 'abcxyz987';
-        $classroom->background = 'web.jpg';
+        $classroom->code = 'CLIKJFUCKDOP';
+        $classroom->background = 'CLIKJFUCKDOP.jpg';
         $classroom->content = 'Khoá học thiết kế web trong vòng 3 tháng giúp bạn thiết kế được một template website cơ bản';
         $classroom->point_table = 'https://docs.google.com/spreadsheets/d/1ulrBBWt5zHTd-YeDZnvPASzlzkb-v1BK7y_fp5p3DWw/edit#gid=0';
         $classroom->save();

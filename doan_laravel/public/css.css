@@ -338,6 +338,35 @@ width: 19%;
   
 }
 
+.classroom-box{
+  min-height: 100px;
+  min-width: 100px;
+  background-color: #adbcff;
+  border: 10px solid #4c00a2;
+  border-radius: 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.classroom-box:hover   .info-hidden {
+  height: 150px;
+    opacity: 1;
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    border-radius: 10px;
+}
+
+.classroom-box:hover  .delay{
+  transition: 1s;
+  animation-duration: 0.7s;
+  transition-delay: 0.4s;     
+  opacity: 1;
+}
+
+.classroom-box:hover  .icon-hidden{
+  display: block;
+  
+}
+
 .pos-cog{
   top: 25%;
   left: 20%;
