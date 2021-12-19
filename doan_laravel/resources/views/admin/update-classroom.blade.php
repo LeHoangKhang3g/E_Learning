@@ -8,7 +8,7 @@
   <a href="{{route('admin-students')}}" ><h1>BACK</h1></a>
  <div class="row" style="margin-bottom: 20px">
    <div class="col-11 text-center">
-    <p class="gradient">ADMIN - UPDATE STUDENT</p>
+    <p class="gradient">ADMIN - UPDATE CLASSROOM</p>
    </div>
  </div>
  <form method="POST" action="{{route('admin-post-update-classroom', ['id' => $classroom->id ])}}" enctype="multipart/form-data">
