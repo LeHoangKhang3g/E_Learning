@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\Account;
+use App\Models\Classroom;
 use Illuminate\Support\Facades\Hash;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
+
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -206,18 +208,95 @@ class AdminController extends Controller
 
 
     //CLASSROOM
+  
     function classrooms(){
-        
         $accountInfo =Auth::user();
-        $accountInfo->password = "";
+        $dsClassroom=Classroom::all();
     
-        return  view('admin.classrooms',["accountInfo" =>$accountInfo]);
+        return  view('admin.classrooms',compact('dsClassroom','accountInfo'));
     }
-    function detailClassroom($id){
-        return "";
+  
+
+    function addclassroom(){
+        $code='';
+        while(true){
+            $code='CR'.Str::random(10);
+            $code=strtoupper($code);
+            $classroom = Classroom::where('code', $code);
+            if(isEmpty($classroom)){
+                break;
+            }
+        }
+
+    return view('admin.add-classroom',compact('code'));
+
     }
-    function sendEmailClassroom($id){
-        return "";
+    function formUpAddClassroom(Request $request){
+        $hi =new Classroom;
+        $hi->teacher_id=1;
+        $hi->class_name=$request->username;
+        $hi->code=$request->code;
+        $hi->content=$request->noidung;
+        $hi->point_table=$request->name;
+
+        $image=$request->file('avatar');
+        $duoi=$request->file('avatar')->extension();
+        $file_name=time().'.'.$duoi;
+        $path = $image->storeAs('images',$file_name);
+        $hi->background=$file_name;
+        $hi->save();
+
+
+        return redirect()->route ('admin-classrooms');
+    }
+    function formUpdateClassroom($id){
+
+        $classroom= Classroom::find($id);
+        if($classroom==null){
+            return "Không tìm thấy lớp  có id= {$id}";
+            //ve sau thi cho template cụ thể
+        }
+
+        return view('admin.update-classroom',compact('classroom'));
+    }
+    function postUpdateClassroom(Request $request){
+      
+        $classroom= Classroom::find($request->id);
+ 
+        if($classroom==null){
+            return "Không tìm thấy lớp có id= {$request->id}";
+            //ve sau thi cho template cụ thể
+        }
+     
+        if($request->hasFile('avatar')){
+            $classroom->class_name = $request->class_name;  
+            $classroom->content = $request->content;
+            
+            //avatar
+            $image = $request->file('avatar');
+            $ex=  $request->file('avatar')->extension();
+            $file_name= time() . '.'.$ex;
+            $storedPath = $image->storeAs('images', $file_name);
+            $classroom->background=$file_name;
+            $classroom->save();
+        }else{
+            $classroom->class_name = $request->class_name;  
+            $classroom->content = $request->content;
+            
+            $classroom->save();          
+        }
+      
+        return redirect()->route('admin-classrooms');
+    }
+    function deleteClassroom($id){
+        $classroom = Classroom::find($id);
+
+        if($classroom==null){
+            return "Không tìm thấy sinh viên có id= {$id}";
+            //ve sau thi cho template cụ thể
+        }
+        $classroom->delete();
+        return redirect()->route('admin-classrooms');
     }
 
 }
