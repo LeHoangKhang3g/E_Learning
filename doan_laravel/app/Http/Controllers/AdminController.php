@@ -49,7 +49,6 @@ class AdminController extends Controller
             }
         }
 
-
         return view('admin.add-teacher',compact('code'));
     }
     function postAddTeacher(AccountRequest $req){  
