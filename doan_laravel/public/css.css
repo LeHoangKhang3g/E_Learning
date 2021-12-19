@@ -16,6 +16,7 @@ a{
   width: 90px;
   height: 50px;
   margin-top: -15px;
+  border-radius: 100%;
 }
 /* .nav-left{
   margin-left: -40px;
@@ -199,6 +200,7 @@ flex-wrap: wrap;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .card-img-top{
   margin-top: -40px;
   width: 100%;
@@ -349,7 +351,7 @@ width: 19%;
 }
 
 .classroom-box:hover   .info-hidden {
-  height: 150px;
+  height: 160px;
     opacity: 1;
     /* background-color: rgba(0, 0, 0, 0.2); */
     border-radius: 10px;
@@ -492,4 +494,39 @@ width: 19%;
  }
 .delay .svg-inline--fa {
   width: 30%;
+}
+.content-classroom{
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#info-option{
+  background-color: rgb(31, 94, 94);
+  min-width: 100px;
+  max-width: 250px;
+  min-height: 100px;
+  position: absolute;
+top: 80%;
+right: 0%;
+overflow: hidden;
+text-align: start;
+padding-top: 5px;
+padding-left: 15px;
+font-size: 18px;
+border-radius:20px 0px 0px 20px;
+display: none;
+opacity: 0;
+
+}
+#info-option a{
+  color: white;
+}
+.pos-close{
+  
+color: white;
+position: absolute;
+top: 4%;
+right: 5%;
 }

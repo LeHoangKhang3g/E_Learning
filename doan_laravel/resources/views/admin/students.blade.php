@@ -23,7 +23,7 @@
 @section('main')
 <main class=" container wow animate__rubberBand animate__animated animate__backInRight" >
 
-  <div class="d-flex justify-content-between align-items-center mt-3">
+  <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
     <a href="" class="text-dark"><h4>QUẢN LÝ SINH VIÊN</h4></a>
  <a href="{{route('admin-add-student')}}" class="btn btn-primary"><i class="fas fa-user-plus" style="font-size: 22px; color:white"></i></a>
   </div>
