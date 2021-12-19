@@ -16,8 +16,7 @@
     </ul>
     </div> 
     <div class="row">
-   
-  <img src="{{asset('assets/images/avt-user-test.png')}}" alt="user" class="avt-user">
+      @include('partial.account-option',['accountInfo' => $accountInfo])
     </div>
   </nav>
 @endsection
