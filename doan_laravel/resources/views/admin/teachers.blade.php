@@ -26,7 +26,7 @@
 
   <div class="d-flex justify-content-between align-items-center mt-3">
     <a href="" class="text-dark"><h4>QUẢN LÝ GIẢNG VIÊN</h4></a>
- <a href="{{route('admin-add-teacher')}}"><i class="fas fa-user-plus" style="font-size: 22px; color:blue"></i></a>
+ <a href="{{route('admin-add-teacher')}}" class="btn btn-success"><i class="fas fa-user-plus" style="font-size: 22px; color:white"></i></a>
   </div>
 
 <div class="container-fluild">
@@ -37,7 +37,7 @@
             <div class="col-3">
 
             <div class="teacher-box text-center position-relative wow bounceIn">
-              <img src="{{URL::to('/')}}/images/avatar\{{$tc->avatar}}" alt=""  class="avt-teacher">
+              <img src="{{URL::to('/')}}/images/teachers/avatar\{{$tc->avatar}}" alt=""  class="avatar-circle">
                 {{-- <p>{{$tc->id}}</p> --}}
                 <p><b style="font-size: 20px">{{$tc->name}}</b></p>
                 <span class="icon-hidden ">

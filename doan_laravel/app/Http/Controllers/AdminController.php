@@ -27,7 +27,7 @@ class AdminController extends Controller
 
     //TEACHER
     function teachers(){
-        $dsTeacher=Account::all();
+        $dsTeacher=Account::all()->where("account_type_id",2);
         return view('admin.teachers',compact('dsTeacher'));
     }
     function formAddTeacher(){
@@ -51,7 +51,7 @@ class AdminController extends Controller
         $teacher->password =Hash::make($req->password);
         $teacher->name = $req->name;
         $teacher->email = $req->email;
-   
+      
         $image = $req->file('avatar');
         $ex=  $req->file('avatar')->extension();
         $file_name= time() . '.'.$ex;
@@ -81,28 +81,23 @@ class AdminController extends Controller
         }
      
         if($req->hasFile('avatar')){
-            $teacher->code = $req->code;
-            $teacher->username = $req->username;
-     
+            $teacher->username = $req->username;  
             $teacher->name = $req->name;
             $teacher->email = $req->email;
             //avatar
             $image = $req->file('avatar');
             $ex=  $req->file('avatar')->extension();
             $file_name= time() . '.'.$ex;
-            $storedPath = $image->storeAs('images/avatar', $file_name);
+            $storedPath = $image->storeAs('images/teachers/avatar', $file_name);
             $teacher->avatar=$file_name;
             $teacher->save();
         }else{
-            $teacher->code = $req->code;
             $teacher->username = $req->username;
          
             $teacher->name = $req->name;
             $teacher->email = $req->email;
-            $teacher->save();
-            
+            $teacher->save();          
         }
-      
       
         return redirect()->route('admin-teachers');
     }
@@ -126,22 +121,71 @@ class AdminController extends Controller
 
     //STUDENT
     function students(){
-        return view("admin.students");
+        $students=Account::all()->where("account_type_id",3);
+        return view("admin.students",["students"=>$students]);
     }
     function formAddStudent(){
-        return "";
+        $code = 'ST'.Str::random(10);
+        $code = strtoupper($code);
+        while(!isEmpty(Account::where('code',$code))){
+            $code = 'ST'.Str::random(10);
+            $code = strtoupper($code);
+        }
+        return view('admin.add-student',["code"=>$code]);
     }
-    function postAddStudent(){
-        return "";
+    function postAddStudent(AccountRequest $req){
+        $student = new Account();
+        $student->code = $req->code;
+        $student->username = $req->username;
+        $student->password = Hash::make($req->password);
+        $student->name = $req->name;
+        $student->email = $req->email;
+
+        $image = $req->file('avatar');
+        $ex = $image->extension();
+        $image_name = $req->code.'.'.$ex;
+        $image_path = $image->storeAs('images/students/avatar',$image_name);
+        $student->avatar = $image_name;
+        $student->account_type_id=3;
+        $student->save();
+        return redirect()->route('admin-students');
     }
     function formUpdateStudent($id){
-        return "";
+        $student=Account::find($id);
+        return view('admin.update-student',compact('student'));
     }
-    function postUpdateStudent(Request $req){
-        return "";
+    function postUpdateStudent(AccountRequest $req){
+        $student = Account::find($req->id);
+
+        if($req->hasFile('avatar')){
+            $student->username = $req->username;
+     
+            $student->name = $req->name;
+            $student->email = $req->email;
+            
+            $image = $req->file('avatar');
+            $ex=  $req->file('avatar')->extension();
+            $image_name= $student->code.'.'.$ex;
+            $image_path = $image->storeAs('images/students/avatar', $image_name);
+            $student->avatar=$image_name;
+            $student->save();
+        }else{
+            $student->username = $req->username;
+            $student->name = $req->name;
+            $student->email = $req->email;
+            $student->save();          
+        }
+        return redirect()->route('admin-students');
     }
     function deleteStudent($id){
-        return "";
+        $student = Account::find($id);
+
+        if($student==null){
+            return "Không tìm thấy sinh viên có id= {$id}";
+            //ve sau thi cho template cụ thể
+        }
+        $student->delete();
+        return redirect()->route('admin-students');
     }
     function resetPasswordStudent($id){
         return "";

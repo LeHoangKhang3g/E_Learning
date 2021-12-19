@@ -24,8 +24,8 @@
 @section('main')
 <main class=" container wow animate__rubberBand animate__animated animate__backInRight" >
 
-  <div class="d-flex justify-content-between align-items-center">
-    <a href="" class="text-dark">Quản lý lớp học</a>
+  <div class="d-flex justify-content-between align-items-center mt-3">
+    <a href="" class="text-dark"><h4>QUẢN LÝ LỚP HỌC</h4></a>
  <a href="">Thêm lớp học</a>
   </div>
 
