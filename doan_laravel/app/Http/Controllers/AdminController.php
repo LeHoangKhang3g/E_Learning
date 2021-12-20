@@ -11,7 +11,8 @@ use App\Models\Account;
 use App\Models\Classroom;
 use Illuminate\Support\Facades\Hash;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
-
+use App\Mail\SendEmail;
+use Illuminate\Support\Facades\Mail;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -130,7 +131,16 @@ class AdminController extends Controller
         }
         return redirect()->route('admin-teachers');
     }
-    function sendEmailTeacher($id){
+    function formSendEmailTeacher($id){
+
+        $subject="Tiêu đề";
+        $body="Nội dung";
+
+        Mail::to('khangxyz3g@gmail.com')->send(new SendEmail($subject,$body));
+
+        return "Gửi thành công";
+    }
+    function postSendEmailTeacher(Request $req){
         return "";
     }
 
@@ -221,7 +231,10 @@ class AdminController extends Controller
         }
         return redirect()->route('admin-students');
     }
-    function sendEmailStudent($id){
+    function formSendEmailStudent($id){
+        return "";
+    }
+    function postSendEmailStudent(Request $req){
         return "";
     }
 
@@ -237,7 +250,10 @@ class AdminController extends Controller
     function detailClassroom(){
         return '';
     }
-    function sendEmailClassroom(){
+    function formSendEmailClassroom($id){
+        return '';
+    }
+    function postSendEmailClassroom(Request $req){
         return '';
     }
 
