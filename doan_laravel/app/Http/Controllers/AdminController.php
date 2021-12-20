@@ -35,7 +35,7 @@ class AdminController extends Controller
     function teachers(){
         $accountInfo =Auth::user();
         $accountInfo->password = "";
-        $dsTeacher=Account::all()->where("account_type_id",2);
+        $dsTeacher=Account::where("account_type_id",2)->get();
         return view('admin.teachers',compact('dsTeacher','accountInfo'));
     }
     function formAddTeacher(){
@@ -114,11 +114,21 @@ class AdminController extends Controller
             return "Không tìm thấy giảng viên có id= {$id}";
             //ve sau thi cho template cụ thể
         }
-        $teacher->delete();
+        if($student->account_type_id==2){
+            $teacher->delete();
+        }
         return redirect()->route('admin-teachers');
     }
     function resetPasswordTeacher($id){
-        return "";
+        $teacher= Account::find($id);
+        if($teacher==null){
+            return "Không tìm thấy giảng viên có id= {$id}";
+            //ve sau thi cho template cụ thể
+        }
+        if($student->account_type_id==2){
+            $teacher->password=Hash::make('1');
+        }
+        return redirect()->route('admin-teachers');
     }
     function sendEmailTeacher($id){
         return "";
@@ -195,11 +205,21 @@ class AdminController extends Controller
             return "Không tìm thấy sinh viên có id= {$id}";
             //ve sau thi cho template cụ thể
         }
-        $student->delete();
+        if($student->account_type_id==3){
+            $student->delete();
+        }
         return redirect()->route('admin-students');
     }
     function resetPasswordStudent($id){
-        return "";
+        $student= Account::find($id);
+        if($student==null){
+            return "Không tìm thấy sinh có id= {$id}";
+            //ve sau thi cho template cụ thể
+        }
+        if($student->account_type_id==3){
+            $student->password=Hash::make('1');
+        }
+        return redirect()->route('admin-students');
     }
     function sendEmailStudent($id){
         return "";
