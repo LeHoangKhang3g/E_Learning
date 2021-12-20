@@ -49,8 +49,9 @@ Route::middleware('auth','admin')->group(function(){
         Route::get('/teachers/{id}/update',[AdminController::class,'formUpdateTeacher'])->name('admin-update-teacher');
         Route::post('/teachers/{id}/update',[AdminController::class,'postUpdateTeacher'])->name('admin-post-update-teacher');
         Route::get('/teachers/{id}/delete',[AdminController::class,'deleteTeacher'])->name('admin-delete-teacher');
-        Route::get('/teachers/{id}/reset-password',[AdminController::class,'resetPasswordTeacher'])->name('admin-reset-password-teachers');
-        Route::get('/teachers/{id}/send-email',[AdminController::class,'sendEmailTeacher'])->name('admin-send-email-teachers');
+        Route::get('/teachers/{id}/reset-password',[AdminController::class,'resetPasswordTeacher'])->name('admin-reset-password-teacher');
+        Route::get('/teachers/{id}/send-email',[AdminController::class,'formSendEmailTeacher'])->name('admin-send-email-teacher');
+        Route::post('/teachers/{id}/send-email',[AdminController::class,'postSendEmailTeacher'])->name('admin-post-send-email-teacher');
         
 
         Route::get('/students',[AdminController::class,'students'])->name('admin-students');
@@ -60,11 +61,13 @@ Route::middleware('auth','admin')->group(function(){
         Route::post('/students/{id}/update',[AdminController::class,'postUpdateStudent'])->name('admin-post-update-student');
         Route::get('/students/{id}/delete',[AdminController::class,'deleteStudent'])->name('admin-delete-student');
         Route::get('/students/{id}/reset-password',[AdminController::class,'resetPasswordStudent'])->name('admin-reset-password-student');
-        Route::get('/students/{id}/send-email',[AdminController::class,'sendEmailStudent'])->name('admin-send-email-student');
+        Route::get('/students/{id}/send-email',[AdminController::class,'formSendEmailStudent'])->name('admin-send-email-student');
+        Route::post('/students/{id}/send-email',[AdminController::class,'postSendEmailStudent'])->name('admin-post-send-email-student');
 
         Route::get('/classrooms',[AdminController::class,'classrooms'])->name('admin-classrooms');
         Route::get('/classrooms/{id}/detail',[AdminController::class,'detailClassroom'])->name('admin-detail-classrooms');
-        Route::get('/classrooms/{id}/send-email',[AdminController::class,'sendEmailClassroom'])->name('admin-send-email-classroom');
+        Route::get('/classrooms/{id}/send-email',[AdminController::class,'formSendEmailClassroom'])->name('admin-send-email-classroom');
+        Route::post('/classrooms/{id}/send-email',[AdminController::class,'postSendEmailClassroom'])->name('admin-post-send-email-classroom');
     });
 
 });
