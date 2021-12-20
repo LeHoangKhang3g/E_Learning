@@ -24,7 +24,7 @@
 @section('main')
 <main class=" container wow animate__rubberBand animate__animated animate__backInRight" >
 
-  <div class="d-flex justify-content-between align-items-center mt-3">
+  <div class="d-flex justify-content-between align-items-center mt-3 ">
     <a href="" class="text-dark"><h4>QUẢN LÝ LỚP HỌC</h4></a>
    
 
@@ -46,9 +46,9 @@
                 <div class="info-hidden wow bounceIn">
                     <div class="delay">
                       <p>Code: {{$classroom->code}}</p>
-                      <p>Content:{{$classroom->content}}</p>
+                      <p class="content-classroom">{{$classroom->content}}</p>
                     
-                        <a href="{{route('admin-detail-classrooms',['id' => $classroom->id])}}" >   <i class="fa fa-list-ul  btn btn-success" ></i></a>
+                        <a href="{{route('admin-detail-classrooms',['id' => $classroom->id])}}" > <i class="fa fa-list-ul  btn btn-success" ></i></a>
                         
                     </div>
         
