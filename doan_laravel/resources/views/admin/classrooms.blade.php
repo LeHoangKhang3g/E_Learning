@@ -48,7 +48,7 @@
                       <p>Code: {{$classroom->code}}</p>
                       <p>Content:{{$classroom->content}}</p>
                     
-                        <a href="{{route('admin-detail-classrooms',['id' => $classroom->id])}}" >   <i class="fa fa-list-ul  btn btn-success" ></i></a>
+                        <a href="{{route('admin-detail-classrooms',['id' => $classroom->id])}}" >   <i class="fas fa-list-ul  btn btn-success" ></i></a>
                         
                     </div>
         
