@@ -62,7 +62,7 @@ class AdminController extends Controller
         $image = $req->file('avatar');
         $ex=  $req->file('avatar')->extension();
         $file_name= $teacher->code.'.'.$ex;
-        $storedPath = $image->storeAs('images/avatar', $file_name);
+        $storedPath = $image->storeAs('images/teachers/avatar', $file_name);
         $teacher->avatar=$file_name;
         $teacher->account_type_id =2;
         $teacher->save();
