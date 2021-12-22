@@ -115,7 +115,7 @@ class AdminController extends Controller
             return "Không tìm thấy giảng viên có id= {$id}";
             //ve sau thi cho template cụ thể
         }
-        if($student->account_type_id==2){
+        if($teacher->account_type_id==2){
             $teacher->delete();
         }
         return redirect()->route('admin-teachers');
@@ -126,7 +126,7 @@ class AdminController extends Controller
             return "Không tìm thấy giảng viên có id= {$id}";
             //ve sau thi cho template cụ thể
         }
-        if($student->account_type_id==2){
+        if($teacher->account_type_id==2){
             $teacher->password=Hash::make('1');
         }
         return redirect()->route('admin-teachers');

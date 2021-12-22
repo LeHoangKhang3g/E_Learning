@@ -47,12 +47,12 @@
                     <div class="delay">
                       <p>Code: {{$classroom->code}}</p>
                       <p class="content-classroom">{{$classroom->content}}</p>
-                    
+                      <div class="pos-icon-bot d-flex">
                         <a href="{{route('admin-detail-classrooms',['id' => $classroom->id])}}" > <i class="fa fa-list-ul  btn btn-success" ></i></a>
-                        
+                        <a href="{{route('admin-send-email-classroom',['id' => $classroom->id])}}" > <i class="fas fa-envelope btn btn-success"></i></a>
+                        <a href="#" > <i class="fas fa-lock btn btn-success"></i></a>
+                      </div>
                     </div>
-        
-               
                 </div> 
 
             </div>

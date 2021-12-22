@@ -20,10 +20,19 @@
         <input type="text" name="username"class="form-control" placeholder="Nhập tài khoản" value="" required>
       
       </div>
+
+      @error('username')
+      <span class="err-message-sigin">{{$message}}</span>
+      @enderror 
       <div class="mb-3 text-start">
         <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
-        <input type="password" name="password" class="form-control" placeholder="Nhập mật khẩu"  value="" required>
+        <input type="password" name="password" class="form-control mb-2" placeholder="Nhập mật khẩu"  value="" >
+        
+        @error('password')
+        <span class="err-message-sigin-pass">{{$message}}</span>
+    @enderror   
       </div>
+   
       <button type="submit" class="btn btn-success mt-3">Đăng nhập</button>
     </form>
   </div>

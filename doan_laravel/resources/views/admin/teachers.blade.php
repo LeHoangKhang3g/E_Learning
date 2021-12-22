@@ -48,10 +48,14 @@
                       <p><b>USERNAME</b>:{{$tc->username}}</p>
                      
                       <p>{{$tc->email}}</p>
-         
+                      <div class="pos-icon-bot d-flex">
                         <a href="{{route('admin-update-teacher',['id' => $tc->id])}}" >   <i class="fas fa-cog  btn btn-success" ></i></a>
-                 
+                        <a href="{{route('admin-send-email-teacher',['id' => $tc->id])}}" > <i class="fas fa-envelope btn btn-success"></i></a>
+                        <a href="{{route('admin-reset-password-teacher',['id' => $tc->id])}}" > <i class="fas fa-key btn btn-success"></i></a>
+
                         <a href="{{route('admin-delete-teacher',['id' => $tc->id])}}" > <i class="fas fa-trash btn btn-danger"></i></a>
+                      </div>
+                      
                     </div>
         
                
