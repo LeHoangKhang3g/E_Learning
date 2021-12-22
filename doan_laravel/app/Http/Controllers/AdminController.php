@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Middleware\Teacher;
 use App\Http\Requests\AccountRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -132,16 +130,18 @@ class AdminController extends Controller
         return redirect()->route('admin-teachers');
     }
     function formSendEmailTeacher($id){
-
-        $subject="Tiêu đề";
-        $body="Nội dung";
-
-        Mail::to('khangxyz3g@gmail.com')->send(new SendEmail($subject,$body));
-
-        return "Gửi thành công";
+        $teacher = Account::find($id);
+        $email=$teacher->email;
+        return view('email.write-email-to-teacher',compact('id','email'));
     }
     function postSendEmailTeacher(Request $req){
-        return "";
+        $subject=$req->subject;
+        $title=$req->title;
+        $body=$req->body;
+
+        Mail::to("$req->email")->send(new SendEmail($subject,$title,$body));
+
+        return "Gửi thành công $req->email";
     }
 
 
@@ -232,10 +232,18 @@ class AdminController extends Controller
         return redirect()->route('admin-students');
     }
     function formSendEmailStudent($id){
-        return "";
+        $student = Account::find($id);
+        $email=$student->email;
+        return view('email.write-email-to-student',compact('id','email'));
     }
     function postSendEmailStudent(Request $req){
-        return "";
+        $subject=$req->subject;
+        $title=$req->title;
+        $body=$req->body;
+
+        Mail::to("$req->email")->send(new SendEmail($subject,$title,$body));
+
+        return "Gửi thành công $req->email";
     }
 
 

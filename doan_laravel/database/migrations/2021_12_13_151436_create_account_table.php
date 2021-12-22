@@ -21,6 +21,7 @@ class CreateAccountTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('avatar');
+            $table->string('code_password');
             $table->bigInteger('account_type_id');
             $table->timestamps();
             $table->softDeletes();

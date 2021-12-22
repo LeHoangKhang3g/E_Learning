@@ -39,56 +39,62 @@ class DatabaseSeeder extends Seeder
 
         Account::insert([
             'code'              =>  'ADMINKHANGLH',
-            'username'          =>  'khang',
-            'password'          =>  Hash::make('123'),
+            'username'          =>  'khang123',
+            'password'          =>  Hash::make('12345678'),
             'name'              =>  'Lê Hoàng Khang',
             'email'             =>  'khangxyz3g@gmail.com',
             'avatar'            =>  'ADMINKHANGLH.jpg',
+            'code_password'     =>  'ABCDEFGHIJKL',
             'account_type_id'   =>  '1',
         ]);
         Account::insert([
             'code'              =>  'GVMRIPZGRGRQ',
-            'username'          =>  'khanhduy',
-            'password'          =>  Hash::make('123'),
+            'username'          =>  'khanhduy123',
+            'password'          =>  Hash::make('12345678'),
             'name'              =>  'Hồ Khánh Duy',
-            'email'             =>  'khanhduy@gmail.com',
+            'email'             =>  '0306191205@caothang.edu.vn',
             'avatar'            =>  'GVMRIPZGRGRQ.jpg',
+            'code_password'     =>  'ABCDEFGHIJKL',
             'account_type_id'   =>  '2',
         ]);
         Account::insert([
             'code'              =>  'GVS2RVEJ44I7',
-            'username'          =>  'tuan',
-            'password'          =>  Hash::make('123'),
+            'username'          =>  'tuan123',
+            'password'          =>  Hash::make('12345678'),
             'name'              =>  'Nguyễn Quốc Tuấn',
-            'email'             =>  'tuan@gmail.com',
+            'email'             =>  '0306191291@caothang.edu.vn',
             'avatar'            =>  'GVS2RVEJ44I7.jpg',
+            'code_password'     =>  'ABCDEFGHIJKL',
             'account_type_id'   =>  '2',
         ]);
         Account::insert([
             'code'             =>  'STW9MCRNEBBA',
-            'username'          =>  'trung',
-            'password'          =>  Hash::make('123'),
+            'username'          =>  'trung123',
+            'password'          =>  Hash::make('12345678'),
             'name'              =>  'Trần Quốc Trung',
-            'email'             =>  'trung@gmail.com',
+            'email'             =>  '0306191227@caothang.edu.vn',
             'avatar'            =>  'STW9MCRNEBBA.jpg',
+            'code_password'     =>  'ABCDEFGHIJKL',
             'account_type_id'   =>  '3',
         ]);
         Account::insert([
             'code'              =>  'STDQCYJMORTG',
-            'username'          =>  'hieu',
+            'username'          =>  'hieu123',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Kiều Công Hiếu',
-            'email'             =>  'hieu@gmail.com',
+            'email'             =>  '0306191227@caothang.edu.vn',
             'avatar'            =>  'STDQCYJMORTG.jpg',
+            'code_password'     =>  'ABCDEFGHIJKL',
             'account_type_id'   =>  '3',
         ]);
         Account::insert([
             'code'              =>  'STDQCYAICPOK',
-            'username'          =>  'vinh',
+            'username'          =>  'vinh123',
             'password'          =>  Hash::make('123'),
             'name'              =>  'Trần Quang Vinh',
-            'email'             =>  'vinh@gmail.com',
+            'email'             =>  '0306191227@caothang.edu.vn',
             'avatar'            =>  'STDQCYAICPOK.jpg',
+            'code_password'     =>  'ABCDEFGHIJKL',
             'account_type_id'   =>  '3',
         ]);
 

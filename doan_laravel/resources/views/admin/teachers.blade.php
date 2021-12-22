@@ -31,7 +31,6 @@
 <div class="container-fluild">
   <div class="row">
     @forelse($dsTeacher as $tc)
-         
             @if($tc->account_type_id==2)
             <div class="col-3">
 

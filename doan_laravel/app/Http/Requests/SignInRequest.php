@@ -37,7 +37,7 @@ class SignInRequest extends FormRequest
             'password.required'=>   "Chưa nhập mật khẩu",   
             'password.min'     =>   "Mật khẩu nhập phải lớn hơn 1 ký tự",
             'password.max'     =>   "Mật khẩu nhập phải bé hơn 20 ký tự",
-           
+     
         ];
     }
 }
