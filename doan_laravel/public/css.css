@@ -540,3 +540,11 @@ right: 5%;
   transform: translate(-50%,-50%);
   margin: auto;
 }
+.err-message-sigin{
+  color: red;
+  margin-left: -200px;
+}
+.err-message-sigin-pass{
+  color: red;
+margin-left:3px;
+}

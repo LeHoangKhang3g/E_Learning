@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SignInRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,7 +11,7 @@ class SignInController extends Controller
     function formSignIn(){
         return view('sign-in');
     }
-    function postSignIn(Request $req){
+    function postSignIn(SignInRequest $req){
         
         if (Auth::attempt(['username' => $req->username, 'password' => $req->password]))
         {
