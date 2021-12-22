@@ -293,6 +293,7 @@ width: 19%;
 .delay{
   transition: 1s;
   opacity: 0;
+
 }
 .teacher-box:hover  .delay{
   transition: 1s;
@@ -493,7 +494,8 @@ width: 19%;
    margin-top: -15px;
  }
 .delay .svg-inline--fa {
-  width: 30%;
+  width: 35%;
+  margin-right: 30px;
 }
 .content-classroom{
   text-overflow: ellipsis;
@@ -529,4 +531,12 @@ color: white;
 position: absolute;
 top: 4%;
 right: 5%;
+}
+.pos-icon-bot{
+  position: absolute;
+  top: 95%;
+  left: 50%;
+
+  transform: translate(-50%,-50%);
+  margin: auto;
 }

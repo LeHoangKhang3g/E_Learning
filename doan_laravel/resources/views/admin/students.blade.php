@@ -48,15 +48,15 @@
                       <p>Username:{{$student->username}}</p>
                      
                       <p>{{$student->email}}</p>
-         
+                      <div class="pos-icon-bot d-flex">
                         <a href="{{route('admin-update-student',['id' => $student->id])}}" >   <i class="fas fa-cog  btn btn-success" ></i></a>
-                 
-                        <a href="{{route('admin-delete-student',['id' => $student->id])}}" > <i class="fas fa-trash btn btn-danger"></i></a>
-                    </div>
-        
-               
-                </div> 
+                        <a href="{{route('admin-send-email-student',['id' => $student->id])}}" > <i class="fas fa-envelope btn btn-success"></i></a>
+                        <a href="{{route('admin-reset-password-student',['id' => $student->id])}}" > <i class="fas fa-key btn btn-success"></i></a>
 
+                        <a href="{{route('admin-delete-student',['id' => $student->id])}}" > <i class="fas fa-trash btn btn-danger"></i></a>
+                      </div>      
+                    </div>
+                </div> 
             </div>
           </div>
           @endif
