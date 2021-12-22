@@ -12,15 +12,17 @@ class SendEmail extends Mailable
     use Queueable, SerializesModels;
 
     public $subject;
+    public $title;
     public $body;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($subject,$body)
+    public function __construct($subject,$title,$body)
     {
         $this->subject=$subject;
+        $this->title=$title;
         $this->body=$body;
     }
 
