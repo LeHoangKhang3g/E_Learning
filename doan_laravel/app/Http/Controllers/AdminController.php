@@ -57,8 +57,9 @@ class AdminController extends Controller
         $teacher->password =Hash::make($req->password);
         $teacher->name = $req->name;
         $teacher->email = $req->email;
-      
+         $teacher->code_password = "ABCDEFGHIJKL";
         $image = $req->file('avatar');
+
         $ex=  $req->file('avatar')->extension();
         $file_name= $teacher->code.'.'.$ex;
         $storedPath = $image->storeAs('images/teachers/avatar', $file_name);
@@ -171,7 +172,7 @@ class AdminController extends Controller
         $student->password = Hash::make($req->password);
         $student->name = $req->name;
         $student->email = $req->email;
-
+        $student->code_password = "ABCDEFGHIJKL";
         $image = $req->file('avatar');
         $ex = $image->extension();
         $image_name = $student->code.'.'.$ex;

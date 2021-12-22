@@ -80,7 +80,7 @@ class DatabaseSeeder extends Seeder
         Account::insert([
             'code'              =>  'STDQCYJMORTG',
             'username'          =>  'hieu123',
-            'password'          =>  Hash::make('123'),
+            'password'          =>  Hash::make('12345678'),
             'name'              =>  'Kiều Công Hiếu',
             'email'             =>  '0306191227@caothang.edu.vn',
             'avatar'            =>  'STDQCYJMORTG.jpg',
@@ -90,7 +90,7 @@ class DatabaseSeeder extends Seeder
         Account::insert([
             'code'              =>  'STDQCYAICPOK',
             'username'          =>  'vinh123',
-            'password'          =>  Hash::make('123'),
+            'password'          =>  Hash::make('12345678'),
             'name'              =>  'Trần Quang Vinh',
             'email'             =>  '0306191227@caothang.edu.vn',
             'avatar'            =>  'STDQCYAICPOK.jpg',
