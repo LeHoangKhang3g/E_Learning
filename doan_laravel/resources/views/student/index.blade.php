@@ -25,9 +25,7 @@
 @section('main')
 <form action="{{route('student-post-join-classroom')}}" method="post"> 
 @csrf
-      <input  name="malop" type="text" value=""
-                            
-                            placeholder="Mời bạn nhập Mã lớp"        autofocus ><button type="submit">Them</button>
+   
      </form>
 
 <main class="p-5 container-fluid mt-3" >

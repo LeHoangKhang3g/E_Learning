@@ -9,7 +9,19 @@
 @elseif($accountInfo->account_type_id==2)
     <img src="{{URL::to('/')}}/images/teachers/avatar\{{$accountInfo->avatar}}" alt="user" class="avt-user" onclick="showInfoOptions();">
 @elseif($accountInfo->account_type_id==3)
+<div class="d-flex">
+    {{-- <input   type="text" value=""placeholder="Mời bạn nhập Mã lớp" class="input-join-class">
+    <button type="submit"  class="btn btn-success">JOIN</button>
+     --}}
+    <div class="input-group mx-3">
+        <input class="form-control width100" name="malop" placeholder="Mời bạn nhập Mã lớp">
+        <span class="input-group-btn">
+            <button class="btn btn-info" style="submit">JOIN</button>
+        </span>
+        
+    </div>
     <img src="{{URL::to('/')}}/images/students/avatar\{{$accountInfo->avatar}}" alt="user" class="avt-user" onclick="showInfoOptions();">
+</div>
 @endif
 <div id="info-option" class="backInUp">
     <ul class="list-unstyled">
