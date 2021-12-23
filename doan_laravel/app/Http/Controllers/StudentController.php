@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Account;
 
 class StudentController extends Controller
 {
@@ -19,6 +20,9 @@ class StudentController extends Controller
         return redirect()->route('index');
     }
 
+    function classrooms(){
+        return "";
+    }
     function formUpdateProfile(){
         return "";
     }
