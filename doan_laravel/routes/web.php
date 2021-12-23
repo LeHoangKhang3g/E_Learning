@@ -110,9 +110,11 @@ Route::middleware('auth','student')->group(function(){
         Route::get('/change-password',[StudentController::class,'formChangePassword'])->name('student-change-password');
         Route::post('/change-password',[StudentController::class,'postChangePassword'])->name('student-post-change-password');
 
-        Route::get('/john-classroom',[StudentController::class,'formJohnClassroom'])->name('student-john-classroom');
-        Route::post('/john-classroom',[StudentController::class,'postJohnClassroom'])->name('student-post-john-classroom');
+        Route::get('/join-classroom',[StudentController::class,'formJoinClassroom'])->name('student-join-classroom');
+        Route::post('/join-classroom',[StudentController::class,'postJoinClassroom'])->name('student-post-join-classroom');
+        
     });
+
     
 });
 

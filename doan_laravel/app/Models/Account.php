@@ -16,7 +16,7 @@ class Account extends  Authenticatable
     }
 
     public function classrooms(){
-        return $this->belongsToMany('App\Models\Classroom','classroom_student');
+        return $this->belongsToMany('App\Models\Classroom','classroom_student','student_id','classroom_id');
     }
 
     public function classroomWaits(){
