@@ -10,7 +10,7 @@
     <p class="gradient">ADMIN - ADD CLASSROOM</p>
    </div>
  </div>
-  <form method="POST" action="{{route('formUpAddClassroom')}}" enctype="multipart/form-data">
+  <form method="POST" action="{{route('teacher-post-add-classroom')}}" enctype="multipart/form-data">
     @csrf
     <div class="row">
       <div class="col-4 text-end">
@@ -32,11 +32,9 @@
             
           </div>
           <div class="col-10">
-            <input type="text" name="username" required class="input-add-teacher">
+            <input type="text" name="class_name" required class="input-add-teacher">
           </div>
-          @error('username')
-              <span class="err-message">{{$message}}</span>
-          @enderror
+
         </div>
         <div class="row mb-4">
           <div class="col-2">
@@ -44,25 +42,20 @@
             
           </div>
           <div class="col-10">
-            <input type="text" name="noidung" required class="input-add-teacher">
+            <input type="text" name="content" required class="input-add-teacher">
           </div>
-          @error('password')
-          <span class="err-message">{{$message}}</span>
-      @enderror
+
         </div>
         <div class="row mb-4">
           <div class="col-2">
-            <p class="field-add-teacher">Điểm</p>
+            <p class="field-add-teacher">Bảng điểm</p>
             
           </div>
           <div class="col-10">
-            <input type="text" name="name" required class="input-add-teacher">
+            <input type="text" name="point_table" required class="input-add-teacher">
           </div>
        
-          @error('name')
-       
-          <span class="err-message">{{$message}}</span> 
-        @enderror
+
         </div>
       
         
@@ -74,11 +67,9 @@
           </div>
           <div class="col-10">
            
-          <input type="file" name="avatar" required style="margin-top: 15px">
+          <input type="file" name="background" required style="margin-top: 15px">
           </div>
-          @error('avatar')
-          <span class="err-message">{{ $message}} </span>
-         @enderror
+
         </div>
         <div class="row">
           <div class="col-6 text-center">

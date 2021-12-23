@@ -20,6 +20,7 @@
  
     @yield('sign-in')
     @yield('sign-up')
+    @yield('send-email')
 
   <script src="{{asset('frontend/js/jquery-min.js')}}"></script>
 
