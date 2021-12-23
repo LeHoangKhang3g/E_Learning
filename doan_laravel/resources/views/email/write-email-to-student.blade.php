@@ -1,12 +1,12 @@
-@extends('index')
+@extends('admin.students')
 
-@section('sign-in')
+@section('send-email')
 
 <div id="overlay">
   <div class="form-signin position-absolute top-50 start-50 translate-middle">
     <form action="{{route('admin-post-send-email-student',['id'=>$id, 'email'=>$email])}}" method="POST">    
       <div class="text-end">
-        <a href="{{route('index')}}">
+        <a href="{{route('admin-students')}}">
             <i class="fas fa-times" style="font-size: 25px"></i>
         </a>
       </div>

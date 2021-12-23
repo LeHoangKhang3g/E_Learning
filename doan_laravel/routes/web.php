@@ -103,6 +103,8 @@ Route::middleware('auth','student')->group(function(){
         Route::get('/',[StudentController::class,'index'])->name('student');
         Route::get('/sign-out',[StudentController::class,'signOut'])->name('student-sign-out');
 
+        Route::get('/classrooms',[TeacherController::class,'classrooms'])->name('student-classrooms');
+
         Route::get('/update-profile',[StudentController::class,'formUpdateProfile'])->name('student-update-profile');
         Route::post('/update-profile',[StudentController::class,'postUpdateProfile'])->name('student-post-update-profile');
         Route::get('/change-password',[StudentController::class,'formChangePassword'])->name('student-change-password');

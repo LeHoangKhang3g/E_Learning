@@ -16,6 +16,7 @@ use function PHPUnit\Framework\isEmpty;
 
 class AdminController extends Controller
 {
+    public $accountInfo;
     function index(){
 
         $accountInfo =Auth::user();
@@ -133,7 +134,13 @@ class AdminController extends Controller
     function formSendEmailTeacher($id){
         $teacher = Account::find($id);
         $email=$teacher->email;
-        return view('email.write-email-to-teacher',compact('id','email'));
+
+        $accountInfo =Auth::user();
+        $accountInfo->password = "";
+
+        $dsTeacher=Account::where("account_type_id",2)->get();
+
+        return view('email.write-email-to-teacher',compact('id','email','accountInfo','dsTeacher'));
     }
     function postSendEmailTeacher(Request $req){
         $subject=$req->subject;
@@ -235,7 +242,12 @@ class AdminController extends Controller
     function formSendEmailStudent($id){
         $student = Account::find($id);
         $email=$student->email;
-        return view('email.write-email-to-student',compact('id','email'));
+
+        $accountInfo =Auth::user();
+        $accountInfo->password = "";
+
+        $students=Account::where("account_type_id",3)->get();
+        return view('email.write-email-to-student',compact('id','email','accountInfo','students'));
     }
     function postSendEmailStudent(Request $req){
         $subject=$req->subject;

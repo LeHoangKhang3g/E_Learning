@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Classroom;
+use Illuminate\Support\Str;
+
+use function PHPUnit\Framework\isEmpty;
 
 class TeacherController extends Controller
 {
@@ -37,7 +41,11 @@ class TeacherController extends Controller
 
 
     function classrooms(){
-        return "";
+        $accountInfo =Auth::user();
+        $accountInfo->password="********";
+        $dsClassroom=Classroom::where('teacher_id',$accountInfo->id)->get();
+    
+        return  view('teacher.classrooms',compact('dsClassroom','accountInfo'));
     }
     function formAddClassroom(){
         $code='';
@@ -50,26 +58,26 @@ class TeacherController extends Controller
             }
         }
 
-    return view('admin.add-classroom',compact('code'));
+    return view('teacher.add-classroom',compact('code'));
 
     }
     function postAddClassroom(Request $request){
-        $hi =new Classroom;
-        $hi->teacher_id=1;
-        $hi->class_name=$request->username;
-        $hi->code=$request->code;
-        $hi->content=$request->noidung;
-        $hi->point_table=$request->name;
+        $classroom =new Classroom;
+        $classroom->teacher_id=Auth::user()->id;
+        $classroom->class_name=$request->class_name;
+        $classroom->code=$request->code;
+        $classroom->content=$request->content;
+        $classroom->point_table=$request->point_table;
 
-        $image=$request->file('avatar');
-        $duoi=$request->file('avatar')->extension();
-        $file_name=$hi.'.'.$duoi;
-        $path = $image->storeAs('images',$file_name);
-        $hi->background=$file_name;
-        $hi->save();
+        $image=$request->file('background');
+        $ex=$request->file('background')->extension();
+        $file_name=$classroom->code.'.'.$ex;
+        $path = $image->storeAs('images/classrooms/background',$file_name);
+        $classroom->background=$file_name;
+        $classroom->save();
 
 
-        return redirect()->route ('admin-classrooms');
+        return redirect()->route ('teacher-classrooms');
     }
     function formUpdateClassroom($id){
 
@@ -79,7 +87,7 @@ class TeacherController extends Controller
             //ve sau thi cho template cụ thể
         }
 
-        return view('admin.update-classroom',compact('classroom'));
+        return view('teacher.update-classroom',compact('classroom'));
     }
     function postUpdateClassroom(Request $request){
       
@@ -97,8 +105,8 @@ class TeacherController extends Controller
             //avatar
             $image = $request->file('avatar');
             $ex=  $request->file('avatar')->extension();
-            $file_name= time() . '.'.$ex;
-            $storedPath = $image->storeAs('images', $file_name);
+            $file_name= $classroom->code.'.'.$ex;
+            $storedPath = $image->storeAs('images/classrooms/background', $file_name);
             $classroom->background=$file_name;
             $classroom->save();
         }else{
@@ -108,7 +116,7 @@ class TeacherController extends Controller
             $classroom->save();          
         }
       
-        return redirect()->route('admin-classrooms');
+        return redirect()->route('teacher-classrooms');
     }
     function deleteClassroom($id){
         $classroom = Classroom::find($id);
@@ -118,7 +126,7 @@ class TeacherController extends Controller
             //ve sau thi cho template cụ thể
         }
         $classroom->delete();
-        return redirect()->route('admin-classrooms');
+        return redirect()->route('teacher-classrooms');
     }
     function studentsWait($id){
         return "";
