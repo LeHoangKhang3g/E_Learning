@@ -30,9 +30,9 @@
 
 <main class="p-5 container-fluid mt-3" >
  
+<div class="row ">
 @foreach($classrooms as $p)
 
-<div class="row ">
   
   <div class=" col-custom-3 mb-5 bg-course-student mx-2" >
     <div class="card h-90 border-0 " >
@@ -64,8 +64,9 @@
       </div>
     </div>
   </div>
+
   @endforeach
- 
+</div>
     
   </main>
 @endsection
