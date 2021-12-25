@@ -38,6 +38,7 @@
               <img src="{{URL::to('/')}}/images/teachers/avatar\{{$tc->avatar}}" alt=""  class="avatar-circle">
                 {{-- <p>{{$tc->id}}</p> --}}
                 <p><b style="font-size: 20px">{{$tc->name}}</b></p>
+            
                 <span class="icon-hidden ">
             
                 </span>

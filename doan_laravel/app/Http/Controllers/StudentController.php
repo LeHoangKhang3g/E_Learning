@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Account;
 use App\Models\ClassroomStudent;
 use App\Models\Classroom;
+use App\Models\StudentWait;
 
+use function PHPUnit\Framework\isEmpty;
 
 class StudentController extends Controller
 {
@@ -15,9 +18,20 @@ class StudentController extends Controller
         
         $accountInfo =Auth::user();
         $accountInfo->password = ""; 
-         $classrooms=Auth::user()->classrooms;
-        
-        return view('student.index',["accountInfo"=>$accountInfo],compact('classrooms'));
+        $classroom_student  =  ClassroomStudent::where('student_id',$accountInfo->id)->get();
+        // $classroom_student= Account::find($accountInfo->id)->classrooms();
+        $classrooms=[];
+        $teachers = [];
+        foreach($classroom_student as $ct){
+    
+            $classroom=Classroom::find($ct->classroom_id);
+            $teacher=Account::find($classroom->teacher_id);
+            array_push($classrooms,$classroom); 
+            $teachers[$classroom->id] = $teacher;
+        }     
+      
+   
+        return view('student.index',["accountInfo"=>$accountInfo],compact('classrooms','teachers'));
     }
     
     function signOut(){
@@ -41,18 +55,37 @@ class StudentController extends Controller
     function postChangePassword(){
         return "";
     }
-
-
-    function formJoinClassroom(){
-        return "";
-    }
+    // function formJoinClassroom(){
+    //     return "";
+    // }
     function postJoinClassroom(Request $req){
         $user = Auth::user();
-        $students=Classroom::where ("code","$req->malop")->first();
-        $addstudent=new ClassroomStudent(); 
-        $addstudent->student_id=$user->id;
-        $addstudent->classroom_id=$students->id;
-        $addstudent->save();
+        $classroom=Classroom::where ("code","$req->malop")->first();
+        if( $classroom!=null)
+        {
+
+          if(empty(StudentWait::where('student_id',Auth::user()->id)->where('classroom_id',$classroom->id)->get())){
+            if(empty(ClassroomStudent::where('student_id',Auth::user()->id)->where('classroom_id',$classroom->id)->get()))
+            {
+                $addstudent=new StudentWait();
+                $addstudent->student_id=$user->id;
+                $addstudent->classroom_id= $classroom->id;
+                $addstudent->save();
+            }
+            else{
+                return "Lop hoc da ton tai";
+            }
+          }
+          else
+          {
+            return "Lop hoc da ton tai trong phong cho";
+          }
+    
+        }
+        else{
+            return "Khong co ma lop";
+        }
+        
         return redirect()->route('index');
 
     }

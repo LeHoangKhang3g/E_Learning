@@ -57,15 +57,12 @@
        
 
         </div>
-      
-        
-        </div>
         <div class="row mb-4">
           <div class="col-2">
             <p class="field-add-teacher">Hình nền:</p>
             
           </div>
-          <div class="col-10">
+          <div class="col-10 mt-1">
            
           <input type="file" name="background" required style="margin-top: 15px">
           </div>
@@ -76,6 +73,9 @@
             <button type="submit" class="btn btn-add-teacher" >ADD</button>
           </div>
         </div>
+        </div>
+    
+       
       </div>
   </form>
 </div>

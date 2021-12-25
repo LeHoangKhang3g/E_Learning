@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Classroom;
+use App\Models\StudentWait;
 use Illuminate\Support\Str;
 
 use function PHPUnit\Framework\isEmpty;
@@ -129,7 +131,22 @@ class TeacherController extends Controller
         return redirect()->route('teacher-classrooms');
     }
     function studentsWait($id){
-        return "";
+        $students = StudentWait::where('classroom_id',$id)->get();
+        $infoStudent=[];
+        $accounts=Account::all();
+        foreach($accounts as $ac)
+        {
+            foreach($students as $sd)
+            {
+               
+                if($ac->id==$sd->student_id)
+                {
+                    $infoStudent[]  = Account::where('id',$sd->student_id)->first();
+                }
+            }
+              
+        }
+        return view('teacher.student-wait',compact('infoStudent'));
     }
     function addStudentsWait($classroom_id,$student_wait_id){
         return "";

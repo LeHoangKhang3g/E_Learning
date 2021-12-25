@@ -9,8 +9,8 @@
      <div class="row nav-option">
       <ul class="list-unstyled">
         <li class="d-inline"><a href="#">HOME</a></li>
-        <li class="d-inline"><a href="{{route('teacher-classrooms')}}">TEACHERS</a></li>
-        <li class="d-inline"><a href="#">COURSES</a></li>
+   
+        <li class="d-inline "><a href="#">COURSES</a></li>
         <li class="d-inline"><a href="#">ABOUT</a></li>
         <li class="d-inline"><a href="#">CONTACT</a></li>
         
@@ -36,6 +36,7 @@
          
             
             <div class="col-3">
+              <a href="{{route('teacher-students-wait',['id'=>$classroom->id])}}">xem danh sach cho</a>
 
             <div class="classroom-box text-center position-relative wow bounceIn">
               <img src="{{URL::to('/')}}/images/classrooms/background/{{$classroom->background}}" alt=""  class="avatar-circle">

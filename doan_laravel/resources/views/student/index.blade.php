@@ -23,10 +23,7 @@
   </nav>
 @endsection
 @section('main')
-<form action="{{route('student-post-join-classroom')}}" method="post"> 
-@csrf
-   
-     </form>
+
 
 <main class="p-5 container-fluid mt-3" >
  
@@ -37,16 +34,16 @@
   <div class=" col-custom-3 mb-5 bg-course-student mx-2" >
     <div class="card h-90 border-0 " >
     <div class="position-relative">
-      <img  src="{{asset('assets/images/course-1.jpg')}}" class="card-img-top" alt="...">
+      <img  src="{{asset('images/classrooms/background/'.$p->background)}}" class="card-img-top" alt="...">
    
       <div class="position-avt">
-        <img src="{{asset('assets/images/avt-user-test.png')}}" alt=""  class="avt-user"> 
+        <img src="{{asset('images/teachers/avatar/'.$teachers[$p->id]->avatar)}}" alt=""  class="avt-user"> 
          </div>
     </div>
       <div class="card-body bg-none">
         <p ><h5 class="  text-truncate">Môn học:{{$p->class_name}}</h5></p>
         {{-- <h5 class="card-title  text-truncate " style="width: 300px"><b><i>Tư duy kỹ năng lập trìnhssssssssss</i></b></h5> --}}
-        <p class="text-center"><strong>Giáo viên: Trần Thanh Tuấn</strong></p>
+        <p class="text-center"><strong>Giáo viên: {{$teachers[$p->id]->name}}</strong></p>
         <p class="card-text  intro-course "><small>Nội dung:{{$p->content}} </small></p>
        <hr>
        <div class="d-flex justify-content-between align-items-center "> 
