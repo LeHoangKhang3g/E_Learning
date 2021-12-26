@@ -13,10 +13,13 @@ a{
   height: 80px;
 }
 .avt-user{
-  width: 90px;
+  width: 50px;
   height: 50px;
-  margin-top: -15px;
+  border: 1px solid black;
+  margin-top: -12px;
+  object-fit: cover;
   border-radius: 100%;
+  margin-left: 10px;
 }
 /* .nav-left{
   margin-left: -40px;
@@ -547,4 +550,21 @@ right: 5%;
 .err-message-sigin-pass{
   color: red;
 margin-left:3px;
+}
+.input-join-class{
+ border: 1px solid cyan;
+  color: black;
+  margin-top: 13px;
+  width: 300px;
+  background-color: gray;
+  height: 37px;
+}
+.icon-detail-class{
+  font-size: 30px;
+  background-color: #9a9ba0;
+  border-radius: 100%;
+  color: orange;
+}
+.bg-01{
+background-color: #e4e4e6;
 }

@@ -36,8 +36,9 @@
             
             <div class="col-3">
 
-            <div class="classroom-box text-center position-relative wow bounceIn">
-              <img src="{{URL::to('/')}}/images/classrooms/background/{{$classroom->background}}" alt=""  class="avatar-circle">
+            <div class="classroom-box text-center position-relative wow bounceIn" style="border: none">
+              <img src="{{URL::to('/')}}/images/classrooms/background/{{$classroom->background}}" alt=""  style="width: 100%;height:220px;object-fit:cover;
+              border-radius:10px 10px 0px 0px">
 
                 <p><b style="font-size: 20px">{{$classroom->class_name}}</b></p>
                 <span class="icon-hidden ">
@@ -47,6 +48,7 @@
                     <div class="delay">
                       <p>Code: {{$classroom->code}}</p>
                       <p class="content-classroom">{{$classroom->content}}</p>
+              
                       <div class="pos-icon-bot d-flex">
                         <a href="{{route('admin-detail-classrooms',['id' => $classroom->id])}}" > <i class="fa fa-list-ul  btn btn-success" ></i></a>
                         <a href="{{route('admin-send-email-classroom',['id' => $classroom->id])}}" > <i class="fas fa-envelope btn btn-success"></i></a>

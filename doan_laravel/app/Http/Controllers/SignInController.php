@@ -30,7 +30,7 @@ class SignInController extends Controller
         }
         else
         {
-            return redirect()->route('sign-in');
+            return redirect()->route('sign-in')->with('error','Đăng nhập thất bại');   
         }
     }
 }

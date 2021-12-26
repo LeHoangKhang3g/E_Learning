@@ -127,8 +127,10 @@ class AdminController extends Controller
             //ve sau thi cho template cụ thể
         }
         if($teacher->account_type_id==2){
-            $teacher->password=Hash::make('1');
+            $teacher->password=Hash::make('987654321');
+            $teacher->save();
         }
+
         return redirect()->route('admin-teachers');
     }
     function formSendEmailTeacher($id){
@@ -235,7 +237,8 @@ class AdminController extends Controller
             //ve sau thi cho template cụ thể
         }
         if($student->account_type_id==3){
-            $student->password=Hash::make('1');
+            $student->password=Hash::make('987654321');
+            $student->save();
         }
         return redirect()->route('admin-students');
     }
@@ -265,11 +268,15 @@ class AdminController extends Controller
     function classrooms(){
         $accountInfo =Auth::user();
         $dsClassroom=Classroom::all();
-    
+
         return  view('admin.classrooms',compact('dsClassroom','accountInfo'));
     }
-    function detailClassroom(){
-        return '';
+    function detailClassroom($id){
+        $classroom = Classroom::find($id);
+    
+        $infoTeacher=Account::find($classroom->teacher_id);
+     
+        return view('admin.detail-classroom',compact('classroom','infoTeacher'));
     }
     function formSendEmailClassroom($id){
         return '';

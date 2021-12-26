@@ -19,7 +19,7 @@
     <div class="row">
       <ul class="list-unstyled d-flex">
        <li>
-         <a href="{{route('sign-in')}}">sign in</a>
+         <a href="{{route('sign-in')}}" class="btn btn-success mt-3">SIGN IN</a>
         </li> 
         {{-- <li>
           <a href="{{route('sign-up')}}">sign up</a>

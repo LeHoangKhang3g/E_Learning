@@ -9,8 +9,8 @@
      <div class="row nav-option">
       <ul class="list-unstyled">
         <li class="d-inline"><a href="#">HOME</a></li>
-        <li class="d-inline"><a href="{{route('teacher-classrooms')}}">TEACHERS</a></li>
-        <li class="d-inline"><a href="#">COURSES</a></li>
+   
+        <li class="d-inline "><a href="#">COURSES</a></li>
         <li class="d-inline"><a href="#">ABOUT</a></li>
         <li class="d-inline"><a href="#">CONTACT</a></li>
         
@@ -44,6 +44,8 @@
                 <span class="icon-hidden ">
             
                 </span>
+                <a href="{{route('teacher-students-wait',['id'=>$classroom->id])}}" style="color: rgb(0, 0, 0);font-size:20px">Phê duyệt sinh viên</a>
+
                 <div class="info-hidden wow bounceIn">
                     <div class="delay">
                       <p>Code: {{$classroom->code}}</p>
@@ -56,6 +58,7 @@
                 </div> 
 
             </div>
+            
           </div>
         
           @empty

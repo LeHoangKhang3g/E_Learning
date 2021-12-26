@@ -9,8 +9,8 @@
      <div class="row nav-option">
       <ul class="list-unstyled">
         <li class="d-inline"><a href="#">HOME</a></li>
-        <li class="d-inline"><a href="{{route('teacher-classrooms')}}">TEACHERS</a></li>
-        <li class="d-inline"><a href="#">COURSES</a></li>
+        <li class="d-inline"><a href="{{route('teacher-classrooms')}}">COURSES</a></li>
+
         <li class="d-inline"><a href="#">ABOUT</a></li>
         <li class="d-inline"><a href="#">CONTACT</a></li>
         

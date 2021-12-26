@@ -14,10 +14,13 @@
         <li class="d-inline active-border"><a href="{{route('admin-students')}}" class="text-dark">HỌC SINH</a></li>
 
     </ul>
-    </div> 
-    <div class="row">
-      @include('partial.account-option',['accountInfo' => $accountInfo])
-    </div>
+ </div>
+ <div class="row">
+  @include('partial.account-option',['accountInfo' => $accountInfo])
+
+ </div>
+   
+
   </nav>
 @endsection
 @section('main')

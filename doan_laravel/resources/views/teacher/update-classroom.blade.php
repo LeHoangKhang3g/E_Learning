@@ -8,14 +8,14 @@
   <a href="{{route('admin-students')}}" ><h1>BACK</h1></a>
  <div class="row" style="margin-bottom: 20px">
    <div class="col-11 text-center">
-    <p class="gradient">ADMIN - UPDATE CLASSROOM</p>
+    <p class="gradient">TEACHER - UPDATE CLASSROOM</p>
    </div>
  </div>
  <form method="POST" action="{{route('teacher-post-update-classroom', ['id' => $classroom->id ])}}" enctype="multipart/form-data">
   @csrf
     <div class="row">
       <div class="col-4 text-end">
-        <img src="{{URL::to('/')}}/images/\{{$classroom->background}}" alt="" style="width: 100%;height:100%;opacity:0.7;border-radius:20px">
+        <img src="{{URL::to('/')}}/images/classrooms/background/{{$classroom->background}}" alt="" style="width: 100%;height:100%;opacity:0.7;border-radius:20px">
       </div>
       <div class="col-8 " style="padding-left: 60px">
    
