@@ -52,7 +52,6 @@ Route::middleware('auth','admin')->group(function(){
         Route::get('/teachers/{id}/reset-password',[AdminController::class,'resetPasswordTeacher'])->name('admin-reset-password-teacher');
         Route::get('/teachers/{id}/send-email',[AdminController::class,'formSendEmailTeacher'])->name('admin-send-email-teacher');
         Route::post('/teachers/{id}/send-email',[AdminController::class,'postSendEmailTeacher'])->name('admin-post-send-email-teacher');
-        
 
         Route::get('/students',[AdminController::class,'students'])->name('admin-students');
         Route::get('/students/add',[AdminController::class,'formAddStudent'])->name('admin-add-student');
