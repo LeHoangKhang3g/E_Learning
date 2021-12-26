@@ -9,6 +9,7 @@ use App\Models\Account;
 use App\Models\ClassroomStudent;
 use App\Models\Classroom;
 use App\Models\StudentWait;
+use Illuminate\Support\Facades\Redirect;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -63,9 +64,9 @@ class StudentController extends Controller
         $classroom=Classroom::where ("code","$req->malop")->first();
         if( $classroom!=null)
         {
-
-          if(empty(StudentWait::where('student_id',Auth::user()->id)->where('classroom_id',$classroom->id)->get())){
-            if(empty(ClassroomStudent::where('student_id',Auth::user()->id)->where('classroom_id',$classroom->id)->get()))
+     
+          if(empty(StudentWait::where('student_id',Auth::user()->id)->where('classroom_id',$classroom->id)->first())){
+            if(empty(ClassroomStudent::where('student_id',Auth::user()->id)->where('classroom_id',$classroom->id)->first()))
             {
                 $addstudent=new StudentWait();
                 $addstudent->student_id=$user->id;
@@ -73,20 +74,20 @@ class StudentController extends Controller
                 $addstudent->save();
             }
             else{
-                return "Lop hoc da ton tai";
+                return redirect()->route('student')->with('jsAlert', 'Bạn đã tham gia lớp học này!');
             }
           }
           else
           {
-            return "Lop hoc da ton tai trong phong cho";
+            return redirect()->route('student')->with('jsAlert', 'Lớp học đang chờ xét duyệt');
           }
     
         }
         else{
-            return "Khong co ma lop";
+            return redirect()->route('student')->with('jsAlert', 'Không tồn tại lớp học này!');
         }
-        
-        return redirect()->route('index');
+      
+     return redirect()->route('index');
 
     }
 }

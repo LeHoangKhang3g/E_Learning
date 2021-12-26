@@ -36,7 +36,6 @@
          
             
             <div class="col-3">
-              <a href="{{route('teacher-students-wait',['id'=>$classroom->id])}}">xem danh sach cho</a>
 
             <div class="classroom-box text-center position-relative wow bounceIn">
               <img src="{{URL::to('/')}}/images/classrooms/background/{{$classroom->background}}" alt=""  class="avatar-circle">
@@ -45,6 +44,8 @@
                 <span class="icon-hidden ">
             
                 </span>
+                <a href="{{route('teacher-students-wait',['id'=>$classroom->id])}}" style="color: rgb(0, 0, 0);font-size:20px">Phê duyệt sinh viên</a>
+
                 <div class="info-hidden wow bounceIn">
                     <div class="delay">
                       <p>Code: {{$classroom->code}}</p>
@@ -57,6 +58,7 @@
                 </div> 
 
             </div>
+            
           </div>
         
           @empty

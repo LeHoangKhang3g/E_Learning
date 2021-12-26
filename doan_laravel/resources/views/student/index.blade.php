@@ -57,7 +57,7 @@
 
         </div>
       </div>
-          <a href="#" class="btn btn-primary w-100">Vào học</a>
+          <a href="#" class="btn btn-primary w-100" >Vào học</a>
       </div>
     </div>
   </div>
@@ -67,3 +67,11 @@
     
   </main>
 @endsection
+<script>
+  
+  var msg = '{{Session::get('jsAlert')}}';
+  var exist = '{{Session::has('jsAlert')}}';
+  if(exist){
+    alert(msg);
+  }
+</script>

@@ -19,9 +19,9 @@
      <form action="{{route('student-post-join-classroom')}}" method="post" style="margin-right:20px;margin-top:7px"> 
         @csrf
         <div class="input-group mx-3" style="margin-bottom: 10px;margin-right:30px">
-            <input class="form-control width100" name="malop" placeholder="Mời bạn nhập Mã lớp">
+            <input class="form-control width100" name="malop" placeholder="Mời bạn nhập Mã lớp" required>
             <span class="input-group-btn">
-                <button type="submit" class="btn btn-info" >JOIN</button>
+                <button type="submit" class="btn btn-info" id="click-join" >JOIN</button>
             </span>
             
         </div>
@@ -51,4 +51,8 @@ function showInfoOptions(){
 function closeInfoOptions(){
     document.getElementById("info-option").style.display='none';
 }
+//   document.getElementById("click-join").addEventListener("click", function(event){
+//     event.preventDefault()
+//   });
+
 </script>

@@ -9,15 +9,14 @@
       </tr>
     </thead>
     <tbody>
-
         @foreach($infoStudent as $sd)
-      
-    
       <tr>
-
         <td>{{$sd->name}}</td>
         <td>{{$sd->email}}</td>
-        <td>ss</td>
+        <td>
+          <a href="{{route('teacher-add-students-wait',['id'=>$classrooms->id,'student_id'=>$sd->id])}}"><i class="fas fa-check"></i></a>
+           <a href="{{route('teacher-remove-students-wait',['id'=>$classrooms->id,'student_id'=>$sd->id])}}"><i class="fas fa-times"></i></a>
+        </td>
       </tr>
       @endforeach
     </tbody>

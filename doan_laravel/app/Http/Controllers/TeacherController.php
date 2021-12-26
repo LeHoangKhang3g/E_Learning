@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\Student;
 use App\Models\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Classroom;
+use App\Models\ClassroomStudent;
 use App\Models\StudentWait;
 use Illuminate\Support\Str;
 
@@ -132,6 +134,7 @@ class TeacherController extends Controller
     }
     function studentsWait($id){
         $students = StudentWait::where('classroom_id',$id)->get();
+        $classrooms=Classroom::find($id);
         $infoStudent=[];
         $accounts=Account::all();
         foreach($accounts as $ac)
@@ -146,13 +149,26 @@ class TeacherController extends Controller
             }
               
         }
-        return view('teacher.student-wait',compact('infoStudent'));
+        return view('teacher.student-wait',compact('infoStudent','classrooms'));
     }
     function addStudentsWait($classroom_id,$student_wait_id){
-        return "";
+         $student = StudentWait::where('classroom_id',$classroom_id)
+         ->where('student_id',$student_wait_id)->first();
+         $student->delete();
+         $addStudentClassroom = new ClassroomStudent;
+        $addStudentClassroom->classroom_id =$classroom_id;
+        $addStudentClassroom->student_id=$student_wait_id;
+        
+        $addStudentClassroom->save();
+      
+        
+        return redirect()->route('teacher-classrooms');
     }
     function removeStudentsWait($classroom_id,$student_wait_id){
-        return "";
+        $student = StudentWait::where('classroom_id',$classroom_id)
+        ->where('student_id',$student_wait_id)->first();
+        $student->delete();
+        return redirect()->route('teacher-classrooms');
     }
 
 

@@ -36,8 +36,9 @@
             
             <div class="col-3">
 
-            <div class="classroom-box text-center position-relative wow bounceIn">
-              <img src="{{URL::to('/')}}/images/classrooms/background/{{$classroom->background}}" alt=""  style="width: 100%;height:220px;object-fit:cover">
+            <div class="classroom-box text-center position-relative wow bounceIn" style="border: none">
+              <img src="{{URL::to('/')}}/images/classrooms/background/{{$classroom->background}}" alt=""  style="width: 100%;height:220px;object-fit:cover;
+              border-radius:10px 10px 0px 0px">
 
                 <p><b style="font-size: 20px">{{$classroom->class_name}}</b></p>
                 <span class="icon-hidden ">
