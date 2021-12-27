@@ -162,7 +162,8 @@ class TeacherController extends Controller
         $addStudentClassroom->save();
       
         
-        return redirect()->route('teacher-classrooms');
+        return back();
+
     }
     function removeStudentsWait($classroom_id,$student_wait_id){
         $student = StudentWait::where('classroom_id',$classroom_id)
