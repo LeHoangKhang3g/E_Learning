@@ -151,6 +151,25 @@ class TeacherController extends Controller
         }
         return view('teacher.student-wait',compact('infoStudent','classrooms'));
     }
+    function studentsList($id){
+        $students = ClassroomStudent::where('classroom_id',$id)->get();
+        $classrooms=Classroom::find($id);
+        $infoStudents=[];
+        $accounts=Account::all();
+        foreach($accounts as $ac)
+        {
+            foreach($students as $sd)
+            {
+               
+                if($ac->id==$sd->student_id)
+                {
+                    $infoStudents[]  = Account::where('id',$sd->student_id)->first();
+                }
+            }
+              
+        }
+        return view('teacher.student-list',compact('infoStudents','classrooms'));
+    }
     function addStudentsWait($classroom_id,$student_wait_id){
          $student = StudentWait::where('classroom_id',$classroom_id)
          ->where('student_id',$student_wait_id)->first();
@@ -169,8 +188,45 @@ class TeacherController extends Controller
         $student = StudentWait::where('classroom_id',$classroom_id)
         ->where('student_id',$student_wait_id)->first();
         $student->delete();
-        return redirect()->route('teacher-classrooms');
+        return back();
+        // return redirect()->route('teacher-classrooms');
     }
-
+   function classroomsOptions($id) {
+    $students = ClassroomStudent::where('classroom_id',$id)->get();
+    $classrooms=Classroom::find($id);
+    $infoStudent=[];
+    $accounts=Account::all();
+    foreach($accounts as $ac)
+    {
+        foreach($students as $sd)
+        {
+           
+            if($ac->id==$sd->student_id)
+            {
+                $infoStudent[]  = Account::where('id',$sd->student_id)->first();
+            }
+        }
+          
+    }
+    //studentwait
+    $studentsWait = StudentWait::where('classroom_id',$id)->get();
+    $classrooms=Classroom::find($id);
+    $infoStudentWait=[];
+    $accounts=Account::all();
+    foreach($accounts as $ac)
+    {
+        foreach($studentsWait as $sd)
+        {
+           
+            if($ac->id==$sd->student_id)
+            {
+                $infoStudentWait[]  = Account::where('id',$sd->student_id)->first();
+            }
+        }
+          
+    }
+        $classroom=Classroom::find($id);
+        return view('teacher.tab-controll',compact('classroom','classrooms','infoStudent','infoStudentWait'));
+    }
 
 }
