@@ -33,31 +33,34 @@
   <div class="container-fluild">
   <div class="row">
     @forelse($dsClassroom as $classroom)
-         
-            
+       
             <div class="col-3">
+  
+              <a href="{{route('teacher-classrooms-options',['id'=>$classroom->id])}}">
 
-            <div class="classroom-box text-center position-relative wow bounceIn">
-              <img src="{{URL::to('/')}}/images/classrooms/background/{{$classroom->background}}" alt=""  class="avatar-circle">
-
-                <p><b style="font-size: 20px">{{$classroom->class_name}}</b></p>
-                <span class="icon-hidden ">
-            
-                </span>
-                <a href="{{route('teacher-students-wait',['id'=>$classroom->id])}}" style="color: rgb(0, 0, 0);font-size:20px">Phê duyệt sinh viên</a>
-
-                <div class="info-hidden wow bounceIn">
-                    <div class="delay">
-                      <p>Code: {{$classroom->code}}</p>
-                      <p class="content-classroom">{{$classroom->content}}</p>
-                      <div class="pos-icon-bot d-flex">
-                        <a href="{{route('teacher-update-classroom',['id' => $classroom->id])}}" >   <i class="fas fa-cog  btn btn-success" ></i></a>
-                        <a href="{{route('teacher-delete-classroom',['id' => $classroom->id])}}" > <i class="fas fa-trash btn btn-danger"></i></a>
-                      </div>
-                    </div>
-                </div> 
-
-            </div>
+                <div class="classroom-box text-center position-relative wow bounceIn">
+                  <img src="{{URL::to('/')}}/images/classrooms/background/{{$classroom->background}}" alt=""  class="avatar-circle">
+    
+                    <p><b style="font-size: 20px">{{$classroom->class_name}}</b></p>
+                    <span class="icon-hidden ">
+                
+                    </span>
+                    {{-- <a href="{{route('teacher-students-wait',['id'=>$classroom->id])}}" style="color: rgb(0, 0, 0);font-size:20px">Phê duyệt sinh viên</a> --}}
+                    {{-- <a href="{{route('teacher-classrooms-options',['id'=>$classroom->id])}}">Chức năng</a> --}}
+                    <div class="info-hidden wow bounceIn">
+                        <div class="delay">
+                          <p>Code: {{$classroom->code}}</p>
+                          <p class="content-classroom">{{$classroom->content}}</p>
+                          <div class="pos-icon-bot d-flex">
+                            <a href="{{route('teacher-update-classroom',['id' => $classroom->id])}}" >   <i class="fas fa-cog  btn btn-success" ></i></a>
+                            <a href="{{route('teacher-delete-classroom',['id' => $classroom->id])}}" > <i class="fas fa-trash btn btn-danger"></i></a>
+                          </div>
+                        </div>
+                    </div> 
+    
+                </div>
+              </a>
+          
             
           </div>
         
