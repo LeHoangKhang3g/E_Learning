@@ -83,12 +83,14 @@ Route::middleware('auth','teacher')->group(function(){
         Route::post('/change-password',[TeacherController::class,'postChangePassword'])->name('teacher-post-change-password');
 
         Route::get('/classrooms',[TeacherController::class,'classrooms'])->name('teacher-classrooms');
+        Route::get('/classrooms/{id}',[TeacherController::class,'classroomsOptions'])->name('teacher-classrooms-options');
         Route::get('/classrooms/add',[TeacherController::class,'formAddClassroom'])->name('teacher-add-classroom');
         Route::post('/classrooms/add',[TeacherController::class,'postAddClassroom'])->name('teacher-post-add-classroom');
         Route::get('/classrooms/{id}/update',[TeacherController::class,'formUpdateClassroom'])->name('teacher-update-classroom');
         Route::post('/classrooms/{id}/update',[TeacherController::class,'postUpdateClassroom'])->name('teacher-post-update-classroom');
         Route::get('/classrooms/{id}/delete',[TeacherController::class,'deleteClassroom'])->name('teacher-delete-classroom');
         Route::get('/classrooms/{id}/students-wait',[TeacherController::class,'studentsWait'])->name('teacher-students-wait');
+        Route::get('/classrooms/{id}/students-list',[TeacherController::class,'studentsList'])->name('teacher-students-list');
         Route::get('/classrooms/{id}/add-student/{student_id}',[TeacherController::class,'addStudentsWait'])->name('teacher-add-students-wait');
         Route::get('/classrooms/{id}/remove-student/{student_id}',[TeacherController::class,'removeStudentsWait'])->name('teacher-remove-students-wait');
         
