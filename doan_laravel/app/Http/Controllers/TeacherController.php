@@ -151,6 +151,13 @@ class TeacherController extends Controller
         }
         return view('teacher.student-wait',compact('infoStudent','classrooms'));
     }
+    function removeStudent($classroom_id,$student_id){
+        $student = ClassroomStudent::where('classroom_id',$classroom_id)
+        ->where('student_id',$student_id)->first();
+        $student->delete();
+        return back()->with('jsAlert', 'Xóa thành công!');;
+        // return redirect()->route('teacher-classrooms');
+    }
     function studentsList($id){
         $students = ClassroomStudent::where('classroom_id',$id)->get();
         $classrooms=Classroom::find($id);
@@ -191,7 +198,57 @@ class TeacherController extends Controller
         return back();
         // return redirect()->route('teacher-classrooms');
     }
+    function addStudents(Request $req,$classroom_id){
+
+        $dsEmail=explode(";", $req->add_students);
+        foreach($dsEmail as $email)
+        {
+            $student=Account::where("email","$email")->first();
+            if(empty($student))
+            {
+            return back()->with('error',"Email $email này không hợp lệ");   
+            }
+            $hc= ClassroomStudent::where('classroom_id',$classroom_id)->where('student_id',$student->id)->first();
+            if($hc)
+            {
+                return back()->with('error',"Email $email đã có trong lớp mời bạn kiểm tra lại nhé");  
+            }
+            if($student->account_type_id==2){
+        
+                return back()->with('error',"Email $email này là của giáo viên mời bạn kiểm tra lại nhé");   
+            }
+            elseif($student->account_type_id==1)
+            {
+                return back()->with('error',"Email $email này là của Admin mời bạn kiểm tra lại nhé");   
+            }
+        }
+        $count=0;
+        foreach($dsEmail as $email)
+        {
+            $student=Account::where("email","$email")->first();
+            $sdw= StudentWait::where('classroom_id',$classroom_id)->where('student_id',$student->id)->first();
+            if($sdw)
+            {
+                $sdw->delete();
+                $add=new ClassroomStudent();
+                $add->classroom_id=$classroom_id;
+                $add->student_id=$student->id;
+                $add->save();
+                $count++;
+            }
+            else{
+                $add=new  ClassroomStudent();
+                $add->classroom_id=$classroom_id;
+                $add->student_id=$student->id;
+                $add->save();
+                $count++;
+            }
+        }
+         return back()->with('success',"Bạn đã thêm thành công $count sinh viên");
+    }
+
    function classroomsOptions($id) {
+   
     $students = ClassroomStudent::where('classroom_id',$id)->get();
     $classrooms=Classroom::find($id);
     $infoStudent=[];
