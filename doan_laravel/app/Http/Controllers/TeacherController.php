@@ -155,7 +155,8 @@ class TeacherController extends Controller
         $student = ClassroomStudent::where('classroom_id',$classroom_id)
         ->where('student_id',$student_id)->first();
         $student->delete();
-        return back()->with('jsAlert', 'Xóa thành công!');;
+        // return back()->with('jsAlert', 'Xóa thành công!');
+        return back();
         // return redirect()->route('teacher-classrooms');
     }
     function studentsList($id){

@@ -33,9 +33,9 @@
     @enderror   
       </div>
    
-      <button type="submit" class="btn btn-success mt-3">Đăng nhập</button>
+      <button type="submit" class="btn btn-success mt-3 ">Đăng nhập</button>
       <h2>  @if (session('error'))
-                                    <div class="alert alert-danger" style="color: red">
+                                    <div class="err-signIn" style="color: red;">
                                         {{ session('error') }}
                                     </div>
                                     @endif  </h2>

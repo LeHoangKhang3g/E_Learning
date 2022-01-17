@@ -30,7 +30,8 @@
         <td>{{$sd->email}}</td>
         <td>
          {{-- <a href="{{route('teacher-remove-student',['id'=>$classrooms->id,'student_id'=>$sd->id])}}"><i class="fas fa-times btn btn-danger"></i></a>  --}}
-         <a href="{{route('teacher-remove-student',['id'=>$classrooms->id,'student_id'=>$sd->id])}}"><i class="fas fa-times btn btn-danger"></i></a>
+         <a href="{{route('teacher-remove-student',['id'=>$classrooms->id,'student_id'=>$sd->id])}}"
+          class="confirmation"><i class="fas fa-times btn btn-danger"></i></a>
 
         </td>
         
@@ -56,4 +57,9 @@
   if(exist){
     alert(msg);
   }
+</script>
+<script type="text/javascript">
+    $('.confirmation').on('click', function () {
+        return confirm('Bạn có chắc chắn muốn xóa?');
+    });
 </script>
