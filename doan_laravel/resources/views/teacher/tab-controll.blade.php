@@ -47,25 +47,31 @@ body {font-family: Arial;}
 
 
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')">Phê duyệt</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Danh sách sinh viên</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">UPDATE</button>
+  <button class="tablinks" onclick="openCity(event, 'Posts')">Bảng tin</button>
+  <button class="tablinks" onclick="openCity(event, 'Posts-2')">Bảng tin 2</button>
+  <button class="tablinks" onclick="openCity(event, 'Students')">Danh sách sinh viên</button>
+  <button class="tablinks" onclick="openCity(event, 'Waits')">Phê duyệt</button>
+  
 </div>
 
-<div id="London" class="tabcontent">
-@include('teacher.student-wait')
-</div>
+<div id="Posts" class="tabcontent" style="display: block">
+  @include('teacher.news-classroom')
 
-<div id="Paris" class="tabcontent">
+</div>
+<div id="Posts-2" class="tabcontent">
+  @include('teacher.news-classroom')
+
+</div>
+<div id="Students" class="tabcontent">
   @include('teacher.student-list')
 </div>
 
-<div id="Tokyo" class="tabcontent">
-  @include('teacher.update-classroom')
+<div id="Waits" class="tabcontent">
+  @include('teacher.student-wait')
 </div>
 
 <script>
-function openCity(evt, cityName) {
+function openCity(evt, tabName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -75,7 +81,7 @@ function openCity(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 }
 </script>
