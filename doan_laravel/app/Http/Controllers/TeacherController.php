@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Classroom;
 use App\Models\ClassroomStudent;
+use App\Models\Post;
+use App\Models\PostType;
 use App\Models\StudentWait;
 use Illuminate\Support\Str;
 
@@ -284,12 +286,68 @@ class TeacherController extends Controller
           
     }
         $classroom=Classroom::find($id);
-        return view('teacher.tab-controll',compact('classroom','classrooms','infoStudent','infoStudentWait'));
+
+        //danh sach post type 
+        $dsPostType=PostType::all();
+        // return view('teacher.controll-post-type',compact('dsPostType'));
+$posts= Post::where('class_id',$id)->get();
+// add news 
+//danh sach posts
+
+        return view('teacher.tab-controll',compact('classroom','classrooms','infoStudent','infoStudentWait','dsPostType'
+        ,'posts'));
     }
     function detailNewExercise() {
         return view('teacher.detail-news');
     }
+  
+    function addPostType(Request $req)
+    {
+        $addPostType= new PostType;
+        $addPostType -> name= $req->name;
+        $addPostType->save();
+        return back();
+    }
+    function addPostNews(Request $req,$classroom_id){
+            $addNews = new Post;
+            $addNews->class_id = $classroom_id;
+            $addNews->title = $req->title;
+            $addNews->content = $req->content;
+             $addNews->post_type_id=$req->post_type;
+            if($req->deadline!=null){
+                $addNews->deadline = $req->deadline;
+                $addNews->have_deadline=1;
+            }
+            $addNews->save();
+            return back();
+            // $giangVien = new GiangVien;
+            // $giangVien ->ho_ten = $req->ho_ten;
+            // $giangVien ->ten_dang_nhap = $req->ten_dang_nhap;
+            // $giangVien ->mat_khau = $req->mat_khau; 
+            // $giangVien ->email = $req->email;
+            // $giangVien->khoa_id=$req->khoa;
+            // $giangVien->save();
+            // return redirect()->route('ds-giang-vien');
+    }
 
-   
+    // function studentsList($id){
+    //     $students = ClassroomStudent::where('classroom_id',$id)->get();
+    //     $classrooms=Classroom::find($id);
+    //     $infoStudents=[];
+    //     $accounts=Account::all();
+    //     foreach($accounts as $ac)
+    //     {
+    //         foreach($students as $sd)
+    //         {
+               
+    //             if($ac->id==$sd->student_id)
+    //             {
+    //                 $infoStudents[]  = Account::where('id',$sd->student_id)->first();
+    //             }
+    //         }
+              
+    //     }
+    //     return view('teacher.student-list',compact('infoStudents','classrooms'));
+    // }
 
 }

@@ -55,7 +55,7 @@
                             <a href="{{route('teacher-update-classroom',['id' => $classroom->id])}}" >   <i class="fas fa-cog  btn btn-success" ></i></a>
                             <a href="{{route('teacher-delete-classroom',['id' => $classroom->id])}}" > <i class="fas fa-trash btn btn-danger"></i></a>
                           </div>
-                        </div>
+                        </div> 
                     </div> 
     
                 </div>

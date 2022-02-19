@@ -56,7 +56,7 @@ body {font-family: Arial;}
 
 <div class="tab d-flex justify-content-center" style="background-color:white; border: 1px solid #ededed">
   <button class="tablinks tabpage-text" onclick="openCity(event, 'Posts')" >Bảng tin</button>
-  <button class="tablinks tabpage-text" onclick="openCity(event, 'Posts-2')"  >Bảng tin 2</button>
+  <button class="tablinks tabpage-text" onclick="openCity(event, 'Posts-2')"  > Loai bai dang</button>
   <button class="tablinks tabpage-text" onclick="openCity(event, 'Students')"  >Danh sách sinh viên</button>
   <button class="tablinks tabpage-text" onclick="openCity(event, 'Waits')"  >Phê duyệt</button>
   
@@ -67,7 +67,7 @@ body {font-family: Arial;}
 
 </div>
 <div id="Posts-2" class="tabcontent">
-  @include('teacher.news-classroom')
+  @include('teacher.controll-post-type')
 
 </div>
 <div id="Students" class="tabcontent">

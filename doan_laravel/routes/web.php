@@ -97,8 +97,9 @@ Route::middleware('auth','teacher')->group(function(){
         Route::get('/classrooms/{id}/remove-student/{student_id}',[TeacherController::class,'removeStudentsWait'])->name('teacher-remove-students-wait');
 
         Route::get('/classrooms/{id}/detailNewExercise',[TeacherController::class,'detailNewExercise'])->name('detailNewExercise');
-
-        
+        Route::post('/classrooms/{id}/post-type',[TeacherController::class,'addPostType'])->name('post-add-post-type');
+        Route::post('/classrooms/{id}/post-news',[TeacherController::class,'addPostNews'])->name('post-add-news');
+        Route::post('/classrooms/{id}/postsClassroom',[TeacherController::class,'postsClassroom'])->name('posts-Classroom');
     });
     
 });

@@ -132,6 +132,23 @@ input[type=text]:focus {
             padding:10px 10px 0px 10px;
             border-radius: 7px;
           }
+          .sel-op-post-type{
+            position: absolute;
+            top: 13%;
+            right: 25%;
+            
+          }
+          .dat-pic-post-type{
+            position: absolute;
+            top: 13%;
+            right: 1%;
+            
+          }
+          .input-title-news{
+            position: absolute;
+            top: 15%;
+            right: 43%;
+          }
       </style>
     <div class="container mt-3">
         <div class="row">
@@ -146,30 +163,15 @@ input[type=text]:focus {
             </div>
         </div>
         <div class="row mt-4 mx-1">
-            {{-- <div class="col-3">
-                <!-- <div class="box p-2">
-                    <div class="d-flex">
-                        <div class="p-2">
-                            <img src="https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v6/web-48dp/logo_meet_2020q4_color_1x_web_48dp.png" alt=""
-                            style="width: 30px;height: 30px;">
-                        </div>
-                        <div class="p-2 text-center">
-                            <span style="font-size: 18px;">Meet</span>
-                        </div>
-
-                        <div class="ml-auto p-2">
-                            <i class="fas fa-angle-double-down"></i>
-                        </div>
-                      </div>
-                          <button class="btn btn-primary w-100"  >Tham gia</button>
-                </div> -->
-            </div> --}}
+    
+    
             <div class="col-12 ">
               
-              <form action="">
+              <form action="{{route('post-add-news',['id'=> $classrooms->id])}}" method="POST">
+                @csrf
                 <div class="row position-relative" style="padding: 12px"> 
-                    <input type="text" class="w-100 input-content" >
-                    <span class="floating-label">Nhập thông báo của bạn</span>
+                    <input type="text" class="w-100 input-content" name="content" required>
+                    <span class="floating-label" >Nhập thông báo của bạn</span>
                   
                     <div class="button-wrapper" style="position: absolute; top: 62%;left: 2%; max-width:930px">
                         <span class="label">
@@ -182,10 +184,85 @@ input[type=text]:focus {
 
              
                       <button type="submit" style="position: absolute; top: 62%;right: 2%;" id="submit-news" >Gửi</button> 
-                      
+                      <input type="text" class="input-title-news" placeholder="Tiêu đề" style="width:350px" name="title" required>
+                      <select name="post_type" class="form-select sel-op-post-type" aria-label="Default select example" style="width: 200px">
+                        @foreach ($dsPostType as $ds)
+                        <option value="{{$ds->id}}">{{$ds->name}}</option>
+ 
+                        @endforeach
+                      </select>
+          
+            <div class="dat-pic-post-type " style="width: 300px">
+                     
+                        <div class="input-group date" id="datepicker">
+                          <span for="date" class=" col-form-label">Deadline</span>
+                            <input type="text" class="form-control" style="margin-left: 10px" name="deadline">
+                            <span class="input-group-append">
+                            <span class="input-group-text bg-white d-block">
+                              <i class="fa-solid fa-calendar-check"></i>
+                            </span>
+                            </span>
+                        </div>
+                    </div>   
                 </div>
               </form>
-          <a href="" style="color: black">
+              @forelse($posts as $p)
+             {{-- neu la thong bao --}}
+              @if($p->post_type_id==1)
+                <a href="" style="color: black">
+                  <div class="news">
+                    <div class="d-flex bd-highlight mb-3">
+                        <div class="p-2 bd-highlight">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOA3r2mm7ICMaQkI3k2j78aJF2t6Dfkl3D0w&usqp=CAU" alt=""
+                            class="avt-cir">
+                        </div>
+                        <div class="p-2 bd-highlight">
+                            <p style="margin-bottom: 0px"><b>Thông báo:</b> {{$p->title}}  </p>
+                         <small style="color: #878181; ">Thời hạn: {{$p->deadline==null?"Không có":$p->deadline}}</small>
+                        </div>
+                        <div class="ms-auto p-2 bd-highlight">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                      </div>
+                      <div class="content-news">
+                          <p>
+                            {{$p->content}} 
+                          </p>
+                      </div>
+                  </div>
+                </a>
+              
+              @endif
+
+          
+             {{-- neu la bai tap --}}
+             @if($p->post_type_id==3)
+             <a href="{{route('detailNewExercise',['id' => $classroom->id])}}">
+            
+              <div class="new-exercise">
+                <div class="d-flex bd-highlight mb-3">
+                    <div class="p-2 bd-highlight">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOA3r2mm7ICMaQkI3k2j78aJF2t6Dfkl3D0w&usqp=CAU" alt=""
+                        class="avt-cir">
+                    </div>
+                    <div class="p-2 bd-highlight">
+                        <p style="margin-bottom: 0px"><b>Bài tập: {{$p->title}} </b></p>
+                        <small style="color: #878181; ">Thời hạn: {{$p->deadline==null?"Không có":$p->deadline}}</small>
+                    </div>
+                    <div class="ms-auto p-2 bd-highlight">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                    
+                  </div>
+              
+              </div>
+  
+             </a>
+             @endif
+            @empty
+            <tr ><td colspan="5">Empty</td></tr>
+              @endforelse
+          {{-- <a href="" style="color: black">
             <div class="news">
               <div class="d-flex bd-highlight mb-3">
                   <div class="p-2 bd-highlight">
@@ -209,6 +286,7 @@ input[type=text]:focus {
             </div>
           </a>
            <a href="{{route('detailNewExercise',['id' => $classroom->id])}}">
+            
             <div class="new-exercise">
               <div class="d-flex bd-highlight mb-3">
                   <div class="p-2 bd-highlight">
@@ -226,7 +304,7 @@ input[type=text]:focus {
             
             </div>
 
-           </a>
+           </a> --}}
                {{-- <div class="row mt-4">
                 <div class="box w-100  new-homework">
                     <div class="d-flex">
