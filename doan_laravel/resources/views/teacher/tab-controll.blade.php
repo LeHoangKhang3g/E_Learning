@@ -41,16 +41,24 @@ body {font-family: Arial;}
   border: 1px solid #ccc;
   border-top: none;
 }
+.tab button.active{
+  background-color: #cccccc75;
+}
+.tabpage-text{
+  font-weight: 600;
+  font-size: 20px;
+  color:rgb(94, 89, 89);
+}
 </style>
 </head>
 <body>
 
 
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Posts')">Bảng tin</button>
-  <button class="tablinks" onclick="openCity(event, 'Posts-2')">Bảng tin 2</button>
-  <button class="tablinks" onclick="openCity(event, 'Students')">Danh sách sinh viên</button>
-  <button class="tablinks" onclick="openCity(event, 'Waits')">Phê duyệt</button>
+<div class="tab d-flex justify-content-center" style="background-color:white; border: 1px solid #ededed">
+  <button class="tablinks tabpage-text" onclick="openCity(event, 'Posts')" >Bảng tin</button>
+  <button class="tablinks tabpage-text" onclick="openCity(event, 'Posts-2')"  >Bảng tin 2</button>
+  <button class="tablinks tabpage-text" onclick="openCity(event, 'Students')"  >Danh sách sinh viên</button>
+  <button class="tablinks tabpage-text" onclick="openCity(event, 'Waits')"  >Phê duyệt</button>
   
 </div>
 

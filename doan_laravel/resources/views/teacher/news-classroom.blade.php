@@ -146,7 +146,7 @@ input[type=text]:focus {
             </div>
         </div>
         <div class="row mt-4 mx-1">
-            <div class="col-3">
+            {{-- <div class="col-3">
                 <!-- <div class="box p-2">
                     <div class="d-flex">
                         <div class="p-2">
@@ -163,15 +163,15 @@ input[type=text]:focus {
                       </div>
                           <button class="btn btn-primary w-100"  >Tham gia</button>
                 </div> -->
-            </div>
-            <div class="col-9 ">
+            </div> --}}
+            <div class="col-12 ">
               
               <form action="">
-                <div class="row position-relative"> 
+                <div class="row position-relative" style="padding: 12px"> 
                     <input type="text" class="w-100 input-content" >
                     <span class="floating-label">Nhập thông báo của bạn</span>
                   
-                    <div class="button-wrapper" style="position: absolute; top: 62%;left: 2%;">
+                    <div class="button-wrapper" style="position: absolute; top: 62%;left: 2%; max-width:930px">
                         <span class="label">
                           Upload File
                         </span>
@@ -185,43 +185,48 @@ input[type=text]:focus {
                       
                 </div>
               </form>
-              <div class="news">
-                <div class="d-flex bd-highlight mb-3">
-                    <div class="p-2 bd-highlight">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOA3r2mm7ICMaQkI3k2j78aJF2t6Dfkl3D0w&usqp=CAU" alt=""
-                        class="avt-cir">
-                    </div>
-                    <div class="p-2 bd-highlight">
-                        <p style="margin-bottom: 0px">Ho Khanh Duy da dang 1 bai tap moi</p>
-                     <small style="color: #878181; ">Ho Khanh Duy</small>
-                    </div>
-                    <div class="ms-auto p-2 bd-highlight">
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
+          <a href="" style="color: black">
+            <div class="news">
+              <div class="d-flex bd-highlight mb-3">
+                  <div class="p-2 bd-highlight">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOA3r2mm7ICMaQkI3k2j78aJF2t6Dfkl3D0w&usqp=CAU" alt=""
+                      class="avt-cir">
                   </div>
-                  <div class="content-news">
-                      <p>
-        
-                        Do hiện tại học online nên có những trục trặc về kỹ thuật, khiến một số bạn không tham gia được bài kiểm tra giữa kỳ vừa rồi, hoặc có thể các bạn có tham gia nhưng kết quả không tốt. Do đó, bên cạnh bài kiểm tra cuối kỳ, chúng ta sẽ có 1 bài kiểm tra bổ sung nữa để gỡ điểm, nên các bạn cứ yên tâm sẽ vẫn còn cơ hội kiểm tra lại. Tuy nhiên, không vì thế mà các bạn lơ là việc học và việc kiểm tra, vì cơ hội không có nhiều lần để các bạn sửa sai mãi.
-                      </p>
+                  <div class="p-2 bd-highlight">
+                      <p style="margin-bottom: 0px">Ho Khanh Duy da dang 1 thong bao</p>
+                   <small style="color: #878181; ">Ho Khanh Duy</small>
                   </div>
-              </div>
-              <div class="new-exercise">
-                <div class="d-flex bd-highlight mb-3">
-                    <div class="p-2 bd-highlight">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOA3r2mm7ICMaQkI3k2j78aJF2t6Dfkl3D0w&usqp=CAU" alt=""
-                        class="avt-cir">
-                    </div>
-                    <div class="p-2 bd-highlight">
-                        <p style="margin-bottom: 0px">Ho Khanh Duy da dang 1 bai tap moi</p>
-                     <small style="color: #878181; ">Ho Khanh Duy</small>
-                    </div>
-                    <div class="ms-auto p-2 bd-highlight">
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
+                  <div class="ms-auto p-2 bd-highlight">
+                      <i class="fa-solid fa-ellipsis-vertical"></i>
                   </div>
-              
-              </div>
+                </div>
+                <div class="content-news">
+                    <p>
+      
+                      Do hiện tại học online nên có những trục trặc về kỹ thuật, khiến một số bạn không tham gia được bài kiểm tra giữa kỳ vừa rồi, hoặc có thể các bạn có tham gia nhưng kết quả không tốt. Do đó, bên cạnh bài kiểm tra cuối kỳ, chúng ta sẽ có 1 bài kiểm tra bổ sung nữa để gỡ điểm, nên các bạn cứ yên tâm sẽ vẫn còn cơ hội kiểm tra lại. Tuy nhiên, không vì thế mà các bạn lơ là việc học và việc kiểm tra, vì cơ hội không có nhiều lần để các bạn sửa sai mãi.
+                    </p>
+                </div>
+            </div>
+          </a>
+           <a href="{{route('detailNewExercise',['id' => $classroom->id])}}">
+            <div class="new-exercise">
+              <div class="d-flex bd-highlight mb-3">
+                  <div class="p-2 bd-highlight">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOA3r2mm7ICMaQkI3k2j78aJF2t6Dfkl3D0w&usqp=CAU" alt=""
+                      class="avt-cir">
+                  </div>
+                  <div class="p-2 bd-highlight">
+                      <p style="margin-bottom: 0px">Ho Khanh Duy da dang 1 bai tap moi</p>
+                   <small style="color: #878181; ">Ho Khanh Duy</small>
+                  </div>
+                  <div class="ms-auto p-2 bd-highlight">
+                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                  </div>
+                </div>
+            
+            </div>
+
+           </a>
                {{-- <div class="row mt-4">
                 <div class="box w-100  new-homework">
                     <div class="d-flex">

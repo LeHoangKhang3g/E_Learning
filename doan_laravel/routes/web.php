@@ -95,6 +95,9 @@ Route::middleware('auth','teacher')->group(function(){
         Route::get('/classrooms/{id}/remove/{student_id}',[TeacherController::class,'removeStudent'])->name('teacher-remove-student');
         Route::get('/classrooms/{id}/add-student/{student_id}',[TeacherController::class,'addStudentsWait'])->name('teacher-add-students-wait');
         Route::get('/classrooms/{id}/remove-student/{student_id}',[TeacherController::class,'removeStudentsWait'])->name('teacher-remove-students-wait');
+
+        Route::get('/classrooms/{id}/detailNewExercise',[TeacherController::class,'detailNewExercise'])->name('detailNewExercise');
+
         
     });
     

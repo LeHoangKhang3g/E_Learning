@@ -286,5 +286,10 @@ class TeacherController extends Controller
         $classroom=Classroom::find($id);
         return view('teacher.tab-controll',compact('classroom','classrooms','infoStudent','infoStudentWait'));
     }
+    function detailNewExercise() {
+        return view('teacher.detail-news');
+    }
+
+   
 
 }
