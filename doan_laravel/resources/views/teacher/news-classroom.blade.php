@@ -156,7 +156,8 @@ input[type=text]:focus {
                 <div class="box bg-main">
                     <div class="content-course">
                         <p class="name-course">
-                            CĐ TH 19PMC - Lập trình web PHP Nâng cao (LT + ĐA)</p>
+                         {{ $classrooms->class_name}}
+                            </p>
                         <p class="time-course">Học kỳ 1 - NH 21-22</p>
                     </div>
                 </div>
@@ -209,12 +210,13 @@ input[type=text]:focus {
               @forelse($posts as $p)
              {{-- neu la thong bao --}}
               @if($p->post_type_id==1)
-                <a href="" style="color: black">
+                
                   <div class="news">
                     <div class="d-flex bd-highlight mb-3">
                         <div class="p-2 bd-highlight">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOA3r2mm7ICMaQkI3k2j78aJF2t6Dfkl3D0w&usqp=CAU" alt=""
-                            class="avt-cir">
+                          <i class="fa-solid fa-bell avt-cir" style="color: rgb(186, 186, 36)"></i>
+                            {{-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOA3r2mm7ICMaQkI3k2j78aJF2t6Dfkl3D0w&usqp=CAU" alt=""
+                            class="avt-cir"> --}}
                         </div>
                         <div class="p-2 bd-highlight">
                             <p style="margin-bottom: 0px"><b>Thông báo:</b> {{$p->title}}  </p>
@@ -230,10 +232,32 @@ input[type=text]:focus {
                           </p>
                       </div>
                   </div>
-                </a>
+             
               
               @endif
-
+              {{-- neu la bai giang --}}
+              @if($p->post_type_id==2)
+              <a href="{{route('detailNewExercise',['id' => $classroom->id])}}">
+             
+               <div class="new-exercise">
+                 <div class="d-flex bd-highlight mb-3">
+                     <div class="p-2 bd-highlight">
+                      <i class="fa-solid fa-address-book avt-cir" style="color: green"></i>
+                     </div>
+                     <div class="p-2 bd-highlight">
+                         <p style="margin-bottom: 0px"><b>Bài giảng: {{$p->title}} </b></p>
+                         <small style="color: #878181; ">Thời hạn: {{$p->deadline==null?"Không có":$p->deadline}}</small>
+                     </div>
+                     <div class="ms-auto p-2 bd-highlight">
+                         <i class="fa-solid fa-ellipsis-vertical"></i>
+                     </div>
+                     
+                   </div>
+               
+               </div>
+   
+              </a>
+              @endif
           
              {{-- neu la bai tap --}}
              @if($p->post_type_id==3)
@@ -242,8 +266,7 @@ input[type=text]:focus {
               <div class="new-exercise">
                 <div class="d-flex bd-highlight mb-3">
                     <div class="p-2 bd-highlight">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOA3r2mm7ICMaQkI3k2j78aJF2t6Dfkl3D0w&usqp=CAU" alt=""
-                        class="avt-cir">
+                      <i class="fa-solid fa-address-card avt-cir" style="color: #00bfff"></i>
                     </div>
                     <div class="p-2 bd-highlight">
                         <p style="margin-bottom: 0px"><b>Bài tập: {{$p->title}} </b></p>
