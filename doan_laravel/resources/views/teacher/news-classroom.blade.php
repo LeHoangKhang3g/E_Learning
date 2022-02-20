@@ -158,7 +158,7 @@ input[type=text]:focus {
                         <p class="name-course">
                          {{ $classrooms->class_name}}
                             </p>
-                        <p class="time-course">Học kỳ 1 - NH 21-22</p>
+                        <p class="time-course"> Ngày tạo: {{ $classrooms->created_at}}</p>
                     </div>
                 </div>
             </div>

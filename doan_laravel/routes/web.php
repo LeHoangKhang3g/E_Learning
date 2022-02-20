@@ -84,7 +84,7 @@ Route::middleware('auth','teacher')->group(function(){
         Route::post('/change-password',[TeacherController::class,'postChangePassword'])->name('teacher-post-change-password');
 
         Route::get('/classrooms',[TeacherController::class,'classrooms'])->name('teacher-classrooms');
-        Route::get('/classrooms/{id}',[TeacherController::class,'classroomsOptions'])->name('teacher-classrooms-options');
+        Route::get('/classrooms/open/{id}',[TeacherController::class,'classroomsOptions'])->name('teacher-classrooms-options');
         Route::get('/classrooms/add',[TeacherController::class,'formAddClassroom'])->name('teacher-add-classroom');
         Route::post('/classrooms/add',[TeacherController::class,'postAddClassroom'])->name('teacher-post-add-classroom');
         Route::get('/classrooms/{id}/update',[TeacherController::class,'formUpdateClassroom'])->name('teacher-update-classroom');
