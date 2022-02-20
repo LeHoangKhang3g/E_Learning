@@ -158,7 +158,7 @@ input[type=text]:focus {
                         <p class="name-course">
                          {{ $class_id->class_name}}
                             </p>
-                        <p class="time-course">Học kỳ 1 - NH 21-22</p>
+                        <p class="time-course">Ngày bắt đầu: {{ $class_id->created_at}}</p>
                     </div>
                 </div>
             </div>
@@ -240,7 +240,7 @@ input[type=text]:focus {
               @endif
               {{-- neu la bai giang --}}
               @if($p->post_type_id==2)
-              <a href="{{route('detailNewExercise',['id' => $p->id])}}">
+              <a href="{{route('detailNews',['post_id' => $p->id])}}">
              
                <div class="new-exercise">
                  <div class="d-flex bd-highlight mb-3">
@@ -266,7 +266,7 @@ input[type=text]:focus {
           
              {{-- neu la bai tap --}}
              @if($p->post_type_id==3)
-              <a href="{{route('detailNewExercise',['id' => $p->id])}}">
+              <a href="{{route('detailNews',['post_id' => $p->id])}}">
               {{-- <a href="{{route('detailNewExercise',['id' => $classroom->id],['exercise_id'=>$postId->id])}}"> --}}
               <div class="new-exercise">
                 <div class="d-flex bd-highlight mb-3">

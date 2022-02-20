@@ -99,7 +99,7 @@ Route::middleware('auth','teacher')->group(function(){
 
         Route::post('/classrooms/{id}/post-type',[TeacherController::class,'addPostType'])->name('post-add-post-type');
         Route::post('/classrooms/{id}/post-news',[TeacherController::class,'addPostNews'])->name('post-add-news');
-        Route::post('/classrooms/{id}/postsClassroom',[TeacherController::class,'postsClassroom'])->name('posts-Classroom');
+        // Route::post('/classrooms/{id}/postsClassroom',[TeacherController::class,'postsClassroom'])->name('posts-Classroom');
         Route::get('/classrooms/detailNewExercise/{id}',[TeacherController::class,'detailNewExercise'])->name('detailNewExercise');
 
     });
@@ -123,6 +123,8 @@ Route::middleware('auth','student')->group(function(){
         Route::post('/join-classroom',[StudentController::class,'postJoinClassroom'])->name('student-post-join-classroom');
         
         Route::get('/classrooms/{id}/news',[StudentController::class,'classroomNews'])->name('classroomNews');
+
+        Route::get('/classrooms/news/detail/{post_id}',[StudentController::class,'detailNews'])->name('detailNews');
     });
 
     

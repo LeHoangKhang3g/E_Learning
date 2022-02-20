@@ -97,4 +97,10 @@ class StudentController extends Controller
   
             return view('student.news-classroom',compact('class_id','posts'));
     }
+
+    function detailNews($post_id){
+        $postId = Post::find($post_id);
+     
+        return view('student.detail-news',compact('postId'));
+    }
 }
