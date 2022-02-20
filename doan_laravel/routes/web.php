@@ -7,6 +7,7 @@ use App\Http\Controllers\SignInController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\IndexController;
+use App\Http\Middleware\Student;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -96,10 +97,11 @@ Route::middleware('auth','teacher')->group(function(){
         Route::get('/classrooms/{id}/add-student/{student_id}',[TeacherController::class,'addStudentsWait'])->name('teacher-add-students-wait');
         Route::get('/classrooms/{id}/remove-student/{student_id}',[TeacherController::class,'removeStudentsWait'])->name('teacher-remove-students-wait');
 
-        Route::get('/classrooms/{id}/detailNewExercise',[TeacherController::class,'detailNewExercise'])->name('detailNewExercise');
         Route::post('/classrooms/{id}/post-type',[TeacherController::class,'addPostType'])->name('post-add-post-type');
         Route::post('/classrooms/{id}/post-news',[TeacherController::class,'addPostNews'])->name('post-add-news');
         Route::post('/classrooms/{id}/postsClassroom',[TeacherController::class,'postsClassroom'])->name('posts-Classroom');
+        Route::get('/classrooms/detailNewExercise/{id}',[TeacherController::class,'detailNewExercise'])->name('detailNewExercise');
+
     });
     
 });
@@ -120,6 +122,7 @@ Route::middleware('auth','student')->group(function(){
         // Route::get('/join-classroom',[StudentController::class,'formJoinClassroom'])->name('student-join-classroom');
         Route::post('/join-classroom',[StudentController::class,'postJoinClassroom'])->name('student-post-join-classroom');
         
+        Route::get('/classrooms/{id}/news',[StudentController::class,'classroomNews'])->name('classroomNews');
     });
 
     

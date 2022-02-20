@@ -57,7 +57,8 @@
 
         </div>
       </div>
-          <a href="#" class="btn btn-primary w-100" >Vào học</a>
+      {{-- <a href="{{route('detailNewExercise',['id' => $p->id])}}"> --}}
+          <a href="{{route('classroomNews',['id'=>$p->id])}}" class="btn btn-primary w-100" >Vào học</a>
       </div>
     </div>
   </div>

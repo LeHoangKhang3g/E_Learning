@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Account;
 use App\Models\ClassroomStudent;
 use App\Models\Classroom;
+use App\Models\Post;
 use App\Models\StudentWait;
 use Illuminate\Support\Facades\Redirect;
 
@@ -89,5 +90,11 @@ class StudentController extends Controller
       
      return redirect()->route('index');
 
+    }
+    function classroomNews($id){
+        $class_id=Classroom::find($id);
+        $posts=Post::where('class_id',$id)->get();
+  
+            return view('student.news-classroom',compact('class_id','posts'));
     }
 }

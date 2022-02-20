@@ -297,8 +297,10 @@ $posts= Post::where('class_id',$id)->get();
         return view('teacher.tab-controll',compact('classroom','classrooms','infoStudent','infoStudentWait','dsPostType'
         ,'posts'));
     }
-    function detailNewExercise() {
-        return view('teacher.detail-news');
+    function detailNewExercise($post_id) {
+        $postId = Post::find($post_id);
+     
+        return view('teacher.detail-news',compact('postId'));
     }
   
     function addPostType(Request $req)

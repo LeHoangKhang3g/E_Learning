@@ -56,6 +56,12 @@
         max-height: 100%;
     }
     </style>
+    {{-- @if($postId==1)
+    <h1>
+        hashashbas
+    </h1>
+    @else  --}}
+
 <div class="container">
    <div class="row">
        <div class="col-9">
@@ -65,8 +71,8 @@
                     <i class="fa-solid fa-address-card icon-exercise"></i>
                 </div>
                 <div class="p-2 bd-highlight">
-                    <p style="margin-bottom: 0px;color:rgb(50, 50, 247);font-size:30px">Nộp slide báo cáo tiến độ</p>
-                 <small style="color: #878181; ">Ho Khanh Duy - 24 03</small>
+                    <p style="margin-bottom: 0px;color:rgb(50, 50, 247);font-size:30px">{{$postId->title}}</p>
+                 <small style="color: #878181; ">{{$postId->created_at}}</small>
                 </div>
                 <div class="ms-auto p-2 bd-highlight ">
                     <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -77,14 +83,14 @@
           <div class="score">
             <div class="d-flex bd-highlight mb-3">
                 <div class="me-auto p-2 bd-highlight">100 điểm</div>
-                <div class="p-2 bd-highlight">Đến hạn 10:00, 23 thg 1</div>
+                <div class="p-2 bd-highlight">Đến hạn:  {{$postId->deadline!=null?$postId->deadline:"Không có thời hạn"}}</div>
              
               </div>
           </div>
           <div style="padding-left: 80px;padding-right:20px; color:blue">
             <hr>
           </div>
-          <p class="pl-8">Các em nộp slide tại đây, hôm nay ko cần thuyết trình :))
+          <p class="pl-8">{{$postId->content}}
         </p>
         <div class="pl-8" style="padding-right:20px;">
             <hr>
@@ -130,3 +136,4 @@
        </div>
    </div>
 </div>
+{{-- @endif --}}

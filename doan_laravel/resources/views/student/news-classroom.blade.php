@@ -156,7 +156,7 @@ input[type=text]:focus {
                 <div class="box bg-main">
                     <div class="content-course">
                         <p class="name-course">
-                         {{ $classrooms->class_name}}
+                         {{ $class_id->class_name}}
                             </p>
                         <p class="time-course">Học kỳ 1 - NH 21-22</p>
                     </div>
@@ -168,7 +168,7 @@ input[type=text]:focus {
     
             <div class="col-12 ">
               
-              <form action="{{route('post-add-news',['id'=> $classrooms->id])}}" method="POST">
+              {{-- <form action="{{route('post-add-news',['id'=> $classrooms->id])}}" method="POST">
                 @csrf
                 <div class="row position-relative" style="padding: 12px"> 
                     <input type="text" class="w-100 input-content" name="content" required>
@@ -206,7 +206,7 @@ input[type=text]:focus {
                         </div>
                     </div>   
                 </div>
-              </form>
+              </form> --}}
               @forelse($posts as $p)
              {{-- neu la thong bao --}}
               @if($p->post_type_id==1)
