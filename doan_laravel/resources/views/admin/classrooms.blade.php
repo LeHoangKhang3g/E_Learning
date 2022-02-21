@@ -61,6 +61,7 @@
           </div>
         
           @empty
+          
     @endforelse
 
   </div>

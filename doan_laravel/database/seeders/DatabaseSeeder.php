@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             'name'              =>  'Lê Hoàng Khang',
             'email'             =>  'khangxyz3g@gmail.com',
             'avatar'            =>  'ADMINKHANGLH.jpg',
-            'code_password'     =>  'ABCDEFGHIJKL',
+            'code_password'     =>  '0',
             'account_type_id'   =>  '1',
         ]);
         Account::insert([
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             'name'              =>  'Hồ Khánh Duy',
             'email'             =>  '0306191205@caothang.edu.vn',
             'avatar'            =>  'GVMRIPZGRGRQ.jpg',
-            'code_password'     =>  'ABCDEFGHIJKL',
+            'code_password'     =>  '0',
             'account_type_id'   =>  '2',
         ]);
         Account::insert([
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'name'              =>  'Nguyễn Quốc Tuấn',
             'email'             =>  '0306191291@caothang.edu.vn',
             'avatar'            =>  'GVS2RVEJ44I7.jpg',
-            'code_password'     =>  'ABCDEFGHIJKL',
+            'code_password'     =>  '0',
             'account_type_id'   =>  '2',
         ]);
         Account::insert([
@@ -72,9 +72,9 @@ class DatabaseSeeder extends Seeder
             'username'          =>  'trung123',
             'password'          =>  Hash::make('12345678'),
             'name'              =>  'Trần Quốc Trung',
-            'email'             =>  '0306191227@caothang.edu.vn',
+            'email'             =>  'khangxyz4g@gmail.com',
             'avatar'            =>  'STW9MCRNEBBA.jpg',
-            'code_password'     =>  'ABCDEFGHIJKL',
+            'code_password'     =>  '0',
             'account_type_id'   =>  '3',
         ]);
         Account::insert([
@@ -82,9 +82,9 @@ class DatabaseSeeder extends Seeder
             'username'          =>  'hieu123',
             'password'          =>  Hash::make('12345678'),
             'name'              =>  'Kiều Công Hiếu',
-            'email'             =>  '0306191227@caothang.edu.vn',
+            'email'             =>  'khangxyz5g@gmail.com',
             'avatar'            =>  'STDQCYJMORTG.jpg',
-            'code_password'     =>  'ABCDEFGHIJKL',
+            'code_password'     =>  '0',
             'account_type_id'   =>  '3',
         ]);
         Account::insert([
@@ -92,9 +92,9 @@ class DatabaseSeeder extends Seeder
             'username'          =>  'vinh123',
             'password'          =>  Hash::make('12345678'),
             'name'              =>  'Trần Quang Vinh',
-            'email'             =>  '0306191227@caothang.edu.vn',
+            'email'             =>  'lehoangkhang4869@gmail.com',
             'avatar'            =>  'STDQCYAICPOK.jpg',
-            'code_password'     =>  'ABCDEFGHIJKL',
+            'code_password'     =>  '0',
             'account_type_id'   =>  '3',
         ]);
 
@@ -105,6 +105,7 @@ class DatabaseSeeder extends Seeder
         $classroom->background = 'CLOKDYAICPOK.jpg';
         $classroom->content = 'Khoá học PHP trong vòng 3 tháng giúp bạn viết được một trang website cơ bản';
         $classroom->point_table = 'https://docs.google.com/spreadsheets/d/1h49GGjfLjbNUR_b6R9kw3eb6pHjVlDsUjheOUuB5WAc/edit#gid=0';
+        $classroom->lock=false;
         $classroom->save();
 
         $classroom=new Classroom();
@@ -114,6 +115,7 @@ class DatabaseSeeder extends Seeder
         $classroom->background = 'CLIKJFUCKDOP.jpg';
         $classroom->content = 'Khoá học thiết kế web trong vòng 3 tháng giúp bạn thiết kế được một template website cơ bản';
         $classroom->point_table = 'https://docs.google.com/spreadsheets/d/1ulrBBWt5zHTd-YeDZnvPASzlzkb-v1BK7y_fp5p3DWw/edit#gid=0';
+        $classroom->lock=false;
         $classroom->save();
         
         $classroom=new Classroom();

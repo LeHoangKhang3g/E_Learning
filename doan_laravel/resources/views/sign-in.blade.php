@@ -32,13 +32,16 @@
         <span class="err-message-sigin-pass">{{$message}}</span>
     @enderror   
       </div>
-   
-      <button type="submit" class="btn btn-success mt-3 ">Đăng nhập</button>
-      <h2>  @if (session('error'))
-                                    <div class="err-signIn" style="color: red;">
-                                        {{ session('error') }}
-                                    </div>
-                                    @endif  </h2>
+  
+      <button type="submit" class="btn btn-success mt-3">Đăng nhập</button>
+      <a href="{{route('get-forgot-email')}}" class="btn btn-danger mt-3">Quên mật khẩu?</a>
+      <h2>  
+      @if (session('error'))
+        <div class="alert alert-danger" style="color: red">
+            {{ session('error') }}
+        </div>
+      @endif  </h2>
+
     </form>
   </div>
 </div>
