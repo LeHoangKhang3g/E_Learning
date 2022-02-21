@@ -21,6 +21,7 @@ class CreateClassroomTable extends Migration
             $table->string('background');
             $table->string('content');
             $table->string('point_table');
+            $table->boolean("lock");
             $table->timestamps();
             $table->softDeletes();
         });

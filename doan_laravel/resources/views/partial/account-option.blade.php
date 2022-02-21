@@ -32,7 +32,7 @@
 <div id="info-option" class="backInUp">
     <ul class="list-unstyled">
         <li class="mb-2"><a href="#"> Thông tin tài khoản</a></li>
-        <li class="mb-2"><a href="#">Quên mật khẩu</a></li>
+        <li class="mb-2"><a href="{{route('get-forgot-email')}}">Quên mật khẩu</a></li>
         @if($accountInfo->account_type_id==1)
         <li><a href="{{route('admin-sign-out')}}" class="btn btn-danger">Đăng xuất</a></li>
         @elseif($accountInfo->account_type_id==2)

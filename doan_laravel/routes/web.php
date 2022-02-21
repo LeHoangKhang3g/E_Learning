@@ -7,6 +7,7 @@ use App\Http\Controllers\SignInController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ForgotPasswordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,16 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Route::get('/',[AppController::class,'app'])->name('app');
+
+Route::get('/forgot-password',[ForgotPasswordController::class,'formGetEmail'])->name('get-forgot-email');
+Route::post('/send-code-forgot-password',[ForgotPasswordController::class,'sendMail'])->name('send-code-email');
+Route::get('/get-code-forgot-password/{email}/{code}',[ForgotPasswordController::class,'sendCodeGet'])->name('get-code-forgot-password');
+Route::get('/form-post-code-forgot-password/{email}',[ForgotPasswordController::class,'formSendCodePost'])->name('form-post-code-forgot-password');
+Route::post('/post-code-forgot-password',[ForgotPasswordController::class,'sendCodePost'])->name('post-code-forgot-password');
+
+Route::get('/change-password-forgot/{email}/{code}',[ForgotPasswordController::class,'formChangePasswordForgot'])->name('form-change-password-forgot');
+Route::post('/change-password-forgot',[ForgotPasswordController::class,'changePasswordForgot'])->name('change-password-forgot');
+
 
 Route::middleware('sign_out')->group(function(){
     Route::get('/',[IndexController::class,'index'])->name('index');
