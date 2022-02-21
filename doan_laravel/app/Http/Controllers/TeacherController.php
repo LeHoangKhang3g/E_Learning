@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Classroom;
 use App\Models\ClassroomStudent;
+use App\Models\Post;
+use App\Models\PostType;
 use App\Models\StudentWait;
 use Illuminate\Support\Str;
 
@@ -151,6 +153,14 @@ class TeacherController extends Controller
         }
         return view('teacher.student-wait',compact('infoStudent','classrooms'));
     }
+    function removeStudent($classroom_id,$student_id){
+        $student = ClassroomStudent::where('classroom_id',$classroom_id)
+        ->where('student_id',$student_id)->first();
+        $student->delete();
+        // return back()->with('jsAlert', 'Xóa thành công!');
+        return back();
+        // return redirect()->route('teacher-classrooms');
+    }
     function studentsList($id){
         $students = ClassroomStudent::where('classroom_id',$id)->get();
         $classrooms=Classroom::find($id);
@@ -191,7 +201,57 @@ class TeacherController extends Controller
         return back();
         // return redirect()->route('teacher-classrooms');
     }
+    function addStudents(Request $req,$classroom_id){
+
+        $dsEmail=explode(";", $req->add_students);
+        foreach($dsEmail as $email)
+        {
+            $student=Account::where("email","$email")->first();
+            if(empty($student))
+            {
+            return back()->with('error',"Email $email này không hợp lệ");   
+            }
+            $hc= ClassroomStudent::where('classroom_id',$classroom_id)->where('student_id',$student->id)->first();
+            if($hc)
+            {
+                return back()->with('error',"Email $email đã có trong lớp mời bạn kiểm tra lại nhé");  
+            }
+            if($student->account_type_id==2){
+        
+                return back()->with('error',"Email $email này là của giáo viên mời bạn kiểm tra lại nhé");   
+            }
+            elseif($student->account_type_id==1)
+            {
+                return back()->with('error',"Email $email này là của Admin mời bạn kiểm tra lại nhé");   
+            }
+        }
+        $count=0;
+        foreach($dsEmail as $email)
+        {
+            $student=Account::where("email","$email")->first();
+            $sdw= StudentWait::where('classroom_id',$classroom_id)->where('student_id',$student->id)->first();
+            if($sdw)
+            {
+                $sdw->delete();
+                $add=new ClassroomStudent();
+                $add->classroom_id=$classroom_id;
+                $add->student_id=$student->id;
+                $add->save();
+                $count++;
+            }
+            else{
+                $add=new  ClassroomStudent();
+                $add->classroom_id=$classroom_id;
+                $add->student_id=$student->id;
+                $add->save();
+                $count++;
+            }
+        }
+         return back()->with('success',"Bạn đã thêm thành công $count sinh viên");
+    }
+
    function classroomsOptions($id) {
+   
     $students = ClassroomStudent::where('classroom_id',$id)->get();
     $classrooms=Classroom::find($id);
     $infoStudent=[];
@@ -226,7 +286,70 @@ class TeacherController extends Controller
           
     }
         $classroom=Classroom::find($id);
-        return view('teacher.tab-controll',compact('classroom','classrooms','infoStudent','infoStudentWait'));
+
+        //danh sach post type 
+        $dsPostType=PostType::all();
+        // return view('teacher.controll-post-type',compact('dsPostType'));
+$posts= Post::where('class_id',$id)->get();
+// add news 
+//danh sach posts
+
+        return view('teacher.tab-controll',compact('classroom','classrooms','infoStudent','infoStudentWait','dsPostType'
+        ,'posts'));
     }
+    function detailNewExercise($post_id) {
+        $postId = Post::find($post_id);
+     
+        return view('teacher.detail-news',compact('postId'));
+    }
+  
+    function addPostType(Request $req)
+    {
+        $addPostType= new PostType;
+        $addPostType -> name= $req->name;
+        $addPostType->save();
+        return back();
+    }
+    function addPostNews(Request $req,$classroom_id){
+            $addNews = new Post;
+            $addNews->class_id = $classroom_id;
+            $addNews->title = $req->title;
+            $addNews->content = $req->content;
+             $addNews->post_type_id=$req->post_type;
+            if($req->deadline!=null){
+                $addNews->deadline = $req->deadline;
+                $addNews->have_deadline=1;
+            }
+            $addNews->save();
+            return back();
+            // $giangVien = new GiangVien;
+            // $giangVien ->ho_ten = $req->ho_ten;
+            // $giangVien ->ten_dang_nhap = $req->ten_dang_nhap;
+            // $giangVien ->mat_khau = $req->mat_khau; 
+            // $giangVien ->email = $req->email;
+            // $giangVien->khoa_id=$req->khoa;
+            // $giangVien->save();
+            // return redirect()->route('ds-giang-vien');
+    }
+
+    // function studentsList($id){
+    //     $students = ClassroomStudent::where('classroom_id',$id)->get();
+    //     $classrooms=Classroom::find($id);
+    //     $infoStudents=[];
+    //     $accounts=Account::all();
+    //     foreach($accounts as $ac)
+    //     {
+    //         foreach($students as $sd)
+    //         {
+               
+    //             if($ac->id==$sd->student_id)
+    //             {
+    //                 $infoStudents[]  = Account::where('id',$sd->student_id)->first();
+    //             }
+    //         }
+              
+    //     }
+    //     return view('teacher.student-list',compact('infoStudents','classrooms'));
+    // }
 
 }

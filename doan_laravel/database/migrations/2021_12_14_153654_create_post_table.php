@@ -19,8 +19,8 @@ class CreatePostTable extends Migration
             $table->bigInteger('post_type_id');
             $table->string('title');
             $table->string('content');
-            $table->boolean('have_deadline');
-            $table->dateTime('deadline')->nullable();
+            $table->boolean('have_deadline')->default(0);
+            $table->string('deadline')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

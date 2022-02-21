@@ -41,31 +41,45 @@ body {font-family: Arial;}
   border: 1px solid #ccc;
   border-top: none;
 }
+.tab button.active{
+  background-color: #cccccc75;
+}
+.tabpage-text{
+  font-weight: 600;
+  font-size: 20px;
+  color:rgb(94, 89, 89);
+}
 </style>
 </head>
 <body>
 
 
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')">Phê duyệt</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Danh sách sinh viên</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">UPDATE</button>
+<div class="tab d-flex justify-content-center" style="background-color:white; border: 1px solid #ededed">
+  <button class="tablinks tabpage-text" onclick="openCity(event, 'News')" >Bảng tin</button>
+  <button class="tablinks tabpage-text" onclick="openCity(event, 'Posts-2')"  > Loai bai dang</button>
+  <button class="tablinks tabpage-text" onclick="openCity(event, 'Students')"  >Danh sách sinh viên</button>
+  <button class="tablinks tabpage-text" onclick="openCity(event, 'Waits')"  >Phê duyệt</button>
+  
 </div>
 
-<div id="London" class="tabcontent">
-@include('teacher.student-wait')
-</div>
+<div id="News" class="tabcontent" style="display: block">
+  @include('teacher.news-classroom')
 
-<div id="Paris" class="tabcontent">
+</div>
+<div id="Posts-2" class="tabcontent">
+  @include('teacher.controll-post-type')
+
+</div>
+<div id="Students" class="tabcontent">
   @include('teacher.student-list')
 </div>
 
-<div id="Tokyo" class="tabcontent">
-  @include('teacher.update-classroom')
+<div id="Waits" class="tabcontent">
+  @include('teacher.student-wait')
 </div>
 
 <script>
-function openCity(evt, cityName) {
+function openCity(evt, tabName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -75,7 +89,7 @@ function openCity(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 }
 </script>

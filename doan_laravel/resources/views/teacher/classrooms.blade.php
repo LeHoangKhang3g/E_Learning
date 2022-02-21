@@ -27,7 +27,8 @@
 
   <div class="d-flex justify-content-between align-items-center mt-3 ">
     <a href="" class="text-dark"><h4>LỚP HỌC</h4></a>
-    <a href="{{route('teacher-add-classroom')}}" class="btn btn-success"><i class="fas fa-user-plus" style="font-size: 22px; color:white"></i></a>
+    <a href="{{route('teacher-add-classroom')}}" class="btn btn-success">
+      <i class="fas fa-user-plus" style="font-size: 20px; color:white"></i></a>
 
   </div>
   <div class="container-fluild">
@@ -55,7 +56,7 @@
                             <a href="{{route('teacher-update-classroom',['id' => $classroom->id])}}" >   <i class="fas fa-cog  btn btn-success" ></i></a>
                             <a href="{{route('teacher-delete-classroom',['id' => $classroom->id])}}" > <i class="fas fa-trash btn btn-danger"></i></a>
                           </div>
-                        </div>
+                        </div> 
                     </div> 
     
                 </div>
