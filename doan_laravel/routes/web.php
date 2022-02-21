@@ -8,6 +8,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Middleware\Student;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -94,7 +95,7 @@ Route::middleware('auth','teacher')->group(function(){
         Route::post('/change-password',[TeacherController::class,'postChangePassword'])->name('teacher-post-change-password');
 
         Route::get('/classrooms',[TeacherController::class,'classrooms'])->name('teacher-classrooms');
-        Route::get('/classrooms/{id}',[TeacherController::class,'classroomsOptions'])->name('teacher-classrooms-options');
+        Route::get('/classrooms/open/{id}',[TeacherController::class,'classroomsOptions'])->name('teacher-classrooms-options');
         Route::get('/classrooms/add',[TeacherController::class,'formAddClassroom'])->name('teacher-add-classroom');
         Route::post('/classrooms/add',[TeacherController::class,'postAddClassroom'])->name('teacher-post-add-classroom');
         Route::get('/classrooms/{id}/update',[TeacherController::class,'formUpdateClassroom'])->name('teacher-update-classroom');
@@ -102,9 +103,16 @@ Route::middleware('auth','teacher')->group(function(){
         Route::get('/classrooms/{id}/delete',[TeacherController::class,'deleteClassroom'])->name('teacher-delete-classroom');
         Route::get('/classrooms/{id}/students-wait',[TeacherController::class,'studentsWait'])->name('teacher-students-wait');
         Route::get('/classrooms/{id}/students-list',[TeacherController::class,'studentsList'])->name('teacher-students-list');
+        Route::post('/classrooms/{id}/add-student',[TeacherController::class,'addStudents'])->name('teacher-add-students');
+        Route::get('/classrooms/{id}/remove/{student_id}',[TeacherController::class,'removeStudent'])->name('teacher-remove-student');
         Route::get('/classrooms/{id}/add-student/{student_id}',[TeacherController::class,'addStudentsWait'])->name('teacher-add-students-wait');
         Route::get('/classrooms/{id}/remove-student/{student_id}',[TeacherController::class,'removeStudentsWait'])->name('teacher-remove-students-wait');
-        
+
+        Route::post('/classrooms/{id}/post-type',[TeacherController::class,'addPostType'])->name('post-add-post-type');
+        Route::post('/classrooms/{id}/post-news',[TeacherController::class,'addPostNews'])->name('post-add-news');
+        // Route::post('/classrooms/{id}/postsClassroom',[TeacherController::class,'postsClassroom'])->name('posts-Classroom');
+        Route::get('/classrooms/detailNewExercise/{id}',[TeacherController::class,'detailNewExercise'])->name('detailNewExercise');
+
     });
     
 });
@@ -125,6 +133,9 @@ Route::middleware('auth','student')->group(function(){
         // Route::get('/join-classroom',[StudentController::class,'formJoinClassroom'])->name('student-join-classroom');
         Route::post('/join-classroom',[StudentController::class,'postJoinClassroom'])->name('student-post-join-classroom');
         
+        Route::get('/classrooms/{id}/news',[StudentController::class,'classroomNews'])->name('classroomNews');
+
+        Route::get('/classrooms/news/detail/{post_id}',[StudentController::class,'detailNews'])->name('detailNews');
     });
 
     

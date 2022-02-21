@@ -117,6 +117,15 @@ class DatabaseSeeder extends Seeder
         $classroom->point_table = 'https://docs.google.com/spreadsheets/d/1ulrBBWt5zHTd-YeDZnvPASzlzkb-v1BK7y_fp5p3DWw/edit#gid=0';
         $classroom->lock=false;
         $classroom->save();
+        
+        $classroom=new Classroom();
+        $classroom->teacher_id = 3;
+        $classroom->class_name = 'Lập trình web Front-end';
+        $classroom->code = 'CLIKJFUCKDOP';
+        $classroom->background = 'CLIKJFUCKDOP.jpg';
+        $classroom->content = 'Khoá học thiết kế web trong vòng 3 tháng giúp bạn thiết kế được một template website cơ bản';
+        $classroom->point_table = 'https://docs.google.com/spreadsheets/d/1ulrBBWt5zHTd-YeDZnvPASzlzkb-v1BK7y_fp5p3DWw/edit#gid=0';
+        $classroom->save();
 
         ClassroomStudent::insert([
             'student_id'    =>  4,
@@ -148,13 +157,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         PostType::insert([
-            'name'  =>  'lession',
+            'name'  =>  'Thông báo',
         ]);
         PostType::insert([
-            'name'  =>  'exercise',
+            'name'  =>  'Bài giảng',
         ]);
         PostType::insert([
-            'name'  =>  'test',
+            'name'  =>  'Bài tập',
         ]);
 
         $post=new Post();

@@ -30,6 +30,13 @@
 <script src="{{asset('frontend/js/owl.carousel.js')}}"></script>
 <script src="{{asset('frontend/js/all.js')}}"></script>
 <script src="{{asset('frontend/js/wow.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#datepicker').datepicker();
+     
+    });
+</script>           
 <script>
   new WOW().init();
  </script>

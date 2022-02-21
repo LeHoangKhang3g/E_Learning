@@ -10,7 +10,7 @@
     <p class="gradient">ADMIN - ADD STUDENT</p>
    </div>
  </div>
-  <form method="POST" action="{{route('admin-post-add-student')}}" enctype="multipart/form-data">
+  <form method="POST" action="{{route('admin-post-add-student')}}" enctype="multipart/form-data" id="idform">
     @csrf
     <div class="row">
       <div class="col-4 text-end">
@@ -56,9 +56,10 @@
             
           </div>
           <div class="col-10">
-            <input type="text" name="name" required class="input-add-student">
+            <input type="text" name="name" required class="input-add-student" id="name"  >
+            {{-- pattern="[a-zA-Z]" --}}
           </div>
-       
+          <p id="checkname" class="err-message"></p>
           @error('name')
        
           <span class="err-message">{{$message}}</span> 
@@ -91,7 +92,7 @@
         </div>
         <div class="row">
           <div class="col-6 text-center">
-            <button type="submit" class="btn btn-add-student" >ADD</button>
+            <button type="submit" class="btn btn-add-student" id="submitForm">ADD</button>
           </div>
         </div>
       </div>
@@ -99,3 +100,30 @@
 </div>
 
 </div>
+<script>
+  var name = document.getElementById("name");
+  var checkname = document.getElementById("checkname");
+  var idform=document.getElementById("idform");
+  var submitForm = document.getElementById("submitForm");
+
+  // function checkForm(name) {
+  //   /^[A-Za-z ]+$/.test(name)
+  // }
+  
+  function checkName(input) {
+var re = /^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$/;
+
+    if(re.test(input.value.trim())) {
+        checkName.textContent="";
+        console.log("yes");
+    }else {
+      checkName.textContent="Name is not invalid";
+      console.log("no");
+    }
+}
+submitForm.addEventListener("click", function (event) {
+  event.preventDefault();
+
+checkName(name);
+});
+</script>
