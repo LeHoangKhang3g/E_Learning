@@ -234,6 +234,47 @@ input[type=text]:focus {
                             {{$p->content}} 
                           </p>
                       </div>
+                      <hr>
+                      {{-- @foreach($infoAccount as $i)
+                        <div style="padding-left:30px">
+
+                          <div class="d-flex bd-highlight mb-3" >
+                            <div class="p-2 bd-highlight">
+                              <img src="{{URL::to('/')}}/images/teacher/avatar\{{$i->avatar}}" class="avt-cir" style="width: 35px;height:35px">
+
+                            </div>
+                            <div class=" bd-highlight">
+                                <p style="margin-bottom: 0px; font-size:13px;margin-top:5px"><b>{{$i->name}} </p>
+                             
+         
+                        
+                        
+        
+                          </div>
+                        </div>
+                      @endforeach --}}
+                      @foreach(App\Models\Comment::where("post_id","$p->id")->get() as $cmt)  
+      
+
+                
+               
+                      <span class="d-flex">{{$cmt->content}} </span>
+                      @endforeach
+         
+              <hr>
+            
+             <form method="POST" action="{{route('teacher-add-comments',['post_id'=> $p->id])}}" >
+              @csrf
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Thêm nhận xét của bạn" 
+                aria-label="Recipient's username" aria-describedby="basic-addon2" name="content">
+                <span class="input-group-text" id="basic-addon2">
+                  <button type="submit" style="border: none">
+                    <i class="fa-solid fa-paper-plane"></i>
+                  </button>
+                </span>
+              </div>
+             </form>
                   </div>
              
               

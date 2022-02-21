@@ -113,6 +113,8 @@ Route::middleware('auth','teacher')->group(function(){
         // Route::post('/classrooms/{id}/postsClassroom',[TeacherController::class,'postsClassroom'])->name('posts-Classroom');
         Route::get('/classrooms/detailNewExercise/{id}',[TeacherController::class,'detailNewExercise'])->name('detailNewExercise');
 
+        Route::post('/classrooms/open/comment/{post_id}',[TeacherController::class,'comments'])->name('teacher-add-comments');
+
     });
     
 });

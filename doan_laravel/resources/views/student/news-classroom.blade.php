@@ -234,6 +234,9 @@ input[type=text]:focus {
                             {{$p->content}} 
                           </p>
                       </div>
+                      @foreach(App\Models\Comment::where("post_id","$p->id")->get() as $cmt)  
+                      <span class="d-flex">{{$cmt->content}} </span>
+                      @endforeach
                   </div>
              
               
